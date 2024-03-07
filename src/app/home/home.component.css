@@ -1,0 +1,24 @@
+.container{
+    min-height: calc(100lvh - 6.35rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.col-sm{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-sm img{
+    width: 13.5rem;
+}
+
+.col-sm p{
+    margin: 0;
+}
