@@ -1,5 +1,10 @@
 export interface homeButtons {
-    img: string,
-    imgTitle: string
+  firstRow: rows[],
+  secondRow: rows[]
+  }
+
+  interface rows {
+    title: string,
+    imgPath: string
   }
   
