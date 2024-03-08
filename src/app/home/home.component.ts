@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { homeButtons } from '../home-butttons';
 @Component({
   selector: 'home-page',
   standalone: true,
@@ -38,9 +39,4 @@ export class HomeComponent {
       imgTitle:'Options'
     }
   ]
-}
-
-interface homeButtons {
-  img: string,
-  imgTitle: string
 }
