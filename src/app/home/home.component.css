@@ -1,4 +1,4 @@
-.container{
+#buttons-container{
     min-height: calc(100lvh - 6.35rem);
     display: flex;
     flex-direction: column;
