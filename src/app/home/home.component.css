@@ -1,11 +1,12 @@
 #buttons-container{
-    min-height: calc(100lvh - 6.35rem);
+    min-height: calc(100lvh - 6rem);
     display: flex;
+    gap: 2rem;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.col-sm{
+#colunas-firstLine, #colunas-secondLine{
     color: black;
     text-decoration: none;
     display: flex;
@@ -15,10 +16,10 @@
     justify-content: center;
 }
 
-.col-sm img{
+#colunas-firstLine img, #colunas-secondLine img{
     width: 13.5rem;
 }
 
-.col-sm p{
+#colunas-firstLine p, #colunas-secondLine p{
     margin: 0;
 }

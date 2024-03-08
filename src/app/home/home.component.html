@@ -1,16 +1,16 @@
 <div class="container" id="buttons-container">
     <div class="row">
-      <div class="col-sm" *ngFor="let buttonFirstLine of buttonsFirstLine">
+      <div class="col-sm" id="colunas-firstLine" *ngFor="let buttonFirstLine of buttonsFirstLine">
         <a [routerLink]="">
-            <img src="{{buttonFirstLine.img}}" alt="">
+            <img src="{{buttonFirstLine.img}}" alt="" draggable="false">
         </a>
         <p>{{buttonFirstLine.imgTitle}}</p>
       </div>
     </div>
     <div class="row">
-        <div class="col-sm" *ngFor="let buttonSecondLine of buttonsSecondLine">
+        <div class="col-sm" id="colunas-secondLine" *ngFor="let buttonSecondLine of buttonsSecondLine">
             <a [routerLink]="">
-                <img src="{{buttonSecondLine.img}}" alt="">
+                <img src="{{buttonSecondLine.img}}" alt="" draggable="false">
             </a>
           <p>{{buttonSecondLine.imgTitle}}</p>
         </div>
