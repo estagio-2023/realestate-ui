@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { homeButtons } from '../home-butttons';
+import { homeButtons } from '../modules/home-butttons';
 @Component({
   selector: 'home-page',
   standalone: true,
