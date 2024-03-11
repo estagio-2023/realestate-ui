@@ -1,0 +1,25 @@
+#buttons-container{
+    min-height: calc(100lvh - 6rem);
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#columns-firstLine, #columns-secondLine{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#columns-firstLine img, #columns-secondLine img{
+    width: 13.5rem;
+}
+
+#columns-firstLine p, #columns-secondLine p{
+    margin: 0;
+}
