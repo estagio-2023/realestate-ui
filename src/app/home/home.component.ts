@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { homeButtons } from '../models/home-butttons';
+import { homeButtons } from '../models/home-buttton-model';
+
 @Component({
   selector: 'home-page',
-  standalone: true,
-  imports: [RouterModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
   homeButtons: homeButtons[] = [
     {
