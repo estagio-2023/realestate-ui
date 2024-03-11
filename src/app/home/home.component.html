@@ -1,18 +1,18 @@
-<div class="container" id="buttons-container" *ngFor="let elements of homeButtons">
+<div class="container" id="buttons-container" *ngFor="let element of homeButtons">
     <div class="row">
-      <div class="col-sm" id="columns-firstLine" *ngFor="let buttonFirstRow of elements.firstRow">
+      <div class="col-sm" id="columns-firstLine" *ngFor="let firstRow of element.firstRow">
         <a [routerLink]="">
-            <img src="{{buttonFirstRow.imgPath}}" alt="" draggable="false">
+            <img src="{{firstRow.imgPath}}" alt="" draggable="false">
         </a>
-        <p>{{buttonFirstRow.title}}</p>
+        <p>{{firstRow.title}}</p>
       </div>
     </div>
     <div class="row">
-        <div class="col-sm" id="columns-secondLine" *ngFor="let buttonSecondRow of elements.secondRow">
+        <div class="col-sm" id="columns-secondLine" *ngFor="let secondRow of element.secondRow">
             <a [routerLink]="">
-                <img src="{{buttonSecondRow.imgPath}}" alt="" draggable="false">
+                <img src="{{secondRow.imgPath}}" alt="" draggable="false">
             </a>
-          <p>{{buttonSecondRow.title}}</p>
+          <p>{{secondRow.title}}</p>
         </div>
     </div>
 </div>
