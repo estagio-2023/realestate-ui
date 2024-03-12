@@ -9,3 +9,7 @@ header{
 #content{
   min-height: calc(100lvh - 4rem);
 }
+
+#logo{
+  width: 3rem;
+}
