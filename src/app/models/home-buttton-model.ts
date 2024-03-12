@@ -4,5 +4,6 @@ export interface homeButtons {
 }
 interface rows {
   title: string,
-  imgPath: string
+  imgPath: string,
+  link: string
 } 

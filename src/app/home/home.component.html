@@ -1,7 +1,7 @@
 <div class="container" id="buttons-container" *ngFor="let element of homeButtons">
     <div class="row">
       <div class="col-sm" id="columns-firstLine" *ngFor="let firstRow of element.firstRow">
-        <a [routerLink]="">
+        <a routerLink="{{firstRow.link}}">
             <img src="{{firstRow.imgPath}}" alt="" draggable="false">
         </a>
         <p>{{firstRow.title}}</p>
@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-sm" id="columns-secondLine" *ngFor="let secondRow of element.secondRow">
-            <a [routerLink]="">
+            <a routerLink="{{secondRow.link}}">
                 <img src="{{secondRow.imgPath}}" alt="" draggable="false">
             </a>
           <p>{{secondRow.title}}</p>
