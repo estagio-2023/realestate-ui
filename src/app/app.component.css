@@ -8,5 +8,4 @@ header{
 
 #content{
   min-height: calc(100lvh - 4rem);
-  padding: 1rem;
 }

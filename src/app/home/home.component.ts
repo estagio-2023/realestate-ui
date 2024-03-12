@@ -27,11 +27,11 @@ export class HomeComponent {
       ],
       secondRow: [
         {
-          title: "Visit",
+          title: "Visit Requests",
           imgPath: "../../assets/home_page_icons/visit.png",
         },
         {
-          title: "Reference",
+          title: "Reference Data",
           imgPath: "../../assets/home_page_icons/reference.png",
         },
         {

@@ -1,5 +1,6 @@
 #buttons-container{
-    min-height: calc(100lvh - 6rem);
+    min-height: calc(100lvh - 4rem);
+    padding: 1rem;
     display: flex;
     gap: 2rem;
     flex-direction: column;
