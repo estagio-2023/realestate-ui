@@ -14,29 +14,35 @@ export class HomeComponent {
         {
           title: "Properties",
           imgPath: "../../assets/home_page_icons/properties.png",
+          link: '/property-management'
         },
         {
           title: "Sellers",
           imgPath: "../../assets/home_page_icons/sellers.png",
+          link: ''
     
         },
         {
           title: "Customers",
           imgPath: "../../assets/home_page_icons/customers.png",
+          link: ''
         }
       ],
       secondRow: [
         {
-          title: "Visit",
+          title: "Visit Requests",
           imgPath: "../../assets/home_page_icons/visit.png",
+          link: ''
         },
         {
-          title: "Reference",
+          title: "Reference Data",
           imgPath: "../../assets/home_page_icons/reference.png",
+          link: ''
         },
         {
           title: "Options",
           imgPath: "../../assets/home_page_icons/options.png",
+          link: ''
         }
       ]
     }
