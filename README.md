@@ -1,4 +1,5 @@
-<img src="./src/assets/logo.png" alt="logo home">
+<div align="center">
+<img src="./src/assets/logo.png" alt="logo-home" width="180" height="150">
 
 <h3 align="center">App Home</h3>
 
@@ -6,6 +7,7 @@
     This repository contains the UI for a real estate application. 
     <br />
     <br />
+</div>
 
 <details>
   <summary>Summary</summary>
@@ -31,7 +33,7 @@
 </details>
 
 ## About the UI
-The UI is the visual part of the project, which allows the user to interact with the website's functionalities, which in turn communicates with the backend and database.
+The UI is the visual part of the project, which allows the user to interact with the website's functionalities, which will eventually comunicate with the backend and database.
 
 ## Technologies
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
