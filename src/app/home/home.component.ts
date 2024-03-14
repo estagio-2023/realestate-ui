@@ -37,7 +37,7 @@ export class HomeComponent {
         {
           title: "Reference Data",
           imgPath: "../../assets/home_page_icons/reference.png",
-          link: ''
+          link: '/reference-data'
         },
         {
           title: "Options",
