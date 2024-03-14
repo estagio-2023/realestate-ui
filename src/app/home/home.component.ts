@@ -20,7 +20,6 @@ export class HomeComponent {
           title: "Sellers",
           imgPath: "../../assets/home_page_icons/sellers.png",
           link: ''
-    
         },
         {
           title: "Customers",
