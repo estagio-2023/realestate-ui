@@ -1,7 +1,7 @@
 <div align="center">
 <img src="./src/assets/logo.png" alt="logo-home" width="180" height="150">
 
-<h3 align="center">App Home</h3>
+<h3 align="center">Home App</h3>
 
   <p align="center">
     This repository contains the UI for a real estate application. 
