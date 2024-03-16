@@ -6,11 +6,12 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angular/router'
 import routerConfig from './app.routes'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +20,8 @@ import routerConfig from './app.routes'
     FormsModule,
     RouterOutlet, 
     RouterLink, 
-    RouterLinkActive
+    RouterLinkActive,
+    NgbModule
   ],
   providers: [
     provideRouter(routerConfig)

@@ -1,0 +1,29 @@
+<form action="">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Reference Data</h1>
+        <button type="button" class="btn-close" id="button" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.close('Close click')"></button>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <section class="modal-section">
+            <label for="reference-data"><strong>Type:</strong></label>
+            <select class="form-select" name="reference-data" aria-label="Default select example">
+                <option selected>Select Reference Data</option>
+                <option value="1">Cities</option>
+                <option value="2">Typology</option>
+                <option value="3">Realestate Type</option>
+                <option value="3">Amenities</option>
+            </select>
+        </section>
+        <br>
+        <section class="modal-section">
+            <label for="description"><strong>Description:</strong></label>
+            <input type="text" name="description" class="form-control" placeholder="Description..." aria-label="Username"
+                aria-describedby="basic-addon1">
+        </section>
+    </div>
+    <div></div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="activeModal.close('Cancel click')">Cancel</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
