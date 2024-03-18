@@ -6,11 +6,14 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angular/router'
 import routerConfig from './app.routes'
+import { PropertyManagementComponent } from './property-management/property-management.component'
+// import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PropertyManagementComponent
   ],
   imports: [
     CommonModule,

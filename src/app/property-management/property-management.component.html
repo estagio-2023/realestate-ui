@@ -1,25 +1,60 @@
 <div id="container">
-    <h3 id="page-title">Property Management</h3>
-    <section id="properties">
-        <button class="btn btn-primary" id="button-add-property" type="button"><i class="bi bi-plus"></i> Add Property</button>
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Typology - City I Title
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <p><strong>Address:</strong></p>
-                    <p><strong>Postal Code:</strong></p>
-                    <p><strong>Contruction Year:</strong></p>
-                    <p><strong>Square Meters:</strong></p>
-                    <p><strong>Energetic Class:</strong></p>
-                    <button id="delete-property" type="button">Delete Property</button>
+  <h3 id="page-title">Property Management</h3>
+  <section id="properties">
+    <button class="btn btn-primary" id="button-add-property" type="button" data-bs-toggle="modal"
+      data-bs-target="#exampleModal"><i class="bi bi-plus"></i> Add Property</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable"  id="testRight">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Property - </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="form" class="row g-3 needs-validation was-validated" novalidate="">
+
+              <div class="col-md-4 position-relative">
+                <label for="validationTooltip01 first-name" class="form-label">Title</label>
+                <input type="text" class="form-control" id="validationTooltip01 first-name" value="Mark" required formControlName="firstName" required>
+                <div *ngIf="form.controls.firstName.invalid" class="invalid-tooltip">
+                  <p *ngIf="form.controls.firstName.errors?.['required'] && !form.controls.firstName.pristine">Type something!</p>
                 </div>
               </div>
-            </div>
+
+              <!-- <label for="first-name">First Name</label>
+              <input id="first-name" type="text" formControlName="firstName" required>
+              <div *ngIf="form.controls.firstName.invalid" class="validation-error">
+              <p *ngIf="form.controls.firstName.errors?.['required'] && !form.controls.firstName.pristine">First name is required!</p>
+              </div> -->
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
-    </section> 
+      </div>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Typology - City I Title
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p><strong>Address:</strong></p>
+            <p><strong>Postal Code:</strong></p>
+            <p><strong>Contruction Year:</strong></p>
+            <p><strong>Square Meters:</strong></p>
+            <p><strong>Energetic Class:</strong></p>
+            <button id="delete-property" type="button">Delete Property</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

@@ -25,3 +25,19 @@
     border: none;
     border-radius: 5px;
 }
+
+#testRight{
+    right: 0;
+    position: fixed;
+    top: -2rem;
+    height: 200em;
+    width: 200em;
+}
+
+.modal-body{
+background-color: #ebebeb;
+}
+
+.modal-content{
+height: 100vh;
+}
