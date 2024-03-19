@@ -41,3 +41,13 @@ background-color: #ebebeb;
 .modal-content{
 height: 100vh;
 }
+
+form {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    resize: none;
+}

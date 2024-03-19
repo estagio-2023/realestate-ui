@@ -22,7 +22,8 @@ import { PropertyManagementComponent } from './property-management/property-mana
     FormsModule,
     RouterOutlet, 
     RouterLink, 
-    RouterLinkActive
+    RouterLinkActive,
+    
   ],
   providers: [
     provideRouter(routerConfig)

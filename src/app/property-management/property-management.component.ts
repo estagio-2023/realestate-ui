@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { optionForm } from '../../form/form.service';
+import { propertyForm } from '../../form/form.service';
 
 @Component({
   selector: 'app-property-management',
@@ -8,16 +8,30 @@ import { optionForm } from '../../form/form.service';
 })
 export class PropertyManagementComponent implements OnInit{
 
-form = optionForm
+form = propertyForm
 
 constructor() 
 {
-  this.form = optionForm
+  this.form = propertyForm
 }
 
 ngOnInit(): void {
   
-  console.log(this.form.controls)
+  console.log(this.form.controls.title)
 }
+
+saveTest()
+{
+  console.log(this.form.controls.title.errors)
+  console.log("Resultado: ", this.form.controls.title.hasError('required'))
+}
+
+submitForm() {
+  if (this.form.invalid) {
+    return;
+  }
+  alert("Email sent with success!")
+}
+
 
 }
