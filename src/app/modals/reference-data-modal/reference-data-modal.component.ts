@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
 @Component({
   selector: 'app-reference-data-modal',
@@ -9,16 +9,16 @@ import { referenceDataForm } from '../../../form/form.service';
 export class ReferenceDataModalComponent {
   form = referenceDataForm;
 
-  constructor(public activeModal: NgbActiveModal, private modalService:NgbModal){
+  constructor(public activeModal: NgbActiveModal){
     this.form;
   }
 
   closeModal(){
-    this.modalService.dismissAll(ReferenceDataModalComponent);
+    this.activeModal.close();
   }
 
   cancelModal(){
-    this.modalService.dismissAll(ReferenceDataModalComponent);
+    this.activeModal.close();
     this.form.reset();
   }
 }
