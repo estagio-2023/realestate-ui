@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { PropertyManagementComponent } from './property-management/property-management.component'
 import { ReferenceDataComponent } from './reference-data/reference-data.component'
 import { ReferenceDataModalComponent } from './modals/reference-data-modal/reference-data-modal.component'
+import { ErrorMessageComponent } from './error-message/error-message.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReferenceDataModalComponent } from './modals/reference-data-modal/refer
     HomeComponent,
     PropertyManagementComponent,
     ReferenceDataComponent,
-    ReferenceDataModalComponent
+    ReferenceDataModalComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,

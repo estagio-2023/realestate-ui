@@ -15,10 +15,6 @@ export class ReferenceDataModalComponent {
 
   closeModal(){
     this.activeModal.close();
-  }
-
-  cancelModal(){
-    this.activeModal.close();
     this.form.reset();
   }
 }

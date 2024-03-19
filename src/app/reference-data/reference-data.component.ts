@@ -11,6 +11,8 @@ export class ReferenceDataComponent {
   constructor(private modalService:NgbModal){}
   
   openModal(){
-    this.modalService.open(ReferenceDataModalComponent);
+    this.modalService.open(ReferenceDataModalComponent, {
+      backdrop: 'static'
+    });
   }
 }
