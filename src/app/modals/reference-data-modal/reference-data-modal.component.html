@@ -1,6 +1,7 @@
+<div>
 <div class="modal-header">
-    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Reference Data</h1>
-    <button type="button" class="shadow-none btn-close" (click)="activeModal.close('Close click')"></button>
+    <h1 class="modal-title fs-5">Add Reference Data</h1>
+    <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
 </div>
 <form [formGroup]="form">
     <div class="modal-body" id="modal-body">
@@ -25,8 +26,9 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Cancel click')">Cancel</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelModal()">Cancel</button>
         <button type="button" *ngIf="form.invalid" class="btn btn-primary opacity-75" disabled>Save changes</button>
         <button type="submit" *ngIf="form.valid" class="btn btn-primary">Save changes</button>
     </div>
 </form>
+</div>
