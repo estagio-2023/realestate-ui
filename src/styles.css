@@ -13,3 +13,7 @@ body {
   --accent-color: #e8e7fa;
   --shadow-color: #E8E8E8;
 }
+
+.modal-content{
+  border: none !important;
+}

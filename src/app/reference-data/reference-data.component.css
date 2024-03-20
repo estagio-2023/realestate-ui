@@ -21,29 +21,6 @@
     align-items: center;
 }
 
-#modal-body{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.modal-section{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.modal-section p{
-    margin: 0;
-}
-
-.modal-section input{
-    width: 100%;
-    padding: .5rem .8rem;
-    outline: none;
-    resize: none;
-}
-
 #table{
     width: 50rem;
     max-width: 100%;
