@@ -8,40 +8,29 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './property-management-modal.component.css'
 })
 export class PropertyManagementModalComponent implements OnInit {
-
-form = propertyForm
-
-constructor(public activeModal: NgbActiveModal, private modalService:NgbModal) 
-{
-  this.form = propertyForm
-}
-
-ngOnInit(): void {
-  console.log(this.form.controls.title)
-}
-
-saveTest()
-{
-  console.log(this.form.controls.title.errors)
-  console.log("Resultado: ", this.form.controls.title.hasError('required'))
-}
-
-submitForm() {
-  if (this.form.invalid) {
-    return;
+  form = propertyForm
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) {
+    this.form = propertyForm
   }
-  alert("Email sent with success!")
-}
-
-cancelModal(){
-  this.modalService.dismissAll(PropertyManagementModalComponent);
-  this.form.reset();
-
-
-}
-
-closeModal()
-{
-  this.activeModal.close()
-}
+  ngOnInit(): void {
+    console.log(this.form.controls.title)
+  }
+  saveTest() {
+    console.log(this.form.controls.title.errors)
+    console.log("Resultado: ", this.form.controls.title.hasError('required'))
+  }
+  submitForm() {
+    if (this.form.invalid) {
+      return;
+    }
+    alert("Email sent with success!")
+  }
+  cancelModal() {
+    this.modalService.dismissAll(PropertyManagementModalComponent);
+    this.form.reset();
+  }
+  closeModal() {
+    this.activeModal.close();
+    this.form.reset();
+  }
 }

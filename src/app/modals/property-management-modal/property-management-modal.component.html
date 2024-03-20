@@ -1,11 +1,12 @@
-<div class="modal" id="modal-id">
+<div class="modal d-block">
   <div class="modal-dialog">
-    <div class="modal-content" id="modal-content-id">
+    <div class="modal-content position-fixed top-0 end-0" style="width: 30rem; min-height: 100vh;"
+      id="modal-content-id">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Property - </h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Property</h1>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="background-color: #ebebeb">
         <form [formGroup]="form" class="row g-3">
           <div class="col-md-4 position-relative w-100">
             <label for="title" class="form-label">Title</label>
