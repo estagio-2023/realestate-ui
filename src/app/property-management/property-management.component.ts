@@ -1,37 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { propertyForm } from '../../form/form.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PropertyManagementModalComponent } from '../modals/property-management-modal/property-management-modal.component';
 
 @Component({
   selector: 'app-property-management',
   templateUrl: './property-management.component.html',
   styleUrl: './property-management.component.css'
 })
-export class PropertyManagementComponent implements OnInit{
+export class PropertyManagementComponent{
 
-form = propertyForm
+constructor(private modalService:NgbModal){}
 
-constructor() 
-{
-  this.form = propertyForm
+openModal(){
+  this.modalService.open(PropertyManagementModalComponent, {
+    backdrop: 'static'
+  });
+
 }
-
-ngOnInit(): void {
-  
-  console.log(this.form.controls.title)
-}
-
-saveTest()
-{
-  console.log(this.form.controls.title.errors)
-  console.log("Resultado: ", this.form.controls.title.hasError('required'))
-}
-
-submitForm() {
-  if (this.form.invalid) {
-    return;
-  }
-  alert("Email sent with success!")
-}
-
-
 }

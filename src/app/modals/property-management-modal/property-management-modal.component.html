@@ -1,1 +1,66 @@
-<p>property-management-modal works!</p>
+<div class="modal" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content" id="modal-content-id">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Property - </h1>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" class="row g-3">
+          <div class="col-md-4 position-relative w-100">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+            <div *ngIf="!form.controls.title.pristine && form.controls.title.hasError('required')">
+              <p style="color:red">This field is required!!!</p>
+            </div>
+          </div>
+          <div class="col-md-4 position-relative w-100">
+            <label for="validationTooltip01 address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+            <div *ngIf="!form.controls.address.pristine && form.controls.address.hasError('required')">
+              <p style="color:red">This field is required!!!</p>
+            </div>
+          </div>
+          <div class="col-md-4 position-relative w-100">
+            <label for="validationTooltip01 postalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="validationTooltip01 postalCode" formControlName="postalCode"
+              required>
+            <div *ngIf="!form.controls.postalCode.pristine && form.controls.postalCode.hasError('required')">
+              <p style="color:red">This field is required!!!</p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="validationTooltip01" class="form-label">Description</label>
+            <textarea class="form-control" id="validationTooltip01" rows="3" formControlName="description"
+              required> </textarea>
+            <div *ngIf="!form.controls.description.pristine && form.controls.description.hasError('required')">
+              <p style="color:red">This field is required!!!</p>
+            </div>
+          </div>
+          <div class="d-flex bd-highlight mb-3">
+            <div class="col-md-4 position-relative d-flex w-50">
+              <label for="validationTooltip01" class="form-label">Construction Year</label>
+              <input type="text" class="form-control" id="validationTooltip01" formControlName="constructionYear"
+                required>
+              <div
+                *ngIf="!form.controls.constructionYear.pristine && form.controls.constructionYear.hasError('required')">
+                <p style="color:red">This field is required!!!</p>
+              </div>
+            </div>
+            <div class="col-md-4 position-relative d-flex w-50">
+              <label for="validationTooltip01" class="form-label">Square Meters</label>
+              <input type="text" class="form-control" id="validationTooltip01" formControlName="squareMeters" required>
+              <div *ngIf="!form.controls.squareMeters.pristine && form.controls.squareMeters.hasError('required')">
+                <p style="color:red">This field is required!!!</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="saveTest()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

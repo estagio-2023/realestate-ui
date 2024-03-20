@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component'
 import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angular/router'
 import routerConfig from './app.routes'
 import { PropertyManagementComponent } from './property-management/property-management.component'
+import { PropertyManagementModalComponent } from './modals/property-management-modal/property-management-modal.component'
 // import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PropertyManagementComponent
+    PropertyManagementComponent,
+    PropertyManagementModalComponent
   ],
   imports: [
     CommonModule,

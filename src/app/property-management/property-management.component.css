@@ -4,19 +4,15 @@
     flex-direction: column;
     gap: 1rem;
 }
-
 #page-title{
     text-align: center;
 }
-
 #properties{
     padding: 0rem 12rem;
 }
-
 #button-add-property{
     width: 100%;
 }
-
 #delete-property{
     font-size: .8em;
     padding: .5rem;
@@ -26,28 +22,4 @@
     border-radius: 5px;
 }
 
-#testRight{
-    right: 0;
-    position: fixed;
-    top: -2rem;
-    height: 200em;
-    width: 200em;
-}
 
-.modal-body{
-background-color: #ebebeb;
-}
-
-.modal-content{
-height: 100vh;
-}
-
-form {
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-}
-
-textarea {
-    resize: none;
-}
