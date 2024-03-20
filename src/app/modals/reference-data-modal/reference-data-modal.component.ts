@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
 @Component({
@@ -6,11 +6,14 @@ import { referenceDataForm } from '../../../form/form.service';
   templateUrl: './reference-data-modal.component.html',
   styleUrl: './reference-data-modal.component.css'
 })
-export class ReferenceDataModalComponent {
+export class ReferenceDataModalComponent implements OnInit{
   form = referenceDataForm;
 
   constructor(public activeModal: NgbActiveModal){
     this.form;
+  }
+  ngOnInit(): void {
+    this.form.controls.type.setValue("");
   }
 
   closeModal(){
