@@ -8,14 +8,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angu
 import routerConfig from './app.routes'
 import { PropertyManagementComponent } from './property-management/property-management.component'
 import { PropertyManagementModalComponent } from './modals/property-management-modal/property-management-modal.component'
-// import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ErrorMessageComponent } from './error-message/error-message/error-message.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PropertyManagementComponent,
-    PropertyManagementModalComponent
+    PropertyManagementModalComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
@@ -24,8 +25,7 @@ import { PropertyManagementModalComponent } from './modals/property-management-m
     FormsModule,
     RouterOutlet, 
     RouterLink, 
-    RouterLinkActive,
-    
+    RouterLinkActive
   ],
   providers: [
     provideRouter(routerConfig)

@@ -11,9 +11,10 @@
           <div class="col-md-4 position-relative w-100">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" id="title" formControlName="title">
-            <div *ngIf="!form.controls.title.pristine && form.controls.title.hasError('required')">
+            <!-- <div *ngIf="!form.controls.title.pristine && form.controls.title.hasError('required')">
               <p style="color:red">This field is required!!!</p>
-            </div>
+             </div> -->
+             <app-error-message class="error-message" [control]="form.controls.title"></app-error-message>
           </div>
           <div class="col-md-4 position-relative w-100">
             <label for="validationTooltip01 address" class="form-label">Address</label>
@@ -59,7 +60,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelModal()">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="saveTest()">Save changes</button>
       </div>
     </div>
