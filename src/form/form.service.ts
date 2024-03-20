@@ -1,4 +1,11 @@
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+NgbModal
+
+export const referenceDataForm = new FormGroup({
+  type: new FormControl('', [Validators.required]),
+  description: new FormControl('', [Validators.required]),
+});
 
 export const propertyForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
