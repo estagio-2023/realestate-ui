@@ -10,6 +10,7 @@ export class ReferenceDataModalComponent implements OnInit{
   form = referenceDataForm;
 
   constructor(public activeModal: NgbActiveModal){}
+  
   ngOnInit(): void {
     this.form.controls.type.setValue("");
   }
