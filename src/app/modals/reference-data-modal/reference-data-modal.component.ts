@@ -9,9 +9,7 @@ import { referenceDataForm } from '../../../form/form.service';
 export class ReferenceDataModalComponent implements OnInit{
   form = referenceDataForm;
 
-  constructor(public activeModal: NgbActiveModal){
-    this.form;
-  }
+  constructor(public activeModal: NgbActiveModal){}
   ngOnInit(): void {
     this.form.controls.type.setValue("");
   }

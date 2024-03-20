@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component'
 import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angular/router'
 import routerConfig from './app.routes'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { PropertyManagementComponent } from './property-management/property-management.component'
 import { ReferenceDataComponent } from './reference-data/reference-data.component'
 import { ReferenceDataModalComponent } from './modals/reference-data-modal/reference-data-modal.component'
 import { ErrorMessageComponent } from './error-message/error-message.component'
@@ -16,7 +15,6 @@ import { ErrorMessageComponent } from './error-message/error-message.component'
   declarations: [
     AppComponent,
     HomeComponent,
-    PropertyManagementComponent,
     ReferenceDataComponent,
     ReferenceDataModalComponent,
     ErrorMessageComponent
