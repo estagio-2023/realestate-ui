@@ -9,9 +9,7 @@ import { referenceDataForm } from '../../../form/form.service';
 export class ReferenceDataModalComponent {
   form = referenceDataForm;
 
-  constructor(public activeModal: NgbActiveModal){
-    this.form;
-  }
+  constructor(public activeModal: NgbActiveModal){}
 
   closeModal(){
     this.activeModal.close();

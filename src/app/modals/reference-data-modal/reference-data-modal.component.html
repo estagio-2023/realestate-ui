@@ -5,8 +5,8 @@
                 <h1 class="modal-title fs-5">Add Reference Data</h1>
                 <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
             </div>
-            <form [formGroup]="form">
-                <div class="modal-body" id="modal-body">
+            <div class="modal-body" id="modal-body">
+                <form [formGroup]="form">
                     <div>
                         <label for="reference-dat-type" class="form-label"><strong>Type:</strong></label>
                         <select class="form-select" id="reference-dat-type" formControlName="type" required>
@@ -24,12 +24,12 @@
                         <app-error-message class="error-message"
                             [control]="form.controls.description"></app-error-message>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
-                    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
 </div>
