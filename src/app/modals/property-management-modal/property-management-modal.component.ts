@@ -16,11 +16,6 @@ export class PropertyManagementModalComponent implements OnInit {
     console.log(this.form.controls.title)
   }
   
-  saveTest() {
-    console.log(this.form.controls.title.errors)
-    console.log("Resultado: ", this.form.controls.title.hasError('required'))
-  }
-
   closeModal() {
     this.activeModal.close();
     this.form.reset();

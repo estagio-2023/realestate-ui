@@ -1,67 +1,157 @@
 <div class="modal d-block">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content position-fixed top-0 end-0" style="width: 30rem; min-height: 100vh;"
       id="modal-content-id">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Property</h1>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
       </div>
+
       <div class="modal-body" style="background-color: #ebebeb">
-        <form [formGroup]="form" class="row g-3">
+        <form [formGroup]="form" class="row g-3 fw-bold d-flex flex-column">
           <div class="col-md-4 position-relative w-100">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" formControlName="title">
-            <!-- <div *ngIf="!form.controls.title.pristine && form.controls.title.hasError('required')">
-              <p style="color:red">This field is required!!!</p>
-             </div> -->
-             <app-error-message class="error-message" [control]="form.controls.title"></app-error-message>
+            <input type="text" class="form-control" formControlName="title">
+            <app-error-message class="error-message" [control]="form.controls.title"></app-error-message>
           </div>
+
           <div class="col-md-4 position-relative w-100">
-            <label for="validationTooltip01 address" class="form-label">Address</label>
+            <label for="address" class="form-label">Address</label>
             <input type="text" class="form-control" id="address" formControlName="address">
-            <div *ngIf="!form.controls.address.pristine && form.controls.address.hasError('required')">
-              <p style="color:red">This field is required!!!</p>
-            </div>
+            <app-error-message class="error-message" [control]="form.controls.address"></app-error-message>
           </div>
+
           <div class="col-md-4 position-relative w-100">
-            <label for="validationTooltip01 postalCode" class="form-label">Postal Code</label>
-            <input type="text" class="form-control" id="validationTooltip01 postalCode" formControlName="postalCode"
-              required>
-            <div *ngIf="!form.controls.postalCode.pristine && form.controls.postalCode.hasError('required')">
-              <p style="color:red">This field is required!!!</p>
-            </div>
+            <label for="postalCode" class="form-label">Postal Code</label>
+            <input type="text" class="form-control" formControlName="postalCode" minlength="7" maxlength="7"
+              required="">
+            <app-error-message class="error-message" [control]="form.controls.postalCode"></app-error-message>
           </div>
+
           <div class="mb-3">
-            <label for="validationTooltip01" class="form-label">Description</label>
-            <textarea class="form-control" id="validationTooltip01" rows="3" formControlName="description"
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" style="resize:none" rows="3" formControlName="description"
               required> </textarea>
-            <div *ngIf="!form.controls.description.pristine && form.controls.description.hasError('required')">
-              <p style="color:red">This field is required!!!</p>
+            <app-error-message class="error-message" [control]="form.controls.description"></app-error-message>
+          </div>
+
+          <div class="col-md-4 w-100">
+            <label for="constructionYear" class="form-label">Construction Year</label>
+            <input type="text" class="form-control" formControlName="constructionYear" required>
+            <app-error-message class="error-message" [control]="form.controls.constructionYear"></app-error-message>
+          </div>
+
+          <div class="col-md-4 w-100">
+            <label for="squareMeters" class="form-label">Square Meters</label>
+            <input type="text" class="form-control" formControlName="squareMeters" required>
+            <app-error-message class="error-message" [control]="form.controls.squareMeters"></app-error-message>
+          </div>
+
+          <label for="energeticClass">Energetic Class</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="Energetic Class Select" formControlName="energeticClass">
+              <option value="1">A</option>
+              <option value="2">B</option>
+              <option value="3">C</option>
+              <option value="4">D</option>
+              <option value="5">E</option>
+              <option value="6">F</option>
+              <option value="7">G</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.energeticClass"></app-error-message>
+          </div>
+
+          <label for="customer">Customer</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="Customer Select" formControlName="customer">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.customer"></app-error-message>
+          </div>
+
+          <label for="seller">Seller</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="Seller select" formControlName="seller">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.seller"></app-error-message>
+          </div>
+
+          <label for="propertyType">Property Type</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="Propertype Select" formControlName="propertyType">
+              <option value="1">Garage</option>
+              <option value="2">Room</option>
+              <option value="3">Studio</option>
+              <option value="4">Apartment</option>
+              <option value="5">House</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.propertyType"></app-error-message>
+          </div>
+
+          <label for="city">City</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="City select" formControlName="city">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.city"></app-error-message>
+          </div>
+
+          <label for="typology">Typology</label>
+          <div class="col-md-4 w-100">
+            <select class="form-select" aria-label="Typology select" formControlName="typology">
+              <option value="1">T0</option>
+              <option value="2">T1</option>
+              <option value="3">T2</option>
+              <option value="4">T3</option>
+              <option value="5">T4</option>
+              <option value="6">T5</option>
+            </select>
+            <app-error-message class="error-message" [control]="form.controls.typology"></app-error-message>
+          </div>
+
+          <div> <!-- this div will force the checkbox to a column format // comment done by Pedro Cruz -->
+            <label for="Amenities">Amenities</label>
+            <div class="form-check col-md-4 w-100">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="flexCheckDefault">Laundry</label>
+            </div>
+            <div class="form-check col-md-4 w-100">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="flexCheckChecked">Pool</label>
+            </div>
+            <div class="form-check col-md-4 w-100">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="flexCheckChecked">Balcony</label>
+            </div>
+            <div class="form-check col-md-4 w-100">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="flexCheckChecked">Collection</label>
+            </div>
+            <div class="form-check col-md-4 w-100">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="flexCheckChecked">Terrace</label>
             </div>
           </div>
-          <div class="d-flex bd-highlight mb-3">
-            <div class="col-md-4 position-relative d-flex w-50">
-              <label for="validationTooltip01" class="form-label">Construction Year</label>
-              <input type="text" class="form-control" id="validationTooltip01" formControlName="constructionYear"
-                required>
-              <div
-                *ngIf="!form.controls.constructionYear.pristine && form.controls.constructionYear.hasError('required')">
-                <p style="color:red">This field is required!!!</p>
-              </div>
-            </div>
-            <div class="col-md-4 position-relative d-flex w-50">
-              <label for="validationTooltip01" class="form-label">Square Meters</label>
-              <input type="text" class="form-control" id="validationTooltip01" formControlName="squareMeters" required>
-              <div *ngIf="!form.controls.squareMeters.pristine && form.controls.squareMeters.hasError('required')">
-                <p style="color:red">This field is required!!!</p>
-              </div>
-            </div>
+
+          <div class="col-md-4 position-relative w-100">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" formControlName="price">
+            <app-error-message class="error-message" [control]="form.controls.price"></app-error-message>
           </div>
         </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="saveTest()">Save changes</button>
+        <button type="button" class="btn btn-primary" [disabled]="form.invalid">Save changes</button>
       </div>
     </div>
   </div>

@@ -1,9 +1,0 @@
-form {
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-}
-
-textarea {
-    resize: none;
-}
