@@ -8,19 +8,19 @@
 
       <div class="modal-body">
         <form [formGroup]="form" class="row g-3 d-flex flex-column">
-          <div class="col-md-4 position-relative w-100">
+          <div class="col-md-4 w-100">
             <label for="title" class="form-label fw-bold">Title</label>
             <input type="text" class="form-control" formControlName="title">
             <app-error-message class="error-message" [control]="form.controls.title"></app-error-message>
           </div>
 
-          <div class="col-md-4 position-relative w-100">
+          <div class="col-md-4 w-100">
             <label for="address" class="form-label fw-bold">Address</label>
             <input type="text" class="form-control" id="address" formControlName="address">
             <app-error-message class="error-message" [control]="form.controls.address"></app-error-message>
           </div>
 
-          <div class="col-md-4 position-relative w-100">
+          <div class="col-md-4 w-100">
             <label for="postalCode" class="form-label fw-bold">Postal Code</label>
             <input type="text" class="form-control" formControlName="postalCode" minlength="7" maxlength="7"
               required="">
