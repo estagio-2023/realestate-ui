@@ -116,36 +116,36 @@
             <app-error-message class="error-message" [control]="form.controls.typology"></app-error-message>
           </div>
 
-          <div> <!-- this div will force the checkbox to a column format // comment done by Pedro Cruz -->
+          <div>
             <label for="Amenities" class="fw-bold">Amenities</label>
             <div class="form-check col-md-4 w-100">
               <input class="form-check-input" type="checkbox" formControlName="amenities" required>
-              <label class="form-check-label" for="flexCheckDefault">Laundry</label>
+              <label class="form-check-label" >Laundry</label>
               <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
               <input class="form-check-input" type="checkbox" formControlName="amenities" required>
-              <label class="form-check-label" for="flexCheckChecked" >Pool</label>
+              <label class="form-check-label">Pool</label>
               <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
               <input class="form-check-input" type="checkbox" formControlName="amenities" required>
-              <label class="form-check-label" for="flexCheckChecked">Balcony</label>
+              <label class="form-check-label">Balcony</label>
               <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
               <input class="form-check-input" type="checkbox" formControlName="amenities" required>
-              <label class="form-check-label" for="flexCheckChecked">Collection</label>
+              <label class="form-check-label">Collection</label>
               <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
               <input class="form-check-input" type="checkbox"formControlName="amenities" required>
-              <label class="form-check-label" for="flexCheckChecked">Terrace</label>
+              <label class="form-check-label">Terrace</label>
               <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
           </div>
 
-          <div class="col-md-4 position-relative w-100">
+          <div class="col-md-4 w-100">
             <label for="price" class="form-label fw-bold">Price</label>
             <input type="number" class="form-control" formControlName="price">
             <app-error-message class="error-message" [control]="form.controls.price"></app-error-message>
@@ -154,7 +154,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancel</button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
         <button type="button" class="btn btn-primary" [disabled]="form.invalid">Save changes</button>
       </div>
     </div>

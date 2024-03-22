@@ -7,13 +7,10 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './property-management-modal.component.html',
   styleUrl: './property-management-modal.component.css'
 })
-export class PropertyManagementModalComponent implements OnInit {
+export class PropertyManagementModalComponent {
   form = propertyForm
   constructor(public activeModal: NgbActiveModal) {
     
-  }
-  ngOnInit(): void {
-    console.log(this.form.controls.title)
   }
   
   closeModal() {
