@@ -1,13 +1,12 @@
 <div class="modal d-block">
   <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content position-fixed top-0 end-0" style="width: 30rem; min-height: 100vh;"
-      id="modal-content-id">
+    <div class="modal-content" id="modal-content-id">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Property</h1>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+        <h1 class="modal-title fs-5">Property</h1>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
       </div>
 
-      <div class="modal-body" style="background-color: #ebebeb">
+      <div class="modal-body">
         <form [formGroup]="form" class="row g-3 d-flex flex-column">
           <div class="col-md-4 position-relative w-100">
             <label for="title" class="form-label fw-bold">Title</label>
@@ -37,13 +36,13 @@
 
           <div class="col-md-4 w-100">
             <label for="constructionYear" class="form-label fw-bold">Construction Year</label>
-            <input type="text" class="form-control" formControlName="constructionYear" required>
+            <input type="number" class="form-control" formControlName="constructionYear" required>
             <app-error-message class="error-message" [control]="form.controls.constructionYear"></app-error-message>
           </div>
 
           <div class="col-md-4 w-100">
             <label for="squareMeters" class="form-label fw-bold">Square Meters</label>
-            <input type="text" class="form-control" formControlName="squareMeters" required>
+            <input type="number" class="form-control" formControlName="squareMeters" required>
             <app-error-message class="error-message" [control]="form.controls.squareMeters"></app-error-message>
           </div>
 
@@ -148,7 +147,7 @@
 
           <div class="col-md-4 position-relative w-100">
             <label for="price" class="form-label fw-bold">Price</label>
-            <input type="text" class="form-control" formControlName="price">
+            <input type="number" class="form-control" formControlName="price">
             <app-error-message class="error-message" [control]="form.controls.price"></app-error-message>
           </div>
         </form>

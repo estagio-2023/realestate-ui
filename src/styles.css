@@ -9,4 +9,17 @@ body {
 
 .modal-content{
   border: none !important;
+  
+}
+
+.modal-body{
+  background-color: #ebebeb;
+}
+
+#modal-content-id {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30rem;
+  min-height: 100vh;
 }
