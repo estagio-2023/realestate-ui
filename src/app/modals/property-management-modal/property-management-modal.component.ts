@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { propertyForm } from '../../../form/form.service';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
+import { ErrorMessageComponent } from '../../error-message/error-message.component';
 
 @Component({
   selector: 'app-property-management-modal',
@@ -19,10 +20,4 @@ export class PropertyManagementModalComponent {
     this.activeModal.close();
     this.form.reset();
   }
-
-  onKeyDown($event: KeyboardEvent) {
-    if ($event.key === 'Escape') {
-      this.closeModal();
-    }
-    }
 }
