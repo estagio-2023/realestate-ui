@@ -10,10 +10,9 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
   styleUrl: './property-management-modal.component.css'
 })
 export class PropertyManagementModalComponent {
-
   form = propertyForm
   constructor(public activeModal: NgbActiveModal) {
-    
+
   }
   
   closeModal() {
