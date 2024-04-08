@@ -12,7 +12,7 @@ export class ReferenceDataComponent {
   
   openModal(){
     this.modalService.open(ReferenceDataModalComponent, {
-      backdrop: 'static'
+      keyboard: false
     });
   }
 }

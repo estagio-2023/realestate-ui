@@ -12,10 +12,9 @@ export class PropertyManagementComponent{
 
 constructor(private modalService:NgbModal){}
 
-openModal(){
-  this.modalService.open(PropertyManagementModalComponent, {
-    backdrop: 'static'
-  });
-
-}
+  openModal(){
+    this.modalService.open(PropertyManagementModalComponent, {
+      keyboard: false
+    });
+  }
 }
