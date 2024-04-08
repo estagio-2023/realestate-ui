@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { propertyForm } from '../../../form/form.service';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { AbstractControl, FormGroup } from '@angular/forms';
-import { ErrorMessageComponent } from '../../error-message/error-message.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-property-management-modal',
