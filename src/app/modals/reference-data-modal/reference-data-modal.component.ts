@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
-
+import { RealestateApiService } from '../../services/realestate-api.service';
 @Component({
   selector: 'app-reference-data-modal',
   templateUrl: './reference-data-modal.component.html',
@@ -9,8 +9,12 @@ import { referenceDataForm } from '../../../form/form.service';
 })
 export class ReferenceDataModalComponent implements OnInit{
   form = referenceDataForm;
+  selectedRefDataModalType: string;
+  selectedRefDataModalDescription: string;
+  
 
-  constructor(public activeModal: NgbActiveModal){}
+
+  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService){}
   
   ngOnInit(): void {
     this.form.controls.type.setValue("");
@@ -20,4 +24,11 @@ export class ReferenceDataModalComponent implements OnInit{
     this.activeModal.close();
     this.form.reset();
   }
+
+  addRefData(){
+    this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.controls.description.value!).subscribe(response => {
+      console.log(response)
+    })
+  }
+
 }
