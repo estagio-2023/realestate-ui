@@ -12,13 +12,13 @@ import { Observable } from 'rxjs';
 })
 export class ReferenceDataComponent {
   referenceDataList$: Observable<RefrenceDataResponseDto>;
-  referenceDataList: ReferenceDataModel[][] = [];
+  referenceDataList: ReferenceDataModel[];
 
   constructor(private modalService:NgbModal, private apiService: RealestateApiService){}
   
   ngOnInit(): void {
   this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
-    this.referenceDataList.push(referenceDataList$.typologiesList, referenceDataList$.realEstateTypesList, referenceDataList$.citiesList, referenceDataList$.amenitiesList);
+    this.referenceDataList = referenceDataList$.typologiesList;
 
     console.log(this.referenceDataList);
   })

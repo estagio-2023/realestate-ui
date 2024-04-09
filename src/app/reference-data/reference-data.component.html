@@ -24,12 +24,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let typology of referenceDataList[0]">
+            <tr *ngFor="let typology of referenceDataList">
                 <td>
                     {{typology.id}}
                 </td>
                 <td>
                     {{typology.description}}
+                </td>
+                <td>
+                    <button class="border-0 bg-transparent">
+                        <i class="bi bi-trash"></i>
+                    </button>
                 </td>
             </tr>
         </tbody>
