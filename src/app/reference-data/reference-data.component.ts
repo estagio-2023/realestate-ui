@@ -18,30 +18,32 @@ export class ReferenceDataComponent {
 constructor(private modalService:NgbModal, private apiService: RealestateApiService){}
   
 ngOnInit(): void {
-  this.apiService.getAllReferenceData().subscribe((response: any) => {
-    this.referenceDataList = response.realEstateTypesList;
-    this.selectedRefDataType = '2';
-  });
+
+  this.referenceDataList$ = this.apiService.getAllReferenceData()
+
+  this.selectedRefDataType = '2'
+  this.dropDownFilter()
 }
 
 dropDownFilter(): void {
-  this.apiService.getAllReferenceData().subscribe((response: any) => {
 
   switch(this.selectedRefDataType){
-    case '1':
-      this.referenceDataList = response.typologiesList;
-      break;
     case '2':
-      this.referenceDataList = response.realEstateTypesList;
+      this.referenceDataList$.subscribe(refDataList => {
+        this.referenceDataList = refDataList.typologies
+      })
       break;
-    case '3':
-      this.referenceDataList = response.citiesList;
-      break;
-    case '4':
-      this.referenceDataList = response.amenitiesList;
-      break;
-  }
-  });
+    // case '2':
+    //   this.referenceDataList = response.realEstateTypesList;
+    //   break;
+    // case '3':
+    //   this.referenceDataList = response.citiesList;
+    //   break;
+    // case '4':
+    //   this.referenceDataList = response.amenitiesList;
+    //   break;
+  
+  };
 }
   
 openModal(){
