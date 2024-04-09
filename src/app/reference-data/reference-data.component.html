@@ -24,12 +24,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="table-row">
-                <th scope="row">1</th>
-                <td>Garage</td>
-                <td class="delete-row">
-                    <button type="button" id="delete">
-                        <i class="bi bi-trash3"></i>
+            <tr *ngFor="let typology of referenceDataList">
+                <td>
+                    {{typology.id}}
+                </td>
+                <td>
+                    {{typology.description}}
+                </td>
+                <td>
+                    <button class="border-0 bg-transparent">
+                        <i class="bi bi-trash"></i>
                     </button>
                 </td>
             </tr>

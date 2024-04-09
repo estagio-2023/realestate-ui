@@ -1,6 +1,6 @@
 <div class="modal d-block">
     <div class="modal-dialog">
-        <div class="modal-content" id="modal-content">
+        <div class="modal-content" id="modal-content-id">
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Add Reference Data</h1>
                 <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
@@ -28,7 +28,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                <button type="button" class="btn btn-secondary" (click)="closeModal()" >Cancel</button>
                 <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save changes</button>
             </div>
         </div>
