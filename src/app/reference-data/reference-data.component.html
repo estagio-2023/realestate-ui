@@ -15,7 +15,7 @@
             <i class="bi bi-plus"></i> Add
         </button>
     </section>
-    <table class="table table-striped" id="table" *ngIf="referenceDataList$ | async as refData">
+    <table class="table table-striped" id="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let typology of refData.typologies">
+            <tr *ngFor="let typology of referenceDataList[0]">
                 <td>
                     {{typology.id}}
                 </td>
