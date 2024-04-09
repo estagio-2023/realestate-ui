@@ -19,8 +19,6 @@ export class ReferenceDataComponent {
   ngOnInit(): void {
   this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
     this.referenceDataList = referenceDataList$.typologiesList;
-
-    console.log(this.referenceDataList);
   })
 }
   

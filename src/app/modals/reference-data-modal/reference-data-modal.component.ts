@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
 
-
 @Component({
   selector: 'app-reference-data-modal',
   templateUrl: './reference-data-modal.component.html',
