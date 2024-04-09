@@ -13,18 +13,40 @@ import { Observable } from 'rxjs';
 export class ReferenceDataComponent {
   referenceDataList$: Observable<RefrenceDataResponseDto>;
   referenceDataList: ReferenceDataModel[];
+  selectedRefDataType: string;
 
-  constructor(private modalService:NgbModal, private apiService: RealestateApiService){}
+constructor(private modalService:NgbModal, private apiService: RealestateApiService){}
   
-  ngOnInit(): void {
+ngOnInit(): void {
   this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
-    this.referenceDataList = referenceDataList$.typologiesList;
-  })
+    this.referenceDataList = referenceDataList$.realEstateTypesList;
+    this.selectedRefDataType = '2';
+  });
+}
+
+dropDownFilter(): void {
+  this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
+
+  switch(this.selectedRefDataType){
+    case '1':
+      this.referenceDataList = referenceDataList$.typologiesList;
+      break;
+    case '2':
+      this.referenceDataList = referenceDataList$.realEstateTypesList;
+      break;
+    case '3':
+      this.referenceDataList = referenceDataList$.citiesList;
+      break;
+    case '4':
+      this.referenceDataList = referenceDataList$.amenitiesList;
+      break;
+  }
+  });
 }
   
-  openModal(){
+openModal(){
     this.modalService.open(ReferenceDataModalComponent, {
-      keyboard: false
+      backdrop: 'static'
     });
   }
 }
