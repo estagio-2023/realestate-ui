@@ -46,7 +46,8 @@ dropDownFilter(): void {
   
 openModal(){
     this.modalService.open(ReferenceDataModalComponent, {
-      backdrop: 'static'
+      backdrop: 'static',
+      keyboard: false
     });
   }
 }
