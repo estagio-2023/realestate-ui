@@ -1,8 +1,8 @@
 import { ReferenceDataModel } from "../models/reference-data-model";
 
-export interface RefrenceDataResponseDto {
+export interface ReferenceDataResponseDto {
     typologies: ReferenceDataModel[];
-    realestateTypes: ReferenceDataModel[];
+    realEstateTypes: ReferenceDataModel[];
     cities: ReferenceDataModel[]; 
     amenities: ReferenceDataModel[]; 
 }
