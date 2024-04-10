@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReferenceDataModalComponent } from '../modals/reference-data-modal/reference-data-modal.component';
 import { RealestateApiService } from '../services/realestate-api.service';
-import { RefrenceDataResponseDto } from '../dto/ReferenceDataResponseDto';
+import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 import { ReferenceDataModel } from '../models/reference-data-model';
 import { Observable } from 'rxjs';
 @Component({
@@ -11,18 +11,18 @@ import { Observable } from 'rxjs';
   styleUrl: './reference-data.component.css'
 })
 export class ReferenceDataComponent {
-  referenceDataList$: Observable<RefrenceDataResponseDto>;
+  referenceDataList$: Observable<ReferenceDataResponseDto>;
   referenceDataList: ReferenceDataModel[];
 
-  constructor(private modalService:NgbModal, private apiService: RealestateApiService){}
-  
+  constructor(private modalService: NgbModal, private apiService: RealestateApiService) { }
+
   ngOnInit(): void {
-  this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
-    this.referenceDataList = referenceDataList$.typologiesList;
-  })
-}
-  
-  openModal(){
+    this.apiService.getAllReferenceData().subscribe((referenceDataList$: any) => {
+      this.referenceDataList = referenceDataList$.typologiesList;
+    })
+  }
+
+  openModal() {
     this.modalService.open(ReferenceDataModalComponent, {
       keyboard: false
     });

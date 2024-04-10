@@ -7,28 +7,26 @@ import { RealestateApiService } from '../../services/realestate-api.service';
   templateUrl: './reference-data-modal.component.html',
   styleUrl: './reference-data-modal.component.css'
 })
-export class ReferenceDataModalComponent implements OnInit{
+export class ReferenceDataModalComponent implements OnInit {
   form = referenceDataForm;
   selectedRefDataModalType: string;
   selectedRefDataModalDescription: string;
-  
 
+  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService) { }
 
-  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService){}
-  
   ngOnInit(): void {
     this.form.controls.type.setValue("");
   }
 
-  closeModal(){
+  closeModal() {
     this.activeModal.close();
     this.form.reset();
   }
 
-  addRefData(){
-    this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.controls.description.value!).subscribe(response => {
+  addRefData() {
+    var test = this.form.value;
+    this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe(response => {
       console.log(response)
     })
   }
-
 }

@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RefrenceDataResponseDto } from '../dto/ReferenceDataResponseDto';
-import { ReferenceDataModalComponent } from '../modals/reference-data-modal/reference-data-modal.component';
-
+import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 
 
 @Injectable({
@@ -11,16 +9,19 @@ import { ReferenceDataModalComponent } from '../modals/reference-data-modal/refe
 })
 export class RealestateApiService {
 
-  baseUrl = "http://localhost:5152/";
-
-  constructor(private httpClient: HttpClient) {}
-
-  getAllReferenceData() : Observable<RefrenceDataResponseDto> {
-    return this.httpClient.get<RefrenceDataResponseDto>(this.baseUrl + 'ReferenceData')
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
+  baseUrl = "http://localhost:5152/";
 
-  addReferenceData(selectedRefDataModalType: string,selectedRefDataModalDescription : string){
-    return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, selectedRefDataModalDescription);
+  constructor(private httpClient: HttpClient) { }
+
+  getAllReferenceData(): Observable<ReferenceDataResponseDto> {
+    return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
+  }
+
+  addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
+    return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, addRefDataValueForm, this.httpOptions);
   }
 }
