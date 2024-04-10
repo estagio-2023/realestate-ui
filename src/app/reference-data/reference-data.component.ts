@@ -48,7 +48,6 @@ dropDownFilter(): void {
         this.referenceDataList = refDataList.amenities
       })
       break
-
   }
 }
   
