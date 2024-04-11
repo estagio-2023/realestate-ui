@@ -20,7 +20,7 @@ constructor(private modalService:NgbModal, private apiService: RealestateApiServ
 ngOnInit(): void {
   this.referenceDataList$ = this.apiService.getAllReferenceData()
 
-  this.selectedRefDataType = '2'
+  this.selectedRefDataType = '1'
   this.dropDownFilter()
 }
 
