@@ -29,7 +29,6 @@ dropDownFilter(): void {
   switch(this.selectedRefDataType){
     case '1':
       this.referenceDataList$.subscribe(refDataList => {
-        console.log(refDataList)
         this.referenceDataList = refDataList.typologies
       })
       break
