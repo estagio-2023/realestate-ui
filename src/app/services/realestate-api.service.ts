@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RefrenceDataResponseDto } from '../dto/ReferenceDataResponseDto';
+import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class RealestateApiService {
 
   constructor(private httpCLient: HttpClient) {}
 
-  getAllReferenceData() : Observable<RefrenceDataResponseDto> {
-    return this.httpCLient.get<RefrenceDataResponseDto>(this.baseUrl + 'ReferenceData')
+  getAllReferenceData() : Observable<ReferenceDataResponseDto> {
+    return this.httpCLient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
   }
 }
