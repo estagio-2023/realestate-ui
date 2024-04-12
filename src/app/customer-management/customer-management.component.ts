@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RealestateApiService } from '../services/realestate-api.service';
+import { CustomerApiService } from '../services/customer-api.service';
 import { CustomerModel } from '../models/customer-management-model';
 
 @Component({
@@ -11,7 +11,7 @@ import { CustomerModel } from '../models/customer-management-model';
 export class CustomerManagementComponent {
   customers: CustomerModel[]
 
-  constructor( private apiService: RealestateApiService){}
+  constructor( private apiService: CustomerApiService){}
   
 ngOnInit(): void {
   this.apiService.getAllCustomerData().subscribe(response => {
