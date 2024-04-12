@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, TemplateRef } from '@angular/core';
-import { ToastService } from './toast.service';
+import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
 
 @Component({

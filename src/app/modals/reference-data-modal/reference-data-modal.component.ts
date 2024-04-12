@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
 import { RealestateApiService } from '../../services/realestate-api.service';
-import { ToastService } from '../../toast/toast.service';
+import { ToastService } from '../../services/toast.service';
 import { ToastClassEnum } from '../../enums/toast-class-enum';
 @Component({
   selector: 'app-reference-data-modal',
