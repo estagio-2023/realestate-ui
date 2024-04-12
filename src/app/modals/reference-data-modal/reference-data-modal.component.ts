@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
-import { RealestateApiService } from '../../services/realestate-api.service';
 import { ToastService } from '../../services/toast.service';
 import { ToastClassEnum } from '../../enums/toast-class-enum';
+import { ReferenceDataApiService } from '../../services/reference-data-api.service';
 
 @Component({
   selector: 'app-reference-data-modal',
@@ -15,7 +15,7 @@ export class ReferenceDataModalComponent implements OnInit {
   selectedRefDataModalType: string;
   selectedRefDataModalDescription: string;
 
-  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService, private toastService: ToastService) { }
+  constructor(public activeModal: NgbActiveModal, private refDataService: ReferenceDataApiService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.form.controls.type.setValue("");
@@ -28,8 +28,12 @@ export class ReferenceDataModalComponent implements OnInit {
 
   addRefData() {
     this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe({
-      next: value =>{ this.toastService.show("Changes successfully saved!", ToastClassEnum.success),this.closeModal()},
-      error: err => this.toastService.show("Error in saving changes", ToastClassEnum.error),
+      next: value => {
+        this.toastService.show("Changes successfully saved!", ToastClassEnum.success),
+          this.closeModal()
+      },
+      error: err =>
+        this.toastService.show("Error in saving changes", ToastClassEnum.error)
     })
   }
 }

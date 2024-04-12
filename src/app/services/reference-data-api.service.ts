@@ -6,7 +6,7 @@ import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 @Injectable({
   providedIn: 'root'
 })
-export class RealestateApiService {
+export class ReferenceDataApiService {
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,5 +18,9 @@ export class RealestateApiService {
 
   getAllReferenceData() : Observable<ReferenceDataResponseDto> {
     return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
+  }
+
+  addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
+    return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, addRefDataValueForm, this.httpOptions);
   }
 }
