@@ -10,7 +10,7 @@ import { ToastClassEnum } from '../enums/toast-class-enum';
 export class ToastService {
   toasts: Toast[] = [];
 
-  showSuccess(body: string, className: ToastClassEnum) {
+  show(body: string, className: ToastClassEnum) {
     this.toasts.push({body,className});
   }
 

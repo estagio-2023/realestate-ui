@@ -4,6 +4,7 @@ import { referenceDataForm } from '../../../form/form.service';
 import { RealestateApiService } from '../../services/realestate-api.service';
 import { ToastService } from '../../services/toast.service';
 import { ToastClassEnum } from '../../enums/toast-class-enum';
+
 @Component({
   selector: 'app-reference-data-modal',
   templateUrl: './reference-data-modal.component.html',
@@ -27,8 +28,9 @@ export class ReferenceDataModalComponent implements OnInit {
 
   addRefData() {
     var test = this.form.value;
-    this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe(response => {
-    this.toastService.showSuccess("Test", ToastClassEnum.success)  
+    this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe({
+      next: value => this.toastService.show("Changes successfully saved!", ToastClassEnum.success),
+      error: err => this.toastService.show("Error in saving changes", ToastClassEnum.error)
     })
 
   }
