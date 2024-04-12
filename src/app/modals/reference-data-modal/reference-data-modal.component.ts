@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { referenceDataForm } from '../../../form/form.service';
 import { RealestateApiService } from '../../services/realestate-api.service';
+import { ToastService } from '../../toast/toast.service';
+import { ToastClassEnum } from '../../enums/toast-class-enum';
 @Component({
   selector: 'app-reference-data-modal',
   templateUrl: './reference-data-modal.component.html',
@@ -12,7 +14,7 @@ export class ReferenceDataModalComponent implements OnInit {
   selectedRefDataModalType: string;
   selectedRefDataModalDescription: string;
 
-  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService) { }
+  constructor(public activeModal: NgbActiveModal, private refDataService: RealestateApiService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.form.controls.type.setValue("");
@@ -26,7 +28,10 @@ export class ReferenceDataModalComponent implements OnInit {
   addRefData() {
     var test = this.form.value;
     this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe(response => {
-      console.log(response)
+    this.toastService.showSuccess("Test", ToastClassEnum.success)  
     })
+
   }
+
+  
 }

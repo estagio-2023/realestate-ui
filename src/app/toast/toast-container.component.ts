@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 
-import { ToastService } from '../services/toast.service.service'; 
+import { ToastService } from './toast.service'; 
 import { NgTemplateOutlet } from '@angular/common';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 

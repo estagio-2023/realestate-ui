@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReferenceDataModalComponent } from '../modals/reference-data-modal/reference-data-modal.component';
 import { RealestateApiService } from '../services/realestate-api.service';
 import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 import { ReferenceDataModel } from '../models/reference-data-model';
 import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-reference-data',
   templateUrl: './reference-data.component.html',
@@ -27,4 +28,5 @@ export class ReferenceDataComponent {
       keyboard: false
     });
   }
+
 }
