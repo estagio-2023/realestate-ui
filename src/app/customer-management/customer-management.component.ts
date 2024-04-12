@@ -15,7 +15,7 @@ export class CustomerManagementComponent {
   
 ngOnInit(): void {
   this.apiService.getAllCustomerData().subscribe(response => {
-    this.customers = response.customers
+    this.customers = response
   })
 }
 }

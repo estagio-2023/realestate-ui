@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
-import { CustomerManagementResponseDto } from '../dto/customerManagementDataResponseDto';
+import { CustomerModel } from '../models/customer-management-model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class RealestateApiService {
     return this.httpCLient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
   }
 
-  getAllCustomerData() : Observable<CustomerManagementResponseDto>{
-    return this.httpCLient.get<CustomerManagementResponseDto>(this.baseUrl + 'Customer')
+  getAllCustomerData() : Observable<any>{
+    return this.httpCLient.get<any>(this.baseUrl + 'Customer')
   }
 }
