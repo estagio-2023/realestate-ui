@@ -17,7 +17,7 @@ export class RealestateApiService {
     return this.httpCLient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
   }
 
-  getAllCustomerData() : Observable<any>{
-    return this.httpCLient.get<any>(this.baseUrl + 'Customer')
+  getAllCustomerData() : Observable<Array<CustomerModel>>{
+    return this.httpCLient.get<Array<CustomerModel>>(this.baseUrl + 'Customer')
   }
 }
