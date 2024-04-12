@@ -20,6 +20,6 @@ export const propertyForm = new FormGroup({
     propertyType: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     typology: new FormControl('', [Validators.required]),
-    amenities: new FormControl('', [Validators.required]),
+    amenities: new FormControl('', []),
     price: new FormControl('', [Validators.required])
   })
