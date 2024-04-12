@@ -24,7 +24,7 @@ export class HomeComponent {
         {
           title: "Customers",
           imgPath: "../../assets/home_page_icons/customers.png",
-          link: ''
+          link: '/customer'
         }
       ],
       secondRow: [
