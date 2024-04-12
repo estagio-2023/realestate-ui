@@ -13,6 +13,7 @@ import { ErrorMessageComponent } from './error-message/error-message.component'
 import { PropertyManagementComponent } from './property-management/property-management.component'
 import { PropertyManagementModalComponent } from './modals/property-management-modal/property-management-modal.component'
 import { HttpClientModule } from '@angular/common/http'
+import { CustomerManagementComponent } from './customer-management/customer-management.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http'
     ReferenceDataModalComponent,
     PropertyManagementComponent,
     PropertyManagementModalComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    CustomerManagementComponent
   ],
   imports: [
     CommonModule,
