@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,11 +16,7 @@ export class RealestateApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllReferenceData(): Observable<ReferenceDataResponseDto> {
+  getAllReferenceData() : Observable<ReferenceDataResponseDto> {
     return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
-  }
-
-  addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
-    return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, addRefDataValueForm, this.httpOptions);
   }
 }

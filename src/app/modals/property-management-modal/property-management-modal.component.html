@@ -3,7 +3,7 @@
     <div class="modal-content" id="modal-content-id">
       <div class="modal-header">
         <h1 class="modal-title fs-5">Property</h1>
-        <button type="button" class="btn-close" (click)="closeModal()"></button>
+        <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
       </div>
 
       <div class="modal-body">
@@ -83,11 +83,7 @@
           <label for="propertyType" class="fw-bold">Property Type</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="Propertype Select" formControlName="propertyType">
-              <option value="1">Garage</option>
-              <option value="2">Room</option>
-              <option value="3">Studio</option>
-              <option value="4">Apartment</option>
-              <option value="5">House</option>
+              <option value="{{realEstateType.id}}" *ngFor="let realEstateType of realEstateTypes">{{realEstateType.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.propertyType"></app-error-message>
           </div>
@@ -95,10 +91,7 @@
           <label for="city" class="fw-bold">City</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="City select" formControlName="city">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="{{city.id}}" *ngFor="let city of cities">{{city.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.city"></app-error-message>
           </div>
@@ -106,12 +99,7 @@
           <label for="typology" class="fw-bold">Typology</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="Typology select" formControlName="typology">
-              <option value="1">T0</option>
-              <option value="2">T1</option>
-              <option value="3">T2</option>
-              <option value="4">T3</option>
-              <option value="5">T4</option>
-              <option value="6">T5</option>
+              <option value="{{typology.id}}" *ngFor="let typology of typologies">{{typology.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.typology"></app-error-message>
           </div>
@@ -119,29 +107,24 @@
           <div>
             <label for="Amenities" class="fw-bold">Amenities</label>
             <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities" required>
+              <input class="form-check-input" type="checkbox" formControlName="amenities">
               <label class="form-check-label" >Laundry</label>
-              <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities" required>
+              <input class="form-check-input" type="checkbox" formControlName="amenities">
               <label class="form-check-label">Pool</label>
-              <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities" required>
+              <input class="form-check-input" type="checkbox" formControlName="amenities">
               <label class="form-check-label">Balcony</label>
-              <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities" required>
+              <input class="form-check-input" type="checkbox" formControlName="amenities">
               <label class="form-check-label">Collection</label>
-              <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
             <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox"formControlName="amenities" required>
+              <input class="form-check-input" type="checkbox"formControlName="amenities">
               <label class="form-check-label">Terrace</label>
-              <app-error-message class="error-message" [control]="form.controls.amenities"></app-error-message>
             </div>
           </div>
 
