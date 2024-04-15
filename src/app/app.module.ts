@@ -25,7 +25,7 @@ import { ToastComponent } from './toast/toast.component'
     PropertyManagementComponent,
     PropertyManagementModalComponent,
     ErrorMessageComponent,
-    CustomerManagementComponent
+    CustomerManagementComponent,
     ToastComponent
   ],
   imports: [
