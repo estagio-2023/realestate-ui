@@ -11,7 +11,7 @@ import { ReferenceDataModel } from '../../models/reference-data-model'
 })
 export class PropertyManagementModalComponent {
   form = propertyForm
-  typologies: ReferenceDataModel[]
+  typologies: ReferenceDataModel[]  
   realEstateTypes: ReferenceDataModel[]
   cities: ReferenceDataModel[]
 

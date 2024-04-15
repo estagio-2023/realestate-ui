@@ -56,5 +56,4 @@ openModal(){
       keyboard: false
     })
   }
-
 }

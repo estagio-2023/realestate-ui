@@ -2,8 +2,6 @@ import { Injectable, TemplateRef } from '@angular/core';
 import { Toast } from '../toast/toast-model';
 import { ToastClassEnum } from '../enums/toast-class-enum';
 
-
-
 @Injectable({
   providedIn: 'root'
 })

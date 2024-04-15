@@ -12,8 +12,6 @@ import { ReferenceDataApiService } from '../../services/reference-data-api.servi
 })
 export class ReferenceDataModalComponent implements OnInit {
   form = referenceDataForm;
-  selectedRefDataModalType: string;
-  selectedRefDataModalDescription: string;
 
   constructor(public activeModal: NgbActiveModal, private refDataService: ReferenceDataApiService, private toastService: ToastService) { }
 
