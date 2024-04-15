@@ -15,6 +15,7 @@ import { PropertyManagementModalComponent } from './modals/property-management-m
 import { HttpClientModule } from '@angular/common/http'
 import { CustomerManagementComponent } from './customer-management/customer-management.component'
 import { ToastComponent } from './toast/toast.component'
+import { CustomerManagementModalComponent } from './modals/customer-management-modal/customer-management-modal.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ToastComponent } from './toast/toast.component'
     PropertyManagementModalComponent,
     ErrorMessageComponent,
     CustomerManagementComponent,
-    ToastComponent
+    ToastComponent,
+    CustomerManagementModalComponent
   ],
   imports: [
     CommonModule,
