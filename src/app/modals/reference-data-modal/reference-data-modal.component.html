@@ -6,7 +6,7 @@
                 <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
             </div>
             <div class="modal-body" id="modal-body">
-                <form [formGroup]="form" (ngSubmit)="addRefData()">
+                <form [formGroup]="form">
                     <div>
                         <label for="reference-dat-type" class="form-label"><strong>Type:</strong></label>
                         <select class="form-select" id="reference-dat-type" formControlName="type" required>
@@ -25,11 +25,11 @@
                         <app-error-message class="error-message"
                             [control]="form.controls.description"></app-error-message>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
-                        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save changes</button>
-                    </div>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                <button type="button" [disabled]="form.invalid" (click)="addRefData()" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
