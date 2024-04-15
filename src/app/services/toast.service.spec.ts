@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RealestateApiService } from './realestate-api.service';
+import { ToastService } from './toast.service';
 
-describe('RealestateApiService', () => {
-  let service: RealestateApiService;
+describe('ToastService', () => {
+  let service: ToastService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RealestateApiService);
+    service = TestBed.inject(ToastService);
   });
 
   it('should be created', () => {

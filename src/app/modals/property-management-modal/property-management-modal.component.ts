@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { propertyForm } from '../../../form/form.service'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
-import { RealestateApiService } from '../../services/realestate-api.service'
+import { ReferenceDataApiService } from '../../services/reference-data-api.service'
 import { ReferenceDataModel } from '../../models/reference-data-model'
 
 @Component({
@@ -11,11 +11,11 @@ import { ReferenceDataModel } from '../../models/reference-data-model'
 })
 export class PropertyManagementModalComponent {
   form = propertyForm
-  typologies: ReferenceDataModel[]
+  typologies: ReferenceDataModel[]  
   realEstateTypes: ReferenceDataModel[]
   cities: ReferenceDataModel[]
 
-  constructor(public activeModal: NgbActiveModal, private apiService: RealestateApiService) {}
+  constructor(public activeModal: NgbActiveModal, private apiService: ReferenceDataApiService) {}
 
   ngOnInit(): void {
     this.apiService.getAllReferenceData().subscribe(response => {
