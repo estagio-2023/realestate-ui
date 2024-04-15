@@ -13,6 +13,7 @@ import { ErrorMessageComponent } from './error-message/error-message.component'
 import { PropertyManagementComponent } from './property-management/property-management.component'
 import { PropertyManagementModalComponent } from './modals/property-management-modal/property-management-modal.component'
 import { HttpClientModule } from '@angular/common/http'
+import { CustomerManagementComponent } from './customer-management/customer-management.component'
 import { ToastComponent } from './toast/toast.component'
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ToastComponent } from './toast/toast.component'
     PropertyManagementComponent,
     PropertyManagementModalComponent,
     ErrorMessageComponent,
+    CustomerManagementComponent,
     ToastComponent
   ],
   imports: [
