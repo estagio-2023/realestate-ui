@@ -6,7 +6,7 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angular/router'
 import routerConfig from './app.routes'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap'
 import { ReferenceDataComponent } from './reference-data/reference-data.component'
 import { ReferenceDataModalComponent } from './modals/reference-data-modal/reference-data-modal.component'
 import { ErrorMessageComponent } from './error-message/error-message.component'
@@ -14,6 +14,7 @@ import { PropertyManagementComponent } from './property-management/property-mana
 import { PropertyManagementModalComponent } from './modals/property-management-modal/property-management-modal.component'
 import { HttpClientModule } from '@angular/common/http'
 import { CustomerManagementComponent } from './customer-management/customer-management.component'
+import { ToastComponent } from './toast/toast.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CustomerManagementComponent } from './customer-management/customer-mana
     PropertyManagementModalComponent,
     ErrorMessageComponent,
     CustomerManagementComponent
+    ToastComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { CustomerManagementComponent } from './customer-management/customer-mana
     RouterLinkActive,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbToastModule
   ],
   providers: [
     provideRouter(routerConfig)

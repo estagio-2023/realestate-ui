@@ -1,0 +1,6 @@
+@for (toast of toastService.toasts; track toast) {
+    <ngb-toast
+     [autohide]="true" [delay]="toast.delay || 5000"
+      (hidden)="toastService.remove(toast)" [ngClass]="toast.className === classEnum.success ? 'bg-success text-light' : 'bg-danger text-light'"
+    >{{ toast.body }}</ngb-toast>
+}
