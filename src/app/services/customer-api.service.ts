@@ -12,7 +12,7 @@ export class CustomerApiService {
 
   constructor(private httpCLient: HttpClient) {}
 
-  getAllCustomerData() : Observable<Array<CustomerModel>>{
-    return this.httpCLient.get<Array<CustomerModel>>(this.baseUrl + 'Customer')
+  getAllCustomerData() : Observable<CustomerModel[]>{
+    return this.httpCLient.get<CustomerModel[]>(this.baseUrl + 'Customer')
   }
 }
