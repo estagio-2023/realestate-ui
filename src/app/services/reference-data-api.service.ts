@@ -23,4 +23,8 @@ export class ReferenceDataApiService {
   addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
     return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, addRefDataValueForm, this.httpOptions);
   }
+
+  deleteReferenceData(refDataType: string, refDataId: number) {
+    return this.httpClient.delete(this.baseUrl + "ReferenceData/" + refDataType + "/" + refDataId)
+  }
 }
