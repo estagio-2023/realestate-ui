@@ -31,12 +31,11 @@ export class CustomerManagementModalComponent implements OnInit {
 addCustomerData() {
     this.apiService.addCustomerData(this.form.value).subscribe({
       next: value => {
-        this.toastService.show("Changes successfully saved!", ToastClassEnum.success);
+        this.toastService.show("Customer added successfully!", ToastClassEnum.success);
         this.closeModal();
       },
       error: err =>
-        this.toastService.show("Error in saving changes", ToastClassEnum.error)
+        this.toastService.show("Error in adding customers", ToastClassEnum.error)
     });
   }
-
 }
