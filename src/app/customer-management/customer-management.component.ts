@@ -20,7 +20,8 @@ export class CustomerManagementComponent {
       this.customers = response
     })
   }
-  openModal(){
+
+  openAddCustomerModal(){
     this.modalService.open(CustomerManagementModalComponent, {
       keyboard: false
     });
