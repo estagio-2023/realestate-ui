@@ -28,7 +28,7 @@ export class CustomerManagementModalComponent implements OnInit {
     this.form.reset();
   }
 
-addCustomerData() {
+  addCustomerData() {
     this.apiService.addCustomerData(this.form.value).subscribe({
       next: value => {
         this.toastService.show("Customer added successfully!", ToastClassEnum.success);
