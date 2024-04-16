@@ -7,6 +7,12 @@ export const referenceDataForm = new FormGroup({
   description: new FormControl('', [Validators.required]),
 });
 
+export const customerForm = new FormGroup({
+  name: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required]),
+  password: new FormControl('', [Validators.required]),
+});
+
 export const propertyForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required,]),
