@@ -5,6 +5,8 @@ import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto'
 import { ReferenceDataModel } from '../models/reference-data-model'
 import { Observable } from 'rxjs'
 import { ReferenceDataApiService } from '../services/reference-data-api.service'
+import { ToastClassEnum } from '../enums/toast-class-enum'
+import { ToastService } from '../services/toast.service'
 
 @Component({
   selector: 'app-reference-data',
@@ -16,7 +18,7 @@ export class ReferenceDataComponent {
   referenceDataList: ReferenceDataModel[]
   selectedRefDataType: string
 
-constructor(private modalService:NgbModal, private apiService: ReferenceDataApiService){}
+constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService){}
   
 ngOnInit(): void {
   this.referenceDataList$ = this.apiService.getAllReferenceData()
@@ -26,8 +28,13 @@ ngOnInit(): void {
 }
 
 deleteRefData(refDataType: string, refDataId: number) {
-  this.apiService.deleteReferenceData(refDataType, refDataId).subscribe(response => {
-    this.dropDownFilter()
+  this.apiService.deleteReferenceData(refDataType, refDataId).subscribe({
+    next:value => {
+      this.toastService.show("Reference data successfully deleted",ToastClassEnum.success),
+      this.dropDownFilter()
+    },
+    error:err =>
+      this.toastService.show("Error in deleting referenca data",ToastClassEnum.error),
   })
 }
 
