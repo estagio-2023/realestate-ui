@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { ReferenceDataModalComponent } from '../modals/reference-data-modal/reference-data-modal.component'
 import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto'
 import { ReferenceDataModel } from '../models/reference-data-model'
 import { Observable } from 'rxjs'
 import { ReferenceDataApiService } from '../services/reference-data-api.service'
+import { ToastClassEnum } from '../enums/toast-class-enum'
+import { ToastService } from '../services/toast.service'
 
 @Component({
   selector: 'app-reference-data',
@@ -16,34 +18,45 @@ export class ReferenceDataComponent {
   referenceDataList: ReferenceDataModel[]
   selectedRefDataType: string
 
-constructor(private modalService:NgbModal, private apiService: ReferenceDataApiService){}
+constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService){}
   
 ngOnInit(): void {
   this.referenceDataList$ = this.apiService.getAllReferenceData()
 
-  this.selectedRefDataType = '1'
+  this.selectedRefDataType = 'realestate_type'
   this.dropDownFilter()
+}
+
+deleteRefData(refDataType: string, refDataId: number) {
+  this.apiService.deleteReferenceData(refDataType, refDataId).subscribe({
+    next:value => {
+      this.toastService.show("Reference data successfully deleted",ToastClassEnum.success),
+      this.dropDownFilter()
+    },
+    error:err =>
+      this.toastService.show("Error in deleting referenca data",ToastClassEnum.error),
+  })
 }
 
 dropDownFilter(): void {
 
   switch(this.selectedRefDataType){
-    case '1':
-      this.referenceDataList$.subscribe(refDataList => {
-        this.referenceDataList = refDataList.typologies
-      })
-      break
-    case '2':
+    case 'realestate_type':
       this.referenceDataList$.subscribe(refDataList => {
         this.referenceDataList = refDataList.realEstateTypes
       })
       break
-    case '3':
+    case 'typology':
+      this.referenceDataList$.subscribe(refDataList => {
+        this.referenceDataList = refDataList.typologies
+      })
+      break
+    case 'city':
       this.referenceDataList$.subscribe(refDataList => {
         this.referenceDataList = refDataList.cities
       })
       break
-    case '4':
+    case 'amenity':
       this.referenceDataList$.subscribe(refDataList => {
         this.referenceDataList = refDataList.amenities
       })

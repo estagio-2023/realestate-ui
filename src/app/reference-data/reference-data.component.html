@@ -1,13 +1,13 @@
-<div id="container">
+<div class="d-flex align-items-center flex-column gap-1 p-1" id="container">
     <h3>Reference Data</h3>
-    <section id="ref-data-dropdown">
-        <div class="dropdown" id="dropdown">
+    <section class="d-flex align-items-center justify-content-between gap-1" id="ref-data-dropdown">
+        <div class="dropdown d-flex align-items-center gap-1" id="dropdown">
             <h5>Type:</h5>
             <select class="form-select" id="referenceDataDropDown" (change)="dropDownFilter()" [(ngModel)]="selectedRefDataType">
-                <option value="1">Realestate Type</option>
-                <option value="2">Typology</option>
-                <option value="3">Cities</option>
-                <option value="4">Amenities</option>
+                <option value="realestate_type">Realestate Type</option>
+                <option value="typology">Typology</option>
+                <option value="city">Cities</option>
+                <option value="amenity">Amenities</option>
             </select>
         </div>
         <button type="button" class="btn btn-primary" data-toggle="modal" (click)="openModal()">
@@ -23,15 +23,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let typology of referenceDataList">
+            <tr *ngFor="let refData of referenceDataList">
                 <td>
-                    {{typology.id}}
+                    {{refData.id}}
                 </td>
                 <td>
-                    {{typology.description}}
+                    {{refData.description}}
                 </td>
                 <td>
-                    <button class="border-0 bg-transparent">
+                    <button class="btn btn-danger py-1 px-2 float-end" (click)="deleteRefData(selectedRefDataType, refData.id)">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
