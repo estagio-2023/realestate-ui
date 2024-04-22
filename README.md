@@ -63,7 +63,7 @@ The UI is the visual part of the project, which allows the user to interact with
         </ul>
     <li>Clone the repository</li>
         <ul>
-            <li><code>git clone https://github.com/YOUR-USERNAME/estagio-2023/appcasas-ui</code></li>
+            <li><code>git clone https://github.com/YOUR-USERNAME/estagio-2023/realestate-ui</code></li>
         </ul>
     <li>Bootstrap</li>
         <ul>
@@ -81,4 +81,4 @@ The UI is the visual part of the project, which allows the user to interact with
 
  ## Contact
 Pedro Cruz - pedromiguel.cruz@cgi.com <br>
-Repository Link - https://github.com/estagio-2023/appcasas-ui
+Repository Link - https://github.com/estagio-2023/realestate-ui
