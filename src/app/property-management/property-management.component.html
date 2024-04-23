@@ -1,7 +1,7 @@
-<div id="container">
+<div id="container" class="d-flex flex-column gap-3 justify-content-center align-items-center">
   <h3 id="page-title">Property Management</h3>
-  <section id="properties">
-    <button class="btn btn-primary" id="button-add-property" type="button"
+  <section class="w-75">
+    <button class="btn btn-primary w-100" id="button-add-property" type="button"
       data-target="#exampleModal" (click)="openModal()"><i class="bi bi-plus"></i> Add Property</button>
     <div class="accordion" id="accordionExample">
       <div class="accordion-item">
@@ -18,7 +18,7 @@
             <p><strong>Construction Year:</strong></p>
             <p><strong>Square Meters:</strong></p>
             <p><strong>Energetic Class:</strong></p>
-            <button id="delete-property" type="button">Delete Property</button>
+            <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i></button>
           </div>
         </div>
       </div>
