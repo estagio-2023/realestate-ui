@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center flex-column gap-1 p-1" id="container">
     <h3>Reference Data</h3>
-    <section class="d-flex align-items-center justify-content-between gap-1" id="ref-data-dropdown">
+    <section class="d-flex align-items-center justify-content-between gap-1 w-75" id="ref-data-dropdown">
         <div class="dropdown d-flex align-items-center gap-1" id="dropdown">
             <h5>Type:</h5>
             <select class="form-select" id="referenceDataDropDown" (change)="dropDownFilter()" [(ngModel)]="selectedRefDataType">
@@ -14,7 +14,7 @@
             <i class="bi bi-plus"></i> Add
         </button>
     </section>
-    <table class="table table-striped" id="table">
+    <table class="table table-striped w-75" id="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
