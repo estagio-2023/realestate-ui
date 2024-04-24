@@ -18,55 +18,62 @@ export class ReferenceDataComponent {
   referenceDataList: ReferenceDataModel[]
   selectedRefDataType: string
 
-constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService){}
-  
-ngOnInit(): void {
-  this.referenceDataList$ = this.apiService.getAllReferenceData()
+  constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
 
-  this.selectedRefDataType = 'realestate_type'
-  this.dropDownFilter()
-}
+  ngOnInit(): void {
+    this.referenceDataList$ = this.apiService.getAllReferenceData()
 
-deleteRefData(refDataType: string, refDataId: number) {
-  this.apiService.deleteReferenceData(refDataType, refDataId).subscribe({
-    next:value => {
-      this.toastService.show("Reference data successfully deleted",ToastClassEnum.success),
-      this.dropDownFilter()
-    },
-    error:err =>
-      this.toastService.show("Error in deleting referenca data",ToastClassEnum.error),
-  })
-}
-
-dropDownFilter(): void {
-
-  switch(this.selectedRefDataType){
-    case 'realestate_type':
-      this.referenceDataList$.subscribe(refDataList => {
-        this.referenceDataList = refDataList.realEstateTypes
-      })
-      break
-    case 'typology':
-      this.referenceDataList$.subscribe(refDataList => {
-        this.referenceDataList = refDataList.typologies
-      })
-      break
-    case 'city':
-      this.referenceDataList$.subscribe(refDataList => {
-        this.referenceDataList = refDataList.cities
-      })
-      break
-    case 'amenity':
-      this.referenceDataList$.subscribe(refDataList => {
-        this.referenceDataList = refDataList.amenities
-      })
-      break
+    this.selectedRefDataType = 'realestate_type'
+    this.dropDownFilter()
   }
-}
-  
-openModal(){
-    this.modalService.open(ReferenceDataModalComponent, {
-      keyboard: false
+
+  deleteRefData(refDataType: string, refDataId: number) {
+    this.apiService.deleteReferenceData(refDataType, refDataId).subscribe({
+      next: value => {
+        this.toastService.show("Reference data successfully deleted", ToastClassEnum.success),
+          this.dropDownFilter()
+      },
+      error: err =>
+        this.toastService.show("Error in deleting referenca data", ToastClassEnum.error),
     })
   }
+
+  dropDownFilter(): void {
+
+    switch (this.selectedRefDataType) {
+      case 'realestate_type':
+        this.referenceDataList$.subscribe(refDataList => {
+          this.referenceDataList = refDataList.realEstateTypes
+        })
+        break
+      case 'typology':
+        this.referenceDataList$.subscribe(refDataList => {
+          this.referenceDataList = refDataList.typologies
+        })
+        break
+      case 'city':
+        this.referenceDataList$.subscribe(refDataList => {
+          this.referenceDataList = refDataList.cities
+        })
+        break
+      case 'amenity':
+        this.referenceDataList$.subscribe(refDataList => {
+          this.referenceDataList = refDataList.amenities
+        })
+        break
+    }
+  }
+
+  openModal() {
+    var response = this.modalService.open(ReferenceDataModalComponent, {
+      keyboard: false
+    })
+    response.result.then((data) => {
+      if (data != null) {
+        this.dropDownFilter();
+      }
+    })
+  }
+
+
 }

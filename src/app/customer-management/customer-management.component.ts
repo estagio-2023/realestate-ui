@@ -13,17 +13,27 @@ import { CustomerManagementModalComponent } from '../modals/customer-management-
 export class CustomerManagementComponent {
   customers: CustomerModel[]
 
-  constructor( private apiService: CustomerApiService, private modalService:NgbModal){}
-  
+  constructor(private apiService: CustomerApiService, private modalService: NgbModal) { }
+
   ngOnInit(): void {
+    this.loadCUstomerData()
+  }
+
+  loadCUstomerData() {
     this.apiService.getAllCustomerData().subscribe(response => {
       this.customers = response
     })
   }
-
-  openAddCustomerModal(){
-    this.modalService.open(CustomerManagementModalComponent, {
+  openAddCustomerModal() {
+    var response = this.modalService.open(CustomerManagementModalComponent, {
       keyboard: false
     });
+
+    response.result.then((data) => {
+      if (data != null) {
+        this.loadCUstomerData();
+      }
+    }
+    )
   }
 }

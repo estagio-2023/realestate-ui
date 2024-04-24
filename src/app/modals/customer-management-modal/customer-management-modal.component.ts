@@ -15,7 +15,7 @@ export class CustomerManagementModalComponent implements OnInit {
   form = customerForm;
   customers: CustomerModel[];
 
-  constructor(public activeModal: NgbActiveModal, private apiService: CustomerApiService, private toastService: ToastService) {}
+  constructor(public activeModal: NgbActiveModal, private apiService: CustomerApiService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.apiService.getAllCustomerData().subscribe(response => {
@@ -23,8 +23,8 @@ export class CustomerManagementModalComponent implements OnInit {
     });
   }
 
-  closeModal() {
-    this.activeModal.close();
+  closeModal(result: any) {
+    this.activeModal.close(result);
     this.form.reset();
   }
 
@@ -32,7 +32,7 @@ export class CustomerManagementModalComponent implements OnInit {
     this.apiService.addCustomerData(this.form.value).subscribe({
       next: value => {
         this.toastService.show("Customer added successfully!", ToastClassEnum.success);
-        this.closeModal();
+        this.closeModal(value);
       },
       error: err =>
         this.toastService.show("Error in adding customers", ToastClassEnum.error)
