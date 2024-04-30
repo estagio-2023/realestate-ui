@@ -3,15 +3,14 @@
   <section class="w-75">
     <button class="btn btn-primary w-100" id="button-add-property" type="button"
       data-target="#exampleModal" (click)="openModal()"><i class="bi bi-plus"></i> Add Property</button>
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item" *ngFor="let propertyHeader of propertiesHeaderList">
         <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            Typology - City I Title
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + propertyHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
+            {{propertyHeader.typologyId}} - {{propertyHeader.cityId}} I {{propertyHeader.title}}
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show">
+        <div [id]="'flush-collapseThree' + propertyHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <p><strong>Address:</strong></p>
             <p><strong>Postal Code:</strong></p>
