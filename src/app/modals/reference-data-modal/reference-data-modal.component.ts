@@ -19,8 +19,8 @@ export class ReferenceDataModalComponent implements OnInit {
     this.form.controls.type.setValue("");
   }
 
-  closeModal() {
-    this.activeModal.close();
+  closeModal(result:any) {
+    this.activeModal.close(result);
     this.form.reset();
   }
 
@@ -28,7 +28,7 @@ export class ReferenceDataModalComponent implements OnInit {
     this.refDataService.addReferenceData(this.form.controls.type.value!, this.form.value).subscribe({
       next: value => {
         this.toastService.show("Changes successfully saved!", ToastClassEnum.success),
-          this.closeModal()
+          this.closeModal(value)
       },
       error: err =>
         this.toastService.show("Error in saving changes", ToastClassEnum.error)

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { propertyForm } from '../../form/form.service';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PropertyManagementModalComponent } from '../modals/property-management-modal/property-management-modal.component';
 
@@ -8,11 +7,11 @@ import { PropertyManagementModalComponent } from '../modals/property-management-
   templateUrl: './property-management.component.html',
   styleUrl: './property-management.component.css'
 })
-export class PropertyManagementComponent{
+export class PropertyManagementComponent {
 
-constructor(private modalService:NgbModal){}
+  constructor(private modalService: NgbModal) { }
 
-  openModal(){
+  openModal() {
     this.modalService.open(PropertyManagementModalComponent, {
       keyboard: false
     });
