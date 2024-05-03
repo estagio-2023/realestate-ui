@@ -21,6 +21,12 @@ export class PropertyManagementComponent{
     })
   }
 
+  getPropertyBody(propertyId: number) {
+    this.apiService.getPropertyById(propertyId).subscribe(response => {
+      this.propertyBody = response
+    })
+  }
+
   openModal(){
     this.modalService.open(PropertyManagementModalComponent, {
       keyboard: false

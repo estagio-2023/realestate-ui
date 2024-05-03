@@ -6,18 +6,18 @@
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item" *ngFor="let propertyHeader of propertiesHeaderList">
         <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + propertyHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
+          <button class="accordion-button collapsed" type="button" (click)="getPropertyBody(propertyHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + propertyHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
             {{propertyHeader.typologyId}} - {{propertyHeader.cityId}} I {{propertyHeader.title}}
           </button>
         </h2>
         <div [id]="'flush-collapseThree' + propertyHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <p><strong>Address:</strong></p>
-            <p><strong>Postal Code:</strong></p>
-            <p><strong>Construction Year:</strong></p>
-            <p><strong>Square Meters:</strong></p>
-            <p><strong>Energetic Class:</strong></p>
-            <button id="delete-property" type="button">Delete Property</button>
+            <p><strong>Address:</strong> {{propertyBody?.address}}</p>
+            <p><strong>Postal Code:</strong> {{propertyBody?.zipCode}}</p>
+            <p><strong>Construction Year:</strong> {{propertyBody?.build_Date}}</p>
+            <p><strong>Square Meters:</strong> {{propertyBody?.squareMeter}}</p>
+            <p><strong>Energetic Class:</strong> {{propertyBody?.energyClass}}</p>
+            <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i></button>
           </div>
         </div>
       </div>

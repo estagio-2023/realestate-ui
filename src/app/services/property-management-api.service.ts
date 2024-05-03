@@ -15,4 +15,8 @@ export class PropertyManagementApiService {
   getAllProperties(): Observable<PropertyHeader[]> {
     return this.httpClient.get<PropertyHeader[]>(this.baseUrl + "RealEstate")
   }
+
+  getPropertyById(propertyId: number): Observable<PropertyBody> {
+    return this.httpClient.get<PropertyBody>(this.baseUrl + "RealEstate/" + propertyId)
+  }
 }
