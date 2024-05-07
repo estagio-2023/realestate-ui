@@ -7,6 +7,7 @@ import { Observable } from 'rxjs'
 import { ReferenceDataApiService } from '../services/reference-data-api.service'
 import { ToastClassEnum } from '../enums/toast-class-enum'
 import { ToastService } from '../services/toast.service'
+import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component'
 
 @Component({
   selector: 'app-reference-data',
@@ -26,18 +27,7 @@ export class ReferenceDataComponent {
     this.selectedRefDataType = 'realestate_type'
     this.dropDownFilter()
   }
-
-  deleteRefData(refDataType: string, refDataId: number) {
-    this.apiService.deleteReferenceData(refDataType, refDataId).subscribe({
-      next: value => {
-        this.toastService.show("Reference data successfully deleted", ToastClassEnum.success),
-          this.dropDownFilter()
-      },
-      error: err =>
-        this.toastService.show("Error in deleting referenca data", ToastClassEnum.error),
-    })
-  }
-
+  
   dropDownFilter(): void {
 
     switch (this.selectedRefDataType) {
@@ -75,5 +65,11 @@ export class ReferenceDataComponent {
     })
   }
 
+
+  deleteModal(){
+      this.modalService.open(DeleteValidationModalComponent, {
+      keyboard: false
+    })
+  }
 
 }
