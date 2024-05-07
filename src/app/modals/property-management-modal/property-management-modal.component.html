@@ -21,10 +21,10 @@
           </div>
 
           <div class="col-md-4 w-100">
-            <label for="postalCode" class="form-label fw-bold">Postal Code</label>
-            <input type="text" class="form-control" formControlName="postalCode" minlength="8" maxlength="8"
+            <label for="zipCode" class="form-label fw-bold">Zip Code</label>
+            <input type="text" class="form-control" formControlName="zipCode" minlength="8" maxlength="8"
               required="">
-            <app-error-message class="error-message" [control]="form.controls.postalCode"></app-error-message>
+            <app-error-message class="error-message" [control]="form.controls.zipCode"></app-error-message>
           </div>
 
           <div class="mb-3">
@@ -35,9 +35,9 @@
           </div>
 
           <div class="col-md-4 w-100">
-            <label for="constructionYear" class="form-label fw-bold">Construction Year</label>
-            <input type="number" class="form-control" formControlName="constructionYear" required>
-            <app-error-message class="error-message" [control]="form.controls.constructionYear"></app-error-message>
+            <label for="buildDate" class="form-label fw-bold">Build Date</label>
+            <input type="number" class="form-control" formControlName="buildDate" required>
+            <app-error-message class="error-message" [control]="form.controls.buildDate"></app-error-message>
           </div>
 
           <div class="col-md-4 w-100">
@@ -46,9 +46,9 @@
             <app-error-message class="error-message" [control]="form.controls.squareMeters"></app-error-message>
           </div>
 
-          <label for="energeticClass" class="fw-bold">Energetic Class</label>
+          <label for="energyClass" class="fw-bold">Energy Class</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Energetic Class Select" formControlName="energeticClass">
+            <select class="form-select" aria-label="Energy Class Select" formControlName="energyClass">
               <option value="1">A</option>
               <option value="2">B</option>
               <option value="3">C</option>
@@ -57,7 +57,7 @@
               <option value="6">F</option>
               <option value="7">G</option>
             </select>
-            <app-error-message class="error-message" [control]="form.controls.energeticClass"></app-error-message>
+            <app-error-message class="error-message" [control]="form.controls.energyClass"></app-error-message>
           </div>
 
           <label for="customer" class="fw-bold">Customer</label>
