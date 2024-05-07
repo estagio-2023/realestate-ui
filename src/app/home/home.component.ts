@@ -17,7 +17,7 @@ export class HomeComponent {
           link: '/property-management'
         },
         {
-          title: "Sellers",
+          title: "Agents",
           imgPath: "../../assets/home_page_icons/sellers.png",
           link: ''
         },
