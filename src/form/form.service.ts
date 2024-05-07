@@ -22,7 +22,7 @@ export const propertyForm = new FormGroup({
     squareMeters: new FormControl('', [Validators.required]),
     energeticClass: new FormControl('', [Validators.required]),
     customer: new FormControl('', [Validators.required]),
-    seller: new FormControl('', [Validators.required]),
+    agent: new FormControl('', [Validators.required]),
     propertyType: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     typology: new FormControl('', [Validators.required]),
