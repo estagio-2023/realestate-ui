@@ -18,7 +18,7 @@ export class HomeComponent {
         },
         {
           title: "Agents",
-          imgPath: "../../assets/home_page_icons/sellers.png",
+          imgPath: "../../assets/home_page_icons/agents.png",
           link: ''
         },
         {
