@@ -22,7 +22,7 @@ export class RealEstateManagementComponent{
   }
 
   getRealEstateBody(realEstateId: number) {
-    this.apiService.getRealEstatePropertyById(realEstateId).subscribe(response => {
+    this.apiService.getRealEstateById(realEstateId).subscribe(response => {
       this.realEstateBody = response
     })
   }
