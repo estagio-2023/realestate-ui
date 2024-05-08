@@ -5,8 +5,6 @@ import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto'
 import { ReferenceDataModel } from '../models/reference-data-model'
 import { Observable } from 'rxjs'
 import { ReferenceDataApiService } from '../services/reference-data-api.service'
-import { ToastClassEnum } from '../enums/toast-class-enum'
-import { ToastService } from '../services/toast.service'
 import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component'
 
 @Component({
@@ -18,12 +16,12 @@ export class ReferenceDataComponent {
   referenceDataList$: Observable<ReferenceDataResponseDto>
   referenceDataList: ReferenceDataModel[]
   selectedRefDataType: string
-
-  constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
+  refData: ReferenceDataResponseDto
+  
+  constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService) { }
 
   ngOnInit(): void {
     this.referenceDataList$ = this.apiService.getAllReferenceData()
-
     this.selectedRefDataType = 'realestate_type'
     this.dropDownFilter()
   }
@@ -65,11 +63,11 @@ export class ReferenceDataComponent {
     })
   }
 
-
-  deleteModal(){
-      this.modalService.open(DeleteValidationModalComponent, {
+  deleteModal(refDataId: number){
+    var response = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
+    response.componentInstance.refDataType = this.selectedRefDataType
+    response.componentInstance.refDataId = refDataId;
   }
-
 }
