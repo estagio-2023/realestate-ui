@@ -13,7 +13,7 @@ export const customerForm = new FormGroup({
   password: new FormControl('', [Validators.required]),
 });
 
-export const propertyForm = new FormGroup({
+export const realEstateForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required,]),
     zipCode: new FormControl('', [Validators.required]),
@@ -23,7 +23,7 @@ export const propertyForm = new FormGroup({
     energyClass: new FormControl('', [Validators.required]),
     customer: new FormControl('', [Validators.required]),
     seller: new FormControl('', [Validators.required]),
-    propertyType: new FormControl('', [Validators.required]),
+    realEstateType: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     typology: new FormControl('', [Validators.required]),
     amenities: new FormControl('', []),

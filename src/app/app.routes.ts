@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PropertyManagementComponent } from './property-management/property-management.component';
+import { PropertyManagementComponent } from './real-estate-management/real-estate-management.component';
 import { ReferenceDataComponent } from './reference-data/reference-data.component';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 

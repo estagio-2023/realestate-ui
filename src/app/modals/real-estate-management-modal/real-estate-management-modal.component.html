@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content" id="modal-content-id">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Property</h1>
+        <h1 class="modal-title fs-5">Real Estate</h1>
         <button type="button" class="shadow-none btn-close" (click)="closeModal()"></button>
       </div>
 
@@ -80,12 +80,12 @@
             <app-error-message class="error-message" [control]="form.controls.seller"></app-error-message>
           </div>
 
-          <label for="propertyType" class="fw-bold">Property Type</label>
+          <label for="realEstateType" class="fw-bold">Real Estate Type</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Propertype Select" formControlName="propertyType">
+            <select class="form-select" aria-label="RealEstatetype Select" formControlName="RealEstatetyType">
               <option value="{{realEstateType.id}}" *ngFor="let realEstateType of realEstateTypes">{{realEstateType.description}}</option>
             </select>
-            <app-error-message class="error-message" [control]="form.controls.propertyType"></app-error-message>
+            <app-error-message class="error-message" [control]="form.controls.realEstateType"></app-error-message>
           </div>
 
           <label for="city" class="fw-bold">City</label>
