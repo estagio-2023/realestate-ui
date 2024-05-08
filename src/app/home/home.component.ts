@@ -17,9 +17,9 @@ export class HomeComponent {
           link: '/real-estates'
         },
         {
-          title: "Sellers",
-          imgPath: "../../assets/home_page_icons/sellers.png",
-          link: ''
+          title: "Agents",
+          imgPath: "../../assets/home_page_icons/agents.png",
+          link: '/agents'
         },
         {
           title: "Customers",
