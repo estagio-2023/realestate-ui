@@ -71,7 +71,7 @@
           <label for="agent" class="fw-bold">Agent</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="Agent select" formControlName="agent">
-              <option value="1" *ngFor="let customer of customers">{{customer.id}}</option>
+              <option value="{{agent.id}}" *ngFor="let agent of agents">{{agent.name}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.agent"></app-error-message>
           </div>
