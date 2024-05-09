@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReferenceDataApiService } from '../../../services/reference-data-api.service';
@@ -11,16 +11,15 @@ import { ReferenceDataComponent } from '../../../reference-data/reference-data.c
   templateUrl: './delete-validation-modal.component.html',
   styleUrl: './delete-validation-modal.component.css'
 })
-export class DeleteValidationModalComponent{
+export class DeleteValidationModalComponent {
   referenceDataComponent: ReferenceDataComponent
   refDataType: string
   refDataId: number
-  
-  constructor(public activeModal: NgbActiveModal,private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService){}
- 
+
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
+
   closeModal() {
     this.activeModal.close()
-    
   }
 
   deleteRefData() {
@@ -31,7 +30,7 @@ export class DeleteValidationModalComponent{
       error: err =>
         this.toastService.show("Error in deleting referenca data", ToastClassEnum.error),
     })
-    
+
     this.closeModal()
   }
 }

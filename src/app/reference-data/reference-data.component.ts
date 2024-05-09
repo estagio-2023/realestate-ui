@@ -17,7 +17,7 @@ export class ReferenceDataComponent {
   referenceDataList: ReferenceDataModel[]
   selectedRefDataType: string
   refData: ReferenceDataResponseDto
-  
+
   constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService) { }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class ReferenceDataComponent {
     this.selectedRefDataType = 'realestate_type'
     this.dropDownFilter()
   }
-  
+
   dropDownFilter(): void {
 
     switch (this.selectedRefDataType) {
@@ -63,7 +63,7 @@ export class ReferenceDataComponent {
     })
   }
 
-  deleteModal(refDataId: number){
+  deleteModal(refDataId: number) {
     var response = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
