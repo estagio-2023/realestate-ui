@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PropertyManagementModalComponent } from '../modals/property-management-modal/property-management-modal.component';
 import { PropertyManagementApiService } from '../services/property-management-api.service';
 import { PropertyHeader, PropertyBody } from '../models/property-management-model';
+import { DeleteModalComponent } from '../modals/delete-real-estate-modal/delete-real-estate-modal.component';
 
 @Component({
   selector: 'app-property-management',
@@ -25,6 +26,13 @@ export class PropertyManagementComponent{
     this.apiService.getPropertyById(propertyId).subscribe(response => {
       this.propertyBody = response
     })
+  }
+
+  deleteModal(realEstateId: number){
+    var response = this.modalService.open(DeleteModalComponent, {
+      keyboard: false
+    })
+    response.componentInstance.realEstateId = realEstateId;
   }
 
   openModal(){

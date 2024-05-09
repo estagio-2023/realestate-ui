@@ -17,7 +17,9 @@
             <p><strong>Construction Year:</strong> {{propertyBody?.build_Date}}</p>
             <p><strong>Square Meters:</strong> {{propertyBody?.squareMeter}}</p>
             <p><strong>Energetic Class:</strong> {{propertyBody?.energyClass}}</p>
-            <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i></button>
+            <button class="btn btn-danger" type="button" (click)="deleteModal(propertyHeader.id)">
+              <i class="bi bi-trash"></i>
+            </button>
           </div>
         </div>
       </div>
