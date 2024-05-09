@@ -16,7 +16,7 @@ export class RealEstateManagementApiService {
     return this.httpClient.get<RealEstateHeader[]>(this.baseUrl + "RealEstate")
   }
 
-  getRealEstateById(propertyId: number): Observable<RealEstateBody> {
-    return this.httpClient.get<RealEstateBody>(this.baseUrl + "RealEstate/" + propertyId)
+  getRealEstateById(realEstateId: number): Observable<RealEstateBody> {
+    return this.httpClient.get<RealEstateBody>(this.baseUrl + "RealEstate/" + realEstateId)
   }
 }

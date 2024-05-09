@@ -63,9 +63,7 @@
           <label for="customer" class="fw-bold">Customer</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="Customer Select" formControlName="customer">
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="{{customer.id}}" *ngFor="let customer of customers">{{customer.name}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.customer"></app-error-message>
           </div>
@@ -73,9 +71,7 @@
           <label for="agent" class="fw-bold">Agent</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="Agent select" formControlName="agent">
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="1" *ngFor="let customer of customers">{{customer.id}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.agent"></app-error-message>
           </div>
