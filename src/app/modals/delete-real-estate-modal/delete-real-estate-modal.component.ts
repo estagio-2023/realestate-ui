@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PropertyManagementComponent } from '../../property-management/property-management.component';
+import { RealEstateManagementComponent } from '../../real-estate-management/real-estate-management.component';
 import { ToastService } from '../../services/toast.service';
 import { ToastClassEnum } from '../../enums/toast-class-enum';
-import { PropertyManagementApiService } from '../../services/property-management-api.service';
+import { RealEstateManagementApiService } from '../../services/real-estate-management-api.service';
 
 @Component({
   selector: 'app-delete-real-estate-modal',
@@ -12,13 +12,13 @@ import { PropertyManagementApiService } from '../../services/property-management
 })
 
 export class DeleteModalComponent {
-  RealEstateComponent: PropertyManagementComponent;
+  RealEstateComponent: RealEstateManagementComponent;
   realEstateId: number
 
   constructor(
     public activeModal: NgbActiveModal,
     private toastService: ToastService,
-    private apiService: PropertyManagementApiService
+    private apiService: RealEstateManagementApiService
   ) {}
 
   ngOnInit(): void {}
