@@ -17,6 +17,7 @@ export class RealEstateManagementModalComponent {
   form = realEstateForm
   typologies: ReferenceDataModel[]  
   realEstateTypes: ReferenceDataModel[]
+  amenities: ReferenceDataModel []
   cities: ReferenceDataModel[]
   customers : CustomerModel[]
   agents: AgentModel[]
