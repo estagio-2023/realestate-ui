@@ -16,10 +16,10 @@ export class CustomerManagementComponent {
   constructor(private apiService: CustomerApiService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.loadCUstomerData()
+    this.loadCustomerData()
   }
 
-  loadCUstomerData() {
+  loadCustomerData() {
     this.apiService.getAllCustomerData().subscribe(response => {
       this.customers = response
     })
@@ -31,7 +31,7 @@ export class CustomerManagementComponent {
 
     response.result.then((data) => {
       if (data != null) {
-        this.loadCUstomerData();
+        this.loadCustomerData();
       }
     }
     )
