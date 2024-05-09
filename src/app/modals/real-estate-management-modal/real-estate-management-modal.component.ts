@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core'
-import { propertyForm } from '../../../form/form.service'
+import { realEstateForm } from '../../../form/form.service'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { ReferenceDataApiService } from '../../services/reference-data-api.service'
 import { ReferenceDataModel } from '../../models/reference-data-model'
 
 @Component({
-  selector: 'app-property-management-modal',
-  templateUrl: './property-management-modal.component.html',
-  styleUrl: './property-management-modal.component.css'
+  selector: 'app-real-estate-management-modal',
+  templateUrl: './real-estate-management-modal.component.html',
+  styleUrl: './real-estate-management-modal.component.css'
 })
-export class PropertyManagementModalComponent {
-  form = propertyForm
+export class RealEstateManagementModalComponent {
+  form = realEstateForm
   typologies: ReferenceDataModel[]  
   realEstateTypes: ReferenceDataModel[]
   cities: ReferenceDataModel[]
