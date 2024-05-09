@@ -1,11 +1,11 @@
-export interface PropertyHeader {
+export interface RealEstateHeader {
     id: number,
     title: string,
     cityId: number,
     typologyId: number
 }
 
-export interface PropertyBody {
+export interface RealEstateBody {
     id: number,
     title: string,
     address: string,
