@@ -1,0 +1,16 @@
+<div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete confirmation</h1>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this item?</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-danger btn-primary" (click)="deleteRefData()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

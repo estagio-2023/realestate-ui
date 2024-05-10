@@ -80,7 +80,7 @@
 
           <label for="realEstateType" class="fw-bold">Real Estate Type</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="RealEstatetype Select" formControlName="RealEstatetyType" *ngIf="realEstateTypes?.length!==0">
+            <select class="form-select" aria-label="RealEstatetype Select" formControlName="realEstateType">
               <option value="{{realEstateType.id}}" *ngFor="let realEstateType of realEstateTypes">{{realEstateType.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.realEstateType"></app-error-message>
