@@ -62,70 +62,57 @@
 
           <label for="customer" class="fw-bold">Customer</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Customer Select" formControlName="customer" *ngIf="customers.length!=null">
+            <select class="form-select" aria-label="Customer Select" formControlName="customer" *ngIf="customers?.length!!==0">
               <option value="{{customer.id}}"  *ngFor="let customer of customers">{{customer.name}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.customer"></app-error-message>
-            <p *ngIf="this.customers.length==null">No customers available.</p>
+            <p *ngIf="customers?.length===0">No customers available.</p>
           </div>
 
           <label for="agent" class="fw-bold">Agent</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Agent select" formControlName="agent" *ngIf="agents.length!=null">
+            <select class="form-select" aria-label="Agent select" formControlName="agent" *ngIf="agents?.length!==0">
               <option value="{{agent.id}}" *ngFor="let agent of agents">{{agent.name}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.agent"></app-error-message>
-            <p *ngIf="this.agents.length==null">No agents available.</p>
+            <p *ngIf="agents?.length===0">No agents available.</p>
           </div>
 
           <label for="realEstateType" class="fw-bold">Real Estate Type</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="RealEstatetype Select" formControlName="RealEstatetyType" *ngIf="realEstateTypes.length!=null">
+            <select class="form-select" aria-label="RealEstatetype Select" formControlName="RealEstatetyType" *ngIf="realEstateTypes?.length!==0">
               <option value="{{realEstateType.id}}" *ngFor="let realEstateType of realEstateTypes">{{realEstateType.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.realEstateType"></app-error-message>
-            <p *ngIf="realEstateTypes.length==null">No Real Estate Types available.</p>
           </div>
+          <p *ngIf="realEstateTypes?.length===0">No Real Estate Types available.</p>
 
           <label for="city" class="fw-bold">City</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="City select" formControlName="city" *ngIf="cities!=null">
+            <select class="form-select" aria-label="City select" formControlName="city" *ngIf="cities?.length!==0">
               <option value="{{city.id}}" *ngFor="let city of cities">{{city.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.city"></app-error-message>
-            <p *ngIf="cities.length==null">No cities available.</p>
+            <p *ngIf="cities?.length===0">No Cities available.</p>
           </div>
 
           <label for="typology" class="fw-bold">Typology</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Typology select" formControlName="typology" *ngIf="typologies!=null">
+            <select class="form-select" aria-label="Typology select" formControlName="typology" *ngIf="typologies?.length!==0">
               <option value="{{typology.id}}" *ngFor="let typology of typologies">{{typology.description}}</option>
             </select>
             <app-error-message class="error-message" [control]="form.controls.typology"></app-error-message>
-            <p *ngIf="typologies==null">No typologies available.</p>
+            <p *ngIf="typologies?.length===0">No typologies available</p>
           </div>
 
           <div>
             <label for="Amenities" class="fw-bold">Amenities</label>
-            <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities">
-              <label class="form-check-label" >Laundry</label>
-            </div>
-            <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities">
-              <label class="form-check-label">Pool</label>
-            </div>
-            <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities">
-              <label class="form-check-label">Balcony</label>
-            </div>
-            <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox" formControlName="amenities">
-              <label class="form-check-label">Collection</label>
-            </div>
-            <div class="form-check col-md-4 w-100">
-              <input class="form-check-input" type="checkbox"formControlName="amenities">
-              <label class="form-check-label">Terrace</label>
+            <div *ngFor="let amenity of amenities">
+              <div class="form-check col-md-4 w-100" *ngIf="amenities?.length!==0">
+                <input value="{{amenity.id}}" class="form-check-input" type="checkbox" formControlName="amenities">
+                <label class="form-check-label" >{{amenity.description}}</label>
+              </div>
+              <p *ngIf="amenities?.length===0">No amenities available</p>
             </div>
           </div>
 

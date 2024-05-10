@@ -32,6 +32,7 @@ export class RealEstateManagementModalComponent {
     });
     this.customerApiService.getAllCustomerData().subscribe(response => {
       this.customers = response.filter(customer => customer.name)
+      console.log(this.customers?.length)
     })
     this.agentApiService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agents => agents.name)
