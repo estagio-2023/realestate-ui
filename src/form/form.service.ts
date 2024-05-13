@@ -21,11 +21,11 @@ export const realEstateForm = new FormGroup({
     buildDate: new FormControl('', [Validators.required]),
     squareMeters: new FormControl('', [Validators.required]),
     energyClass: new FormControl('', [Validators.required]),
-    customer: new FormControl('', [Validators.required]),
-    agent: new FormControl('', [Validators.required]),
-    realEstateType: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    typology: new FormControl('', [Validators.required]),
-    amenities: new FormControl('', []),
+    customerId: new FormControl<number>(0, [Validators.required]),
+    agentId: new FormControl<number>(0, [Validators.required]),
+    realEstateTypeId: new FormControl<number>(0, [Validators.required]),
+    cityId: new FormControl<number>(0, [Validators.required]),
+    typologyId: new FormControl('', [Validators.required]),
+    amenitiesId: new FormControl<number>(0, []),
     price: new FormControl('', [Validators.required])
   })
