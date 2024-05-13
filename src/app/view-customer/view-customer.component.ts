@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-customer',
-  standalone: true,
-  imports: [],
+  //standalone: true,
+  //imports: [],
   templateUrl: './view-customer.component.html',
   styleUrl: './view-customer.component.css'
 })
