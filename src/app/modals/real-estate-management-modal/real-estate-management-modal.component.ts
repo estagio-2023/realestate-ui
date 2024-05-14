@@ -36,7 +36,6 @@ export class RealEstateManagementModalComponent {
     });
     this.customerApiService.getAllCustomerData().subscribe(response => {
       this.customers = response.filter(customer => customer.name)
-      console.log(this.customers?.length)
     })
     this.agentApiService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agents => agents.name)
@@ -56,6 +55,5 @@ export class RealEstateManagementModalComponent {
       error: err =>
         this.toastService.show("Error in adding Real Estate", ToastClassEnum.error)
     });
-    console.log(this.form.value);
   }
 }
