@@ -17,3 +17,7 @@ export class ViewCustomerComponent {
   @Input() email = '';
 }
 
+
+
+
+

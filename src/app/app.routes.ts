@@ -26,8 +26,8 @@ const routerConfig: Routes = [
         component: CustomerManagementComponent,
         data: {title: 'Customer Management'}
     },
-    {
-        path:'customer/view-customer/:id',
+    { //Componente viewcustomer está a ser "exportado"
+        path:'view-customer/:id',
         component: ViewCustomerComponent,
         data: {title: 'Customer View'}
     }
