@@ -27,17 +27,18 @@ export class RealEstateManagementComponent {
     this.refDataApiService.getAllReferenceData().subscribe(response =>{
       this.cities = response.cities
       this.typologies = response.typologies
+      
+      for (let i = 0; i < this.realEstatesHeaderList.length; i++) {
+        let typology = this.typologies.find(typology => typology.id == this.realEstatesHeaderList[i].typologyId);
+        let city = this.cities.find(city => city.id == this.realEstatesHeaderList[i].cityId);
 
-      for(let i = 0; i < this.realEstatesHeaderList.length; i++){
-        this.realEstatesHeaderList.forEach(realEstateHeader => {
-          if(realEstateHeader.typologyId == this.typologies[i].id){
-            realEstateHeader.typologyId = this.typologies[i].description
-          }
-          if(realEstateHeader.cityId == this.cities[i].id){
-            realEstateHeader.cityId = this.cities[i].description
-          }
-        })
-      }      
+        if (typology) {
+            this.realEstatesHeaderList[i].typologyId = typology.description;
+        }
+        if (city) {
+            this.realEstatesHeaderList[i].cityId = city.description;
+        }
+    }    
     })
   }
 
