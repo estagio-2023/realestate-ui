@@ -38,7 +38,7 @@ export class RealEstateManagementComponent {
         if (city) {
             this.realEstatesHeaderList[i].cityId = city.description;
         }
-    }    
+      }
     })
   }
 
