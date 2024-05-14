@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RealEstateManagementModalComponent } from '../modals/real-estate-management-modal/real-estate-management-modal.component';
 import { RealEstateManagementApiService } from '../services/real-estate-management-api.service';
 import { RealEstateHeader, RealEstateBody } from '../models/real-estate-management-model';
+import { DeleteModalComponent } from '../modals/delete-real-estate-modal/delete-real-estate-modal.component';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -25,6 +26,13 @@ export class RealEstateManagementComponent{
     this.apiService.getRealEstateById(realEstateId).subscribe(response => {
       this.realEstateBody = response
     })
+  }
+
+  deleteModal(realEstateId: number){
+    var response = this.modalService.open(DeleteModalComponent, {
+      keyboard: false
+    })
+    response.componentInstance.realEstateId = realEstateId;
   }
 
   loadRealEstateData(){

@@ -27,4 +27,8 @@ export class RealEstateManagementApiService {
   addRealEstateData(realEstate: any){
     return this.httpClient.post<RealEstateBody>(this.baseUrl + 'RealEstate/', realEstate, this.httpOptions)
   }
+
+  deleteRealEstate(realEstateId: number) {
+    return this.httpClient.delete(this.baseUrl + "RealEstate/" + realEstateId)
+  }
 }
