@@ -18,7 +18,7 @@ export const realEstateForm = new FormGroup({
     address: new FormControl('', [Validators.required,]),
     zipCode: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    buildDate: new FormControl('', [Validators.required]),
+    buildDate: new FormControl<number>(0, [Validators.required]),
     squareMeters: new FormControl('', [Validators.required]),
     energyClass: new FormControl('', [Validators.required]),
     customerId: new FormControl<number>(0, [Validators.required]),
