@@ -19,4 +19,8 @@ export class RealEstateManagementApiService {
   getRealEstateById(propertyId: number): Observable<RealEstateBody> {
     return this.httpClient.get<RealEstateBody>(this.baseUrl + "RealEstate/" + propertyId)
   }
+
+  deleteRealEstate(realEstateId: number) {
+    return this.httpClient.delete(this.baseUrl + "RealEstate/" + realEstateId)
+  }
 }
