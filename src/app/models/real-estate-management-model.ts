@@ -11,7 +11,7 @@ export interface RealEstateBody {
     address: string,
     zipCode: string,
     description: string,
-    build_Date: string,
+    buildDate: string,
     price: number,
     squareMeter: number,
     energyClass: string,
