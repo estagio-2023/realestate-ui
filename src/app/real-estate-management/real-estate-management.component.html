@@ -4,7 +4,7 @@
     <button class="btn btn-primary w-100" id="button-add-real-estate" type="button"
       data-target="#exampleModal" (click)="openModal()"><i class="bi bi-plus"></i> Add Real Estate</button>
     <div class="accordion accordion-flush" id="accordionFlushExample">
-      <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList">
+      <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + realEstateHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
             {{realEstateHeader.typologyId}} - {{realEstateHeader.cityId}} I {{realEstateHeader.title}}
@@ -14,10 +14,12 @@
           <div class="accordion-body">
             <p><strong>Address:</strong> {{realEstateBody?.address}}</p>
             <p><strong>Zip Code:</strong> {{realEstateBody?.zipCode}}</p>
-            <p><strong>Build Date:</strong> {{realEstateBody?.build_Date}}</p>
+            <p><strong>Build Date:</strong> {{realEstateBody?.buildDate}}</p>
             <p><strong>Square Meters:</strong> {{realEstateBody?.squareMeter}}</p>
             <p><strong>Energy Class:</strong> {{realEstateBody?.energyClass}}</p>
-            <button class="btn btn-danger" type="button"><i class="bi bi-trash"></i></button>
+            <button class="btn btn-danger" type="button" (click)="deleteModal(realEstateHeader.id)">
+              <i class="bi bi-trash"></i>
+            </button>
           </div>
         </div>
       </div>
