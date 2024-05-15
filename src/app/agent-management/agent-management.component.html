@@ -1,7 +1,7 @@
 <div id="container" class="d-flex flex-column justify-content-center align-items-center">
     <h3 id="page-title">Agent Management</h3>
     <section id="agents" class="px-5 pt-3 w-75">
-      <button class="btn btn-primary w-100" id="button-add-agent" type="button"><i class="bi bi-plus"></i>Add Agent</button>
+      <button class="btn btn-primary w-100" id="button-add-agent" type="button" (click)="openAddAgentModal()"><i class="bi bi-plus"></i>Add Agent</button>
       <table class="table">
         <tbody>
           <tr *ngFor="let agent of this.agents">

@@ -17,6 +17,7 @@ import { CustomerManagementComponent } from './customer-management/customer-mana
 import { ToastComponent } from './toast/toast.component'
 import { CustomerManagementModalComponent } from './modals/customer-management-modal/customer-management-modal.component'
 import { AgentManagementComponent } from './agent-management/agent-management.component'
+import { AgentModalComponent } from './modals/agent-modal/agent-modal.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AgentManagementComponent } from './agent-management/agent-management.co
     CustomerManagementComponent,
     ToastComponent,
     CustomerManagementModalComponent,
-    AgentManagementComponent
+    AgentManagementComponent,
+    AgentModalComponent
   ],
   imports: [
     CommonModule,

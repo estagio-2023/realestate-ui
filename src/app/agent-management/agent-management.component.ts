@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AgentModel } from '../models/agent-model';
 import { AgentService } from '../services/agent.service';
+import { AgentModalComponent } from '../modals/agent-modal/agent-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-agent-management',
@@ -10,7 +12,7 @@ import { AgentService } from '../services/agent.service';
 export class AgentManagementComponent {
   agents: AgentModel[]
 
-  constructor(private apiService: AgentService) { }
+  constructor(private apiService: AgentService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.loadAgentData()
@@ -20,5 +22,18 @@ export class AgentManagementComponent {
     this.apiService.getAllAgentData().subscribe(response => {
       this.agents = response
     })
+  }
+
+  openAddAgentModal() {
+    var response = this.modalService.open(AgentModalComponent, {
+      keyboard: false
+    });
+
+    response.result.then((data) => {
+      if (data != null) {
+        this.loadAgentData();
+      }
+    }
+    )
   }
 }
