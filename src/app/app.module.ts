@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { CustomerManagementComponent } from './customer-management/customer-management.component'
 import { ToastComponent } from './toast/toast.component'
 import { CustomerManagementModalComponent } from './modals/customer-management-modal/customer-management-modal.component'
+import { AgentManagementComponent } from './agent-management/agent-management.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CustomerManagementModalComponent } from './modals/customer-management-m
     ErrorMessageComponent,
     CustomerManagementComponent,
     ToastComponent,
-    CustomerManagementModalComponent
+    CustomerManagementModalComponent,
+    AgentManagementComponent
   ],
   imports: [
     CommonModule,
