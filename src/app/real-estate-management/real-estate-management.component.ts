@@ -16,6 +16,8 @@ import { ReferenceDataModel } from '../models/reference-data-model';
 
 export class RealEstateManagementComponent{
   realEstatesHeaderList$: Observable<RealEstateHeader[]>
+  realEstatesHeaderList: RealEstateHeader[]
+  realEstateHeader: RealEstateHeader[]
   realEstateBody: RealEstateBody | undefined
   cities: ReferenceDataModel[]
   typologies: ReferenceDataModel[]
@@ -23,11 +25,12 @@ export class RealEstateManagementComponent{
   constructor(private modalService: NgbModal, private apiService: RealEstateManagementApiService, public refDataApiService: ReferenceDataApiService ) { }
 
   ngOnInit(): void {
-    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
-    this.apiService.getAllRealEstates().subscribe(response => {
-      this.realEstatesHeaderList = response
-    })
-    
+    this.loadRealEstateData();
+
+    this.realEstatesHeaderList$.subscribe(response => {
+      this.realEstatesHeaderList = response;
+    });
+
     this.refDataApiService.getAllReferenceData().subscribe(response =>{
       this.cities = response.cities
       this.typologies = response.typologies
