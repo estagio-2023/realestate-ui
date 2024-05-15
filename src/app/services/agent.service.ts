@@ -18,4 +18,8 @@ export class AgentService {
   getAllAgentData(): Observable<AgentModel[]> {
     return this.httpClient.get<AgentModel[]>(this.baseUrl + 'Agent');
   }
+
+  addAgentData(agent: any) {
+    return this.httpClient.post<AgentModel>(this.baseUrl + 'Agent/', agent, this.httpOptions);
+  }
 }
