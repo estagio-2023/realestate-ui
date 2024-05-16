@@ -7,7 +7,7 @@
       <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + realEstateHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
-            {{getRefDataByTypeIdDescription("typology", realEstateHeader.typologyId)}} - {{getRefDataByTypeIdDescription("city", realEstateHeader.cityId)}} I {{realEstateHeader.title}}
+            {{ (getRefDataByTypeIdDescription("typology", realEstateHeader.typologyId) | async) }} - {{ (getRefDataByTypeIdDescription("city", realEstateHeader.cityId) | async) }} I {{realEstateHeader.title}}
           </button>
         </h2>
         <div [id]="'flush-collapseThree' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
