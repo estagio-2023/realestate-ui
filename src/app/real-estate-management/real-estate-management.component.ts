@@ -30,23 +30,10 @@ export class RealEstateManagementComponent{
     this.realEstatesHeaderList$.subscribe(response => {
       this.realEstatesHeaderList = response;
     });
+  }
 
-    this.refDataApiService.getAllReferenceData().subscribe(response =>{
-      this.cities = response.cities
-      this.typologies = response.typologies
-      
-      for (let i = 0; i < this.realEstatesHeaderList.length; i++) {
-        let typology = this.typologies.find(typology => typology.id == this.realEstatesHeaderList[i].typologyId);
-        let city = this.cities.find(city => city.id == this.realEstatesHeaderList[i].cityId);
-
-        if (typology) {
-            this.realEstatesHeaderList[i].typologyId = typology.description;
-        }
-        if (city) {
-            this.realEstatesHeaderList[i].cityId = city.description;
-        }
-      }
-    })
+  getRefDataByTypeIdDescription(type: string, id: any){
+    this.refDataApiService.getRefDataById(type, id)
   }
 
   getRealEstateBody(realEstateId: number) {

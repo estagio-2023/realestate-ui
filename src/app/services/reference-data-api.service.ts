@@ -20,6 +20,10 @@ export class ReferenceDataApiService {
     return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
   }
 
+  getRefDataById(selectedRefDataType: string, refDataId: any){
+    return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataType, refDataId, this.httpOptions);
+  }
+
   addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
     return this.httpClient.post(this.baseUrl + 'ReferenceData/' + selectedRefDataModalType, addRefDataValueForm, this.httpOptions);
   }
