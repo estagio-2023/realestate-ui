@@ -1,8 +1,8 @@
 export interface RealEstateHeader {
     id: number,
     title: string,
-    cityId: any ,   
-    typologyId: any
+    cityId: number,   
+    typologyId: number
 }
 
 export interface RealEstateBody {
