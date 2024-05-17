@@ -1,64 +1,60 @@
 <div class="container bootstrap snippets bootdey">
-    <div class="panel-body inf-content">
-        <div class="row">
+    <div class="panel-body inf-content d-flex align-items-center justify-content-center">
+        <div class="row d-flex align-items-center">
             <div class="col-md-4">
                 <img alt="" style="width:500px;border-radius: 50%;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario"> 
                 <ul title="Ratings" class="list-inline ratings text-center">
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
                 </ul>
             </div>
-            <div class="col-md-8" >
-                <strong>Information</strong><br>
-                <div class="table-responsive">
-                <table class="table table-user-information">
-                    <tbody>
+            <div class="col-md-8 d-flex flex-column gap-4">
+                <h3><strong>Information</strong></h3>
+                <div class="table-responsive ">
+                <table class="table table-user-information" style="padding-top: 30px;">
+                    <tbody >
                         <tr>        
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                    Id              
+                                    <i class="bi bi-list-ol"></i>
+                                   Id   
                                 </strong>
+                                
                             </td>
                             <td class="text-primary">
-                                123456789     
+                                {{this.agentId}}
                             </td>
                         </tr>
                         <tr>    
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                    <i class="bi bi-file-person"></i>    
                                     Name            
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                Bootdey     
+                               {{this.agentData?.name}}
                             </td>
                         </tr>
                         <tr>        
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                    <i class="bi bi-envelope"></i>  
                                     Email                                                
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                Bootstrap  
+                                {{this.agentData?.email}}
                             </td>
                         </tr>
     
                         <tr>        
                             <td>
                                 <strong>
-                                    <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                    <i class="bi bi-phone"></i> 
                                     Phone Number                                                
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                bootnipets 
+                                {{this.agentData?.phoneNumber}}
                             </td>
                         </tr>                                 
                     </tbody>
