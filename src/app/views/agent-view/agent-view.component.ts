@@ -24,6 +24,5 @@ export class AgentViewComponent implements OnInit {
       this.apiService.getAgentById(this.agentId).subscribe(response => {
         this.agentData = response
       });
-    }
-    
+    }   
 }
