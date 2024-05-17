@@ -12,14 +12,14 @@ export class HomeComponent {
     {
       firstRow: [
         {
-          title: "Properties",
-          imgPath: "../../assets/home_page_icons/properties.png",
-          link: '/property-management'
+          title: "Real Estates",
+          imgPath: "../../assets/home_page_icons/real_estates.png",
+          link: '/real-estates'
         },
         {
-          title: "Sellers",
-          imgPath: "../../assets/home_page_icons/sellers.png",
-          link: ''
+          title: "Agents",
+          imgPath: "../../assets/home_page_icons/agents.png",
+          link: '/agents'
         },
         {
           title: "Customers",

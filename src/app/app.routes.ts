@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PropertyManagementComponent } from './property-management/property-management.component';
+import { RealEstateManagementComponent } from './real-estate-management/real-estate-management.component';
 import { ReferenceDataComponent } from './reference-data/reference-data.component';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
@@ -12,9 +12,9 @@ const routerConfig: Routes = [
         data: {title: 'Home Page'}
     },
     {
-        path: 'property-management',
-        component: PropertyManagementComponent,
-        data: {title: 'Property Management'}
+        path: 'real-estates',
+        component: RealEstateManagementComponent,
+        data: {title: 'Real Estate'}
     },
     {
         path: 'reference-data',

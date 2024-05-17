@@ -13,19 +13,19 @@ export const customerForm = new FormGroup({
   password: new FormControl('', [Validators.required]),
 });
 
-export const propertyForm = new FormGroup({
+export const realEstateForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required,]),
-    postalCode: new FormControl('', [Validators.required]),
+    zipCode: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    constructionYear: new FormControl('', [Validators.required]),
-    squareMeters: new FormControl('', [Validators.required]),
-    energeticClass: new FormControl('', [Validators.required]),
-    customer: new FormControl('', [Validators.required]),
-    seller: new FormControl('', [Validators.required]),
-    propertyType: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    typology: new FormControl('', [Validators.required]),
-    amenities: new FormControl('', []),
+    buildDate: new FormControl<number>(1900, [Validators.required]),
+    squareMeter: new FormControl<number>(0, [Validators.required]),
+    energyClass: new FormControl('', [Validators.required]),
+    customerId: new FormControl<number>(0, [Validators.required]),
+    agentId: new FormControl<number>(0, [Validators.required]),
+    realEstateTypeId: new FormControl<number>(0, [Validators.required]),
+    cityId: new FormControl<number>(0, [Validators.required]),
+    typologyId: new FormControl('', [Validators.required]),
+    amenitiesId: new FormControl<number>(0, []),
     price: new FormControl('', [Validators.required])
   })
