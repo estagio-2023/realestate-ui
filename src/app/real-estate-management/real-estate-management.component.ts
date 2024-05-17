@@ -4,71 +4,52 @@ import { RealEstateManagementModalComponent } from '../modals/real-estate-manage
 import { RealEstateManagementApiService } from '../services/real-estate-management-api.service';
 import { RealEstateHeader, RealEstateBody } from '../models/real-estate-management-model';
 import { DeleteModalComponent } from '../modals/delete-real-estate-modal/delete-real-estate-modal.component';
-import { Observable, of, forkJoin } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ReferenceDataApiService } from '../services/reference-data-api.service';
-import { ReferenceDataModel } from '../models/reference-data-model';
-import { map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-real-estate-management',
   templateUrl: './real-estate-management.component.html',
-  styleUrl: './real-estate-management.component.css'
+  styleUrls: ['./real-estate-management.component.css']
 })
 export class RealEstateManagementComponent implements OnInit {
   realEstatesHeaderList$: Observable<RealEstateHeader[]>;
   realEstatesHeaderList: RealEstateHeader[];
-  realEstateHeader: RealEstateHeader[];
   realEstateBody: RealEstateBody | undefined;
-  cities: { [key: number]: string } = {};
-  typologies: { [key: number]: string } = {};
-  private refDataCache = new Map<string, Observable<string>>();
+  typologyDescriptions: { [key: number]: string } = {};
+  cityDescriptions: { [key: number]: string } = {};
 
-  constructor(private modalService: NgbModal, private apiService: RealEstateManagementApiService, public refDataApiService: ReferenceDataApiService) { }
+  constructor(
+    private modalService: NgbModal,
+    private apiService: RealEstateManagementApiService,
+    private refDataApiService: ReferenceDataApiService
+  ) {}
 
   ngOnInit(): void {
     this.loadRealEstateData();
-
-    this.realEstatesHeaderList$.subscribe(response => {
-      this.realEstatesHeaderList = response;
-      this.preFetchReferenceData(response);
-    });
   }
 
-  preFetchReferenceData(realEstates: RealEstateHeader[]): void {
-    const cityIds = Array.from(new Set(realEstates.map(re => re.cityId)));
-    const typologyIds = Array.from(new Set(realEstates.map(re => re.typologyId)));
-
-    const cityObservables = cityIds.map(id => this.getRefDataByTypeIdDescription('city', id).pipe(
-      map(description => ({ id, description }))
-    ));
-    const typologyObservables = typologyIds.map(id => this.getRefDataByTypeIdDescription('typology', id).pipe(
-      map(description => ({ id, description }))
-    ));
-
-    forkJoin([...cityObservables, ...typologyObservables]).subscribe(results => {
-      results.forEach(result => {
-        if (result.id in this.cities) {
-          this.cities[result.id] = result.description;
-        } else {
-          this.typologies[result.id] = result.description;
-        }
+  loadRealEstateData() {
+    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
+    this.realEstatesHeaderList$.subscribe(response => {
+      this.realEstatesHeaderList = response;
+      response.forEach(response => {
+        this.getRefDataByTypeIdDescription('typology', response.typologyId);
+        this.getRefDataByTypeIdDescription('city', response .cityId);
       });
     });
   }
 
-  getRefDataByTypeIdDescription(type: string, id: number): Observable<string> {
-    const cacheKey = `${type}-${id}`;
-    if (this.refDataCache.has(cacheKey)) {
-      return this.refDataCache.get(cacheKey)!;
-    }
-
-    const refData$ = this.refDataApiService.getRefDataById(type, id).pipe(
-      map((response: ReferenceDataModel) => response.description),
-      catchError(() => of(''))
-    );
-
-    this.refDataCache.set(cacheKey, refData$);
-    return refData$;
+  getRefDataByTypeIdDescription(type: string, id: number) {
+    this.refDataApiService.getRefDataById(type, id).subscribe(response => {
+      if (response) {
+        if (type === 'typology') {
+          this.typologyDescriptions[id] = response.description;
+        } else if (type === 'city') {
+          this.cityDescriptions[id] = response.description;
+        }
+      }
+    });
   }
 
   getRealEstateBody(realEstateId: number) {
@@ -78,23 +59,18 @@ export class RealEstateManagementComponent implements OnInit {
   }
 
   deleteModal(realEstateId: number) {
-    var response = this.modalService.open(DeleteModalComponent, {
-      keyboard: false
-    });
-    response.componentInstance.realEstateId = realEstateId;
-  }
+    const modalRef = this.modalService.open(DeleteModalComponent, { keyboard: false });
+    modalRef.componentInstance.realEstateId = realEstateId;
 
-  loadRealEstateData() {
-    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
+    modalRef.result.then(() => {
+      this.loadRealEstateData();
+    }, () => {});
   }
 
   openModal() {
-    var response = this.modalService.open(RealEstateManagementModalComponent, {
-      keyboard: false
-    });
-
-    response.result.then((data) => {
-      if (data != null) {
+    const modalRef = this.modalService.open(RealEstateManagementModalComponent, { keyboard: false });
+    modalRef.result.then((data) => {
+      if (data) {
         this.loadRealEstateData();
       }
     });

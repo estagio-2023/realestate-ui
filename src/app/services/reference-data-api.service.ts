@@ -21,8 +21,8 @@ export class ReferenceDataApiService {
     return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
   }
 
-  getRefDataById(selectedRefDataType: string, refDataId: number): Observable<ReferenceDataModel> {
-    return this.httpClient.get<ReferenceDataModel>(`${this.baseUrl}ReferenceData/${selectedRefDataType}/${refDataId}`, this.httpOptions);
+  getRefDataById(RefDataType: string, refDataId: number): Observable<ReferenceDataModel> {
+    return this.httpClient.get<ReferenceDataModel>(`${this.baseUrl}ReferenceData/${RefDataType}/${refDataId}`);
   }
 
   addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
