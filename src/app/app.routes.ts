@@ -4,6 +4,7 @@ import { RealEstateManagementComponent } from './real-estate-management/real-est
 import { ReferenceDataComponent } from './reference-data/reference-data.component';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { AgentManagementComponent } from './agent-management/agent-management.component';
+import { AgentViewComponent } from './views/agent-view/agent-view.component';
 
 const routerConfig: Routes = [
     {
@@ -30,6 +31,11 @@ const routerConfig: Routes = [
         path: 'agent',
         component: AgentManagementComponent,
         data: {title: 'Agent Component'}
+    },
+    {
+        path: 'agent/view-agent/:id',
+        component: AgentViewComponent,
+        data: {title: 'Agent View'}
     }
 ];
 
