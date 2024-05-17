@@ -33,7 +33,7 @@ const routerConfig: Routes = [
         data: {title: 'Agent Component'}
     },
     {
-        path: 'agent/view::id',
+        path: 'agent/view-agent:id',
         component: AgentViewComponent,
         data: {title: 'Agent View'}
     }
