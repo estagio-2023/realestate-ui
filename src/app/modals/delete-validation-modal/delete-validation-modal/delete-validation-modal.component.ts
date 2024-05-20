@@ -5,6 +5,8 @@ import { ReferenceDataApiService } from '../../../services/reference-data-api.se
 import { ToastService } from '../../../services/toast.service';
 import { ToastClassEnum } from '../../../enums/toast-class-enum';
 import { ReferenceDataComponent } from '../../../reference-data/reference-data.component';
+import { Observable } from 'rxjs'
+import { ReferenceDataResponseDto } from '../../../dto/referenceDataResponseDto'; 
 
 @Component({
   selector: 'app-delete-validation-modal',
@@ -16,7 +18,7 @@ export class DeleteValidationModalComponent {
   refDataType: string
   refDataId: number
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
+  constructor(public activeModal: NgbActiveModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
 
   closeModal() {
     this.activeModal.close()

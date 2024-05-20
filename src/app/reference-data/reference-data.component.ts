@@ -21,13 +21,16 @@ export class ReferenceDataComponent {
   constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService) { }
 
   ngOnInit(): void {
-    this.referenceDataList$ = this.apiService.getAllReferenceData()
+    this.loadRefData()
     this.selectedRefDataType = 'realestate_type'
     this.dropDownFilter()
   }
 
-  dropDownFilter(): void {
+  loadRefData(){
+    this.referenceDataList$ = this.apiService.getAllReferenceData()
+  }
 
+  dropDownFilter(): void {
     switch (this.selectedRefDataType) {
       case 'realestate_type':
         this.referenceDataList$.subscribe(refDataList => {
@@ -67,7 +70,14 @@ export class ReferenceDataComponent {
     var response = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
+    
     response.componentInstance.refDataType = this.selectedRefDataType
     response.componentInstance.refDataId = refDataId;
+
+    response.result.then((data) => {
+      if (data != null) {
+        this.dropDownFilter()
+      }
+    })
   }
 }
