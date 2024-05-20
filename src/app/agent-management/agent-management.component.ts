@@ -3,6 +3,7 @@ import { AgentModel } from '../models/agent-model';
 import { AgentService } from '../services/agent.service';
 import { AgentModalComponent } from '../modals/agent-modal/agent-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteAgentValidationModalComponent } from '../modals/delete-agent-validation-modal/delete-agent-validation-modal.component';
 
 @Component({
   selector: 'app-agent-management',
@@ -36,4 +37,5 @@ export class AgentManagementComponent {
     }
     )
   }
+
 }

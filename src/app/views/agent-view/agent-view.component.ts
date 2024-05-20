@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AgentService } from '../../services/agent.service';
 import { AgentModel } from '../../models/agent-model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteAgentValidationModalComponent } from '../../modals/delete-agent-validation-modal/delete-agent-validation-modal.component';
 
 @Component({
   selector: 'app-agent-view',
@@ -15,7 +17,7 @@ export class AgentViewComponent implements OnInit {
     agentData: AgentModel | undefined
     agentId: number;
   
-    constructor(private activatedRoute: ActivatedRoute, private apiService: AgentService){}
+    constructor(private activatedRoute: ActivatedRoute, private apiService: AgentService, private modalService: NgbModal){}
 
     ngOnInit(): void {
       this.activatedRoute.params.subscribe(params => {
@@ -25,4 +27,11 @@ export class AgentViewComponent implements OnInit {
         this.agentData = response
       });
     }   
+    
+    deleteModal(agentId: number){
+      var response = this.modalService.open(DeleteAgentValidationModalComponent, {
+        keyboard: false
+      })
+      response.componentInstance.agentId = agentId;
+    }
 }
