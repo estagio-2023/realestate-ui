@@ -7,8 +7,6 @@ import { ViewCustomerComponent } from '../view-customer/view-customer.component'
 
 @Component({
   selector: 'app-customer-management',
-  //standalone: true,
-  //imports: [ViewCustomerComponent],
   templateUrl: './customer-management.component.html',
   styleUrl: './customer-management.component.css'
 })
