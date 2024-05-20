@@ -1,4 +1,3 @@
-//import { Component } from '@angular/core';
 import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerApiService } from '../services/customer-api.service';
