@@ -1,0 +1,14 @@
+<div id="container" class="d-flex flex-column justify-content-center align-items-center">
+    <h3 id="page-title">Agent Management</h3>
+    <section id="agents" class="px-5 pt-3 w-75">
+      <button class="btn btn-primary w-100" id="button-add-agent" type="button" (click)="openAddAgentModal()"><i class="bi bi-plus"></i>Add Agent</button>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let agent of this.agents">
+            <td class="text-start pt-3"> {{agent.name}}</td>
+            <td><button type="button" class="btn btn-secondary float-end btn-light" [routerLink]="['view-agent',agent.id]">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>

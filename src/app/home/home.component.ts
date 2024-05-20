@@ -19,7 +19,7 @@ export class HomeComponent {
         {
           title: "Agents",
           imgPath: "../../assets/home_page_icons/agents.png",
-          link: '/agents'
+          link: '/agent'
         },
         {
           title: "Customers",
