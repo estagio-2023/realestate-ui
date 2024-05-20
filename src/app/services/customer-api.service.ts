@@ -23,4 +23,8 @@ export class CustomerApiService {
   addCustomerData(customer: any) {
     return this.httpClient.post<CustomerModel>(this.baseUrl + 'Customer/', customer, this.httpOptions);
   }
+
+  getCustomerById(customerId: number): Observable<CustomerModel>{
+    return this.httpClient.get<CustomerModel>(this.baseUrl + "Customer/" + customerId)
+  }
 }
