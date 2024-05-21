@@ -4,7 +4,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastClassEnum } from '../../enums/toast-class-enum';
 import { ToastService } from '../../services/toast.service';
 import { AgentService } from '../../services/agent.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-agent-validation-modal',
