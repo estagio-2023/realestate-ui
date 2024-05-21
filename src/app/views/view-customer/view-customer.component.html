@@ -10,7 +10,7 @@
                 <strong>Information</strong><br>
                 <div class="table-responsive">
                 <table class="table table-user-information" style="padding-top: 30px;">
-                    <tbody>
+                    <tbody *ngIf="customerData$ | async as customerData">
                         <tr>        
                             <td>
                                 <strong>
@@ -19,7 +19,7 @@
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                {{this.customerId}}   
+                                {{customerData.id}}   
                             </td>
                         </tr>
                         <tr>    
