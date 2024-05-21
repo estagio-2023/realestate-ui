@@ -23,9 +23,8 @@ export class RealEstateManagementModalComponent {
   amenities: ReferenceDataModel []
   cities: ReferenceDataModel[]
   customers : CustomerModel[]
-  agents: AgentModel[]
 
-  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private agentApiService: AgentService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService  ){}
+  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService  ){}
 
   ngOnInit(): void {
     this.refDataApiService.getAllReferenceData().subscribe(response => {
@@ -36,9 +35,6 @@ export class RealEstateManagementModalComponent {
     });
     this.customerApiService.getAllCustomerData().subscribe(response => {
       this.customers = response.filter(customer => customer.name)
-    })
-    this.agentApiService.getAllAgentData().subscribe(response => {
-      this.agents = response.filter(agents => agents.name)
     })
   }
   closeModal(result: any) {

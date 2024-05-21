@@ -16,7 +16,6 @@ export interface RealEstateBody {
     squareMeter: number,
     energyClass: string,
     customerId: number,
-    agentId: number,
     realEstateTypeId: number,
     cityId: number,
     typologyId: number
