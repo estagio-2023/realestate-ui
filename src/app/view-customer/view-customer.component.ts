@@ -2,12 +2,12 @@ import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerApiService } from '../services/customer-api.service';
 import { CustomerModel } from '../models/customer-management-model';
+
 @Component({
   selector: 'app-view-customer',
   templateUrl: './view-customer.component.html',
   styleUrl: './view-customer.component.css'
 })
-
 
 export class ViewCustomerComponent implements OnInit {
   @Input() name = ''; 
@@ -26,12 +26,4 @@ export class ViewCustomerComponent implements OnInit {
       this.customerData = response
     });
   }
-  
 }
-
-
-
-
-
-
-
