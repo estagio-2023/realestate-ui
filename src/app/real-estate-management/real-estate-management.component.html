@@ -7,11 +7,11 @@
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' + realEstateHeader.id" aria-expanded="false">
+          <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' + realEstateHeader.id">
             {{ typologyDescriptions[realEstateHeader.typologyId] }} - {{ cityDescriptions[realEstateHeader.cityId] }} | {{ realEstateHeader.title }}
           </button>
         </h2>
-        <div [id]="'flush-collapse' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div [id]="'flush-collapse' + realEstateHeader.id" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body" *ngIf="realEstateBody && realEstateBody.id === realEstateHeader.id">
             <p><strong>Address:</strong> {{ realEstateBody.address }}</p>
             <p><strong>Zip Code:</strong> {{ realEstateBody.zipCode }}</p>

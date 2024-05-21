@@ -12,12 +12,14 @@ import { ReferenceDataApiService } from '../services/reference-data-api.service'
   templateUrl: './real-estate-management.component.html',
   styleUrls: ['./real-estate-management.component.css']
 })
+
 export class RealEstateManagementComponent implements OnInit {
   realEstatesHeaderList$: Observable<RealEstateHeader[]>;
   realEstatesHeaderList: RealEstateHeader[];
   realEstateBody: RealEstateBody | undefined;
   typologyDescriptions: { [key: number]: string } = {};
   cityDescriptions: { [key: number]: string } = {};
+  
 
   constructor(
     private modalService: NgbModal,
@@ -35,7 +37,7 @@ export class RealEstateManagementComponent implements OnInit {
       this.realEstatesHeaderList = response;
       response.forEach(response => {
         this.getRefDataByTypeIdDescription('typology', response.typologyId);
-        this.getRefDataByTypeIdDescription('city', response .cityId);
+        this.getRefDataByTypeIdDescription('city', response.cityId);
       });
     });
   }

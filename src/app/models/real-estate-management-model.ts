@@ -1,7 +1,7 @@
 export interface RealEstateHeader {
     id: number,
     title: string,
-    cityId: number,   
+    cityId: number,
     typologyId: number
 }
 
