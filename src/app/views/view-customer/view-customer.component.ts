@@ -1,7 +1,7 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CustomerApiService } from '../services/customer-api.service';
-import { CustomerModel } from '../models/customer-management-model';
+import { CustomerApiService } from '../../services/customer-api.service';
+import { CustomerModel } from '../../models/customer-management-model';
 
 @Component({
   selector: 'app-view-customer',

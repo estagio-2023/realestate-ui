@@ -5,7 +5,7 @@ import { ReferenceDataComponent } from './reference-data/reference-data.componen
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { AgentManagementComponent } from './agent-management/agent-management.component';
 import { AgentViewComponent } from './views/agent-view/agent-view.component';
-import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { ViewCustomerComponent } from './views/view-customer/view-customer.component';
 
 const routerConfig: Routes = [
     {

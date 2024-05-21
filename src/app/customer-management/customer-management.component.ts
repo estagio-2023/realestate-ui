@@ -3,7 +3,7 @@ import { CustomerApiService } from '../services/customer-api.service';
 import { CustomerModel } from '../models/customer-management-model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerManagementModalComponent } from '../modals/customer-management-modal/customer-management-modal.component';
-import { ViewCustomerComponent } from '../view-customer/view-customer.component';
+import { ViewCustomerComponent } from '../views/view-customer/view-customer.component';
 
 @Component({
   selector: 'app-customer-management',
