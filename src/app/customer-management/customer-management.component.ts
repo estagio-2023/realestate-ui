@@ -34,7 +34,6 @@ export class CustomerManagementComponent {
       if (data != null) {
         this.loadCustomerData();
       }
-    }
-    )
+    })
   }
 }

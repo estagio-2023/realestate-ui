@@ -21,7 +21,7 @@ export const realEstateForm = new FormGroup({
     buildDate: new FormControl<number>(1900, [Validators.required]),
     squareMeter: new FormControl<number>(0, [Validators.required]),
     energyClass: new FormControl('', [Validators.required]),
-    customerId: new FormControl<number>(0, [Validators.required]),
+    customer: new FormControl<number>(0, [Validators.required]),
     agentId: new FormControl<number>(0, [Validators.required]),
     realEstateTypeId: new FormControl<number>(0, [Validators.required]),
     cityId: new FormControl<number>(0, [Validators.required]),
