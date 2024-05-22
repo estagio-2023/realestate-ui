@@ -6,6 +6,7 @@ import { RealEstateHeader, RealEstateBody } from '../models/real-estate-manageme
 import { DeleteModalComponent } from '../modals/delete-real-estate-modal/delete-real-estate-modal.component';
 import { Observable } from 'rxjs';
 import { ReferenceDataApiService } from '../services/reference-data-api.service';
+import { refDataTypeEnum } from '../enums/referenceDataType-enum';
 
 @Component({
   selector: 'app-real-estate-management',
@@ -36,8 +37,8 @@ export class RealEstateManagementComponent implements OnInit {
     this.realEstatesHeaderList$.subscribe(response => {
       this.realEstatesHeaderList = response;
       response.forEach(response => {
-        this.getRefDataByTypeIdDescription('typology', response.typologyId);
-        this.getRefDataByTypeIdDescription('city', response.cityId);
+        this.getRefDataByTypeIdDescription(refDataTypeEnum.typology, response.typologyId);
+        this.getRefDataByTypeIdDescription(refDataTypeEnum.city, response.cityId);
       });
     });
   }
@@ -45,9 +46,9 @@ export class RealEstateManagementComponent implements OnInit {
   getRefDataByTypeIdDescription(type: string, id: number) {
     this.refDataApiService.getRefDataById(type, id).subscribe(response => {
       if (response) {
-        if (type === 'typology') {
+        if (type === refDataTypeEnum.typology) {
           this.typologyDescriptions[id] = response.description;
-        } else if (type === 'city') {
+        } else if (type === refDataTypeEnum.city) {
           this.cityDescriptions[id] = response.description;
         }
       }

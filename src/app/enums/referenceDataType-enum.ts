@@ -1,6 +1,6 @@
-export enum refDataTypeEnum{
-    typology,
-    city,
-    amenity,
-    realestate_type
+export enum refDataTypeEnum {
+    typology = 'typology',
+    city = 'city',
+    amenity = 'amenity',
+    realestate_type = 'realestate_type'
 }
