@@ -70,7 +70,7 @@ export class ReferenceDataComponent {
     })
   }
 
-  deleteModal(refDataId: number) {
+  openDeleteModal(refDataId: number) {
     var modalRef = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
