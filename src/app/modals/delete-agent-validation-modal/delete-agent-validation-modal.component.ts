@@ -15,7 +15,7 @@ export class DeleteAgentValidationModalComponent {
   agentComponent: AgentManagementComponent
   agentId: number
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private apiService: AgentService, private toastService: ToastService, private route: Router) { }
+  constructor(public activeModal: NgbActiveModal, private apiService: AgentService, private toastService: ToastService, private route: Router) { }
 
   closeModal() {
     this.activeModal.close()
