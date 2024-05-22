@@ -30,4 +30,8 @@ export class AgentService {
   deleteAgent(agentId: number) {
     return this.httpClient.delete(this.baseUrl + "Agent/" + agentId)
   }
+
+  editAgent(agentId: number, updatedData: any){
+    return this.httpClient.put(this.baseUrl + "Agent/" + agentId, updatedData);
+  }
 }

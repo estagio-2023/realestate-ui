@@ -14,24 +14,24 @@ export const customerForm = new FormGroup({
 });
 
 export const realEstateForm = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    address: new FormControl('', [Validators.required,]),
-    zipCode: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    buildDate: new FormControl<number>(1900, [Validators.required]),
-    squareMeter: new FormControl<number>(0, [Validators.required]),
-    energyClass: new FormControl('', [Validators.required]),
-    customerId: new FormControl<number>(0, [Validators.required]),
-    agentId: new FormControl<number>(0, [Validators.required]),
-    realEstateTypeId: new FormControl<number>(0, [Validators.required]),
-    cityId: new FormControl<number>(0, [Validators.required]),
-    typologyId: new FormControl('', [Validators.required]),
-    amenitiesId: new FormControl<number>(0, []),
-    price: new FormControl('', [Validators.required])
-  });
+  title: new FormControl('', [Validators.required]),
+  address: new FormControl('', [Validators.required,]),
+  zipCode: new FormControl('', [Validators.required]),
+  description: new FormControl('', [Validators.required]),
+  buildDate: new FormControl<number>(1900, [Validators.required]),
+  squareMeter: new FormControl<number>(0, [Validators.required]),
+  energyClass: new FormControl('', [Validators.required]),
+  customerId: new FormControl<number>(0, [Validators.required]),
+  agentId: new FormControl<number>(0, [Validators.required]),
+  realEstateTypeId: new FormControl<number>(0, [Validators.required]),
+  cityId: new FormControl<number>(0, [Validators.required]),
+  typologyId: new FormControl('', [Validators.required]),
+  amenitiesId: new FormControl<number>(0, []),
+  price: new FormControl('', [Validators.required])
+});
 
-  export const agentForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phone_number: new FormControl('', [Validators.required]),
-  });
+export const agentForm = new FormGroup({
+  name: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required, Validators.email]),
+  phoneNumber: new FormControl('', [Validators.required]),
+});

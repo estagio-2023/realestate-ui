@@ -32,7 +32,7 @@
                                     </strong>
                                 </td>
                                 <td class="text-primary">
-                                    {{this.agentData?.name}}
+                                    {{agentData.name}}
                                 </td>
                             </tr>
                             <tr>
@@ -43,7 +43,7 @@
                                     </strong>
                                 </td>
                                 <td class="text-primary">
-                                    {{this.agentData?.email}}
+                                    {{agentData.email}}
                                 </td>
                             </tr>
 
@@ -55,7 +55,7 @@
                                     </strong>
                                 </td>
                                 <td class="text-primary"> 
-                                    {{this.agentData?.phoneNumber}}
+                                    {{agentData.phoneNumber}}
                                 </td>
                             </tr>
                         </tbody>
@@ -65,7 +65,7 @@
                     <button class="btn btn-danger float-end" type="button" (click)="deleteModal(this.agentId)">
                         <i class="bi bi-trash"></i>
                       </button>
-                    <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button">
+                    <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button" (click)="openEditModal(agentData)">
                         <i class="bi bi-pencil"></i>
                     </button>
                 </div>

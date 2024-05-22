@@ -21,17 +21,17 @@
             </div>
 
             <div class="col-md-4 w-100">
-              <label for="phone_number" class="form-label fw-bold">Phone Number</label>
-              <input type="tel" class="form-control" formControlName="phone_number" minlength="13" maxlength="13"
+              <label for="phoneNumber" class="form-label fw-bold">Phone Number</label>
+              <input type="tel" class="form-control" formControlName="phoneNumber" minlength="13" maxlength="13"
                 required="">
-                <app-error-message class="error-message" [control]="form.controls.phone_number"></app-error-message>
+                <app-error-message class="error-message" [control]="form.controls.phoneNumber"></app-error-message>
             </div>
           </form>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeModal(null)">Cancel</button>
-          <button type="button" class="btn btn-primary" (click)="addAgentData()" [disabled]="form.invalid">Save changes</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal('cancel')">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="closeModal('save')" [disabled]="form.invalid || !isFormChanged">Save changes</button>
         </div>
       </div>
     </div>
