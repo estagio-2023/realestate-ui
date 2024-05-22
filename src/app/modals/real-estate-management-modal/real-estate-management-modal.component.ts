@@ -25,7 +25,7 @@ export class RealEstateManagementModalComponent {
   customers : CustomerModel[]
   agents: AgentModel[]
 
-  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private agentApiService: AgentService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService  ){}
+  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private agentApiService: AgentService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService){}
 
   ngOnInit(): void {
     this.refDataApiService.getAllReferenceData().subscribe(response => {
