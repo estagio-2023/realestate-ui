@@ -1,0 +1,75 @@
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content d-flex align-items-center justify-content-center">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-4">
+                <img alt="" style="width:500px;border-radius: 50%;" title="" class="img-circle img-thumbnail isTooltip"
+                    src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario">
+                <ul title="Ratings" class="list-inline ratings text-center">
+                </ul>
+            </div>
+            <div class="col-md-8 d-flex flex-column gap-4">
+                <h3><strong>Information</strong></h3>
+                <div class="table-responsive">
+                    <table class="table table-user-information" style="padding-top: 30px;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <i class="bi bi-list-ol"></i>
+                                        Id
+                                    </strong>
+
+                                </td>
+                                <td class="text-primary">
+                                    {{this.agentId}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <i class="bi bi-file-person"></i>
+                                        Name
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{this.agentData?.name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <i class="bi bi-envelope"></i>
+                                        Email
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{this.agentData?.email}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <i class="bi bi-phone"></i>
+                                        Phone Number
+                                    </strong>
+                                </td>
+                                <td class="text-primary"> 
+                                    {{this.agentData?.phoneNumber}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button class="btn btn-danger float-end" type="button" (click)="deleteModal(this.agentId)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

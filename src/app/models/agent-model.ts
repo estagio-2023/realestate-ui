@@ -1,6 +1,6 @@
 export interface AgentModel {
     id: number
     name: string
-    phone_number: string
+    phoneNumber: string
     email: string
 }
