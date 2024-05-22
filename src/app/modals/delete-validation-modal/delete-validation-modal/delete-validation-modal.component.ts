@@ -3,7 +3,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReferenceDataApiService } from '../../../services/reference-data-api.service';
 import { ToastService } from '../../../services/toast.service';
-import { ReferenceDataComponent } from '../../../reference-data/reference-data.component';
 
 @Component({
   selector: 'app-delete-validation-modal',
@@ -11,7 +10,7 @@ import { ReferenceDataComponent } from '../../../reference-data/reference-data.c
   styleUrl: './delete-validation-modal.component.css'
 })
 export class DeleteValidationModalComponent {
-  
+
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
 
   closeModal(action: string) {
