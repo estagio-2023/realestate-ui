@@ -5,8 +5,6 @@ import { ReferenceDataApiService } from '../../services/reference-data-api.servi
 import { ReferenceDataModel } from '../../models/reference-data-model'
 import { CustomerApiService } from '../../services/customer-api.service'
 import { CustomerModel } from '../../models/customer-management-model'
-import { AgentModel } from '../../models/agent-model'
-import { AgentService } from '../../services/agent.service'
 import { RealEstateManagementApiService } from '../../services/real-estate-management-api.service'
 import { ToastClassEnum } from '../../enums/toast-class-enum'
 import { ToastService } from '../../services/toast.service'
@@ -23,7 +21,6 @@ export class RealEstateManagementModalComponent {
   amenities: ReferenceDataModel []
   cities: ReferenceDataModel[]
   customers : CustomerModel[]
-  agents: AgentModel[]
 
   constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private agentApiService: AgentService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService){}
 
@@ -36,9 +33,6 @@ export class RealEstateManagementModalComponent {
     });
     this.customerApiService.getAllCustomerData().subscribe(response => {
       this.customers = response.filter(customer => customer.name)
-    })
-    this.agentApiService.getAllAgentData().subscribe(response => {
-      this.agents = response.filter(agents => agents.name)
     })
   }
   closeModal(result: any) {

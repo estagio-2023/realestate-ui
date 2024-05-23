@@ -33,5 +33,5 @@ export const realEstateForm = new FormGroup({
   export const agentForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone_number: new FormControl('', [Validators.required]),
+    phonenumber: new FormControl('', [Validators.required]),
   });

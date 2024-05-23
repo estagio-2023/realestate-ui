@@ -27,4 +27,8 @@ export class AgentService {
   addAgentData(agent: any) {
     return this.httpClient.post<AgentModel>(this.baseUrl + 'Agent/', agent, this.httpOptions);
   }
+
+  deleteAgent(agentId: number) {
+    return this.httpClient.delete(this.baseUrl + "Agent/" + agentId)
+  }
 }
