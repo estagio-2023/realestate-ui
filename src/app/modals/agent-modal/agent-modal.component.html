@@ -1,38 +1,39 @@
 <div class="modal d-block">
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content" id="modal-content-id">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5">Agent</h1>
-          <button type="button" class="shadow-none btn-close" (click)="closeModal(null)"></button>
-        </div>
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content" id="modal-content-id">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Agent</h1>
+        <button type="button" class="shadow-none btn-close" (click)="closeModal('cancel')"></button>
+      </div>
 
-        <div class="modal-body">
-          <form [formGroup]="form" class="row g-3 d-flex flex-column">
-            <div class="col-md-4 w-100">
-              <label for="name" class="form-label fw-bold">Name</label>
-              <input type="text" class="form-control" formControlName="name">
-              <app-error-message class="error-message" [control]="form.controls.name"></app-error-message>
-            </div>
+      <div class="modal-body">
+        <form [formGroup]="form" class="row g-3 d-flex flex-column">
+          <div class="col-md-4 w-100">
+            <label for="name" class="form-label fw-bold">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <app-error-message class="error-message" [control]="form.controls.name"></app-error-message>
+          </div>
 
-            <div class="col-md-4 w-100">
-              <label for="email" class="form-label fw-bold">Email</label>
-              <input type="text" class="form-control" id="email" formControlName="email">
-              <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
-            </div>
+          <div class="col-md-4 w-100">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
+          </div>
 
-            <div class="col-md-4 w-100">
-              <label for="phonenumber" class="form-label fw-bold">Phone Number</label>
-              <input type="tel" class="form-control" formControlName="phonenumber" minlength="13" maxlength="13"
-                required="">
-                <app-error-message class="error-message" [control]="form.controls.phonenumber"></app-error-message>
-            </div>
-          </form>
-        </div>
+          <div class="col-md-4 w-100">
+            <label for="phoneNumber" class="form-label fw-bold">Phone Number</label>
+            <input type="tel" class="form-control" formControlName="phoneNumber" minlength="13" maxlength="13"
+              required="">
+            <app-error-message class="error-message" [control]="form.controls.phoneNumber"></app-error-message>
+          </div>
+        </form>
+      </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeModal(null)">Cancel</button>
-          <button type="button" class="btn btn-primary" (click)="addAgentData()" [disabled]="form.invalid">Save changes</button>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal('cancel')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="closeModal('save')"
+          [disabled]="form.invalid || !isFormChanged">Save changes</button>
       </div>
     </div>
   </div>
+</div>
