@@ -62,10 +62,10 @@
 
           <label for="customer" class="fw-bold">Customer</label>
           <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Customer Select" formControlName="customer" *ngIf="customers?.length!!==0">
+            <select class="form-select" aria-label="Customer Select" formControlName="customerId" *ngIf="customers?.length!!==0">
               <option value="{{customer.id}}"  *ngFor="let customer of customers">{{customer.name}}</option>
             </select>
-            <app-error-message class="error-message" [control]="form.controls.customer"></app-error-message>
+            <app-error-message class="error-message" [control]="form.controls.customerId"></app-error-message>
             <p *ngIf="customers?.length===0">No customers available.</p>
           </div>
 

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteAgentValidationModalComponent } from '../../modals/delete-agent-validation-modal/delete-agent-validation-modal.component';
 import { Router } from '@angular/router';
+import { DeleteValidationModalComponent } from '../../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component';
 
 @Component({
   selector: 'app-view-customer',
@@ -32,7 +33,7 @@ export class ViewCustomerComponent implements OnInit {
   }
 
   deleteCustomer(customerId: number){
-    var response2 = this.modalService.open(DeleteAgentValidationModalComponent, {
+    var response2 = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
   }
