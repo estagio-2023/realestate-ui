@@ -5,6 +5,7 @@ import { CustomerModel } from '../../models/customer-management-model';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteAgentValidationModalComponent } from '../../modals/delete-agent-validation-modal/delete-agent-validation-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-customer',
@@ -16,7 +17,7 @@ export class ViewCustomerComponent implements OnInit {
   customerData$: Observable<CustomerModel> 
   customerId: number;
   
-  constructor(private activatedRoute: ActivatedRoute, private apiService: CustomerApiService, private modalService: NgbModal){}
+  constructor(private activatedRoute: ActivatedRoute, private apiService: CustomerApiService, private modalService: NgbModal, private router: Router){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
