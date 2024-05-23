@@ -34,6 +34,11 @@ export class AgentModalComponent {
   }
 
   closeModal(result: any) {
+    if(result === 'cancel')
+    {
+      this.form.reset()
+    }
+    
     this.activeModal.close(result);
   }
 
