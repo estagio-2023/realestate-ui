@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component';
 import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
+import { ReferenceDataApiService } from '../services/reference-data-api.service';
+import { refDataTypeEnum } from '../enums/referenceDataType-enum';
 
 @Component({
   selector: 'app-real-estate-management',
@@ -83,10 +85,6 @@ export class RealEstateManagementComponent implements OnInit {
       error: (err) =>
         this.toastService.show( 'Error in deleting real estate data', ToastClassEnum.error)
     });
-  }
-
-  loadRealEstateData(){
-    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
   }
 
   openModal() {
