@@ -3,8 +3,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RealEstateManagementModalComponent } from '../modals/real-estate-management-modal/real-estate-management-modal.component';
 import { RealEstateManagementApiService } from '../services/real-estate-management-api.service';
 import { RealEstateHeader, RealEstateBody } from '../models/real-estate-management-model';
-import { DeleteModalComponent } from '../modals/delete-real-estate-modal/delete-real-estate-modal.component';
 import { Observable } from 'rxjs';
+import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component';
+import { ToastService } from '../services/toast.service';
+import { ToastClassEnum } from '../enums/toast-class-enum';
 import { ReferenceDataApiService } from '../services/reference-data-api.service';
 import { refDataTypeEnum } from '../enums/referenceDataType-enum';
 
@@ -24,7 +26,7 @@ export class RealEstateManagementComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private apiService: RealEstateManagementApiService,
+    private apiService: RealEstateManagementApiService, private toastService: ToastService,
     private refDataApiService: ReferenceDataApiService
   ) {}
 
@@ -61,13 +63,32 @@ export class RealEstateManagementComponent implements OnInit {
     });
   }
 
-  deleteModal(realEstateId: number) {
-    const modalRef = this.modalService.open(DeleteModalComponent, { keyboard: false });
-    modalRef.componentInstance.realEstateId = realEstateId;
+  openDeleteModal(realEstateId: number){
+    var modalRef = this.modalService.open(DeleteValidationModalComponent, {
+      keyboard: false
+    })
 
-    modalRef.result.then(() => {
-      this.loadRealEstateData();
-    }, () => {});
+    modalRef.result.then(resp => {
+      if(resp === 'confirm')
+      {
+        this.deleteRealEstate(realEstateId)
+      }
+    })
+  }
+
+  deleteRealEstate(realEstateId: number) {
+    this.apiService.deleteRealEstate(realEstateId).subscribe({
+      next: (value) => {
+        this.toastService.show('Real Estate successfully deleted', ToastClassEnum.success)
+        this.loadRealEstateData()
+      },
+      error: (err) =>
+        this.toastService.show( 'Error in deleting real estate data', ToastClassEnum.error)
+    });
+  }
+
+  loadRealEstateData(){
+    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
   }
 
   openModal() {
