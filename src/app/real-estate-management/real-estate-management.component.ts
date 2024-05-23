@@ -31,7 +31,6 @@ export class RealEstateManagementComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private apiService: RealEstateManagementApiService, private toastService: ToastService,
-    private apiService: RealEstateManagementApiService, private toastService: ToastService,
     private refDataApiService: ReferenceDataApiService
   ) {}
 
