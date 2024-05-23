@@ -9,6 +9,7 @@ import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
 import { ReferenceDataApiService } from '../services/reference-data-api.service';
 import { refDataTypeEnum } from '../enums/referenceDataType-enum';
+import { ReferenceDataModel } from '../models/reference-data-model';
 
 @Component({
   selector: 'app-real-estate-management',
@@ -22,6 +23,9 @@ export class RealEstateManagementComponent implements OnInit {
   realEstateBody: RealEstateBody | undefined;
   typologyDescriptions: { [key: number]: string } = {};
   cityDescriptions: { [key: number]: string } = {};
+
+  typologyRefData: ReferenceDataModel[]
+  cityRefData: ReferenceDataModel[]
   
 
   constructor(
@@ -31,30 +35,20 @@ export class RealEstateManagementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadRealEstateData();
+    this.loadReferenceData()
+    this.loadRealEstateData()
   }
 
   loadRealEstateData() {
     this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
-    this.realEstatesHeaderList$.subscribe(response => {
-      this.realEstatesHeaderList = response;
-      response.forEach(response => {
-        this.getRefDataByTypeIdDescription(refDataTypeEnum.typology, response.typologyId);
-        this.getRefDataByTypeIdDescription(refDataTypeEnum.city, response.cityId);
-      });
-    });
   }
 
-  getRefDataByTypeIdDescription(type: string, id: number) {
-    this.refDataApiService.getRefDataById(type, id).subscribe(response => {
-      if (response) {
-        if (type === refDataTypeEnum.typology) {
-          this.typologyDescriptions[id] = response.description;
-        } else if (type === refDataTypeEnum.city) {
-          this.cityDescriptions[id] = response.description;
-        }
-      }
-    });
+  loadReferenceData()
+  {
+    this.refDataApiService.getAllReferenceData().subscribe(refData => {
+      this.typologyRefData = refData.typologies
+      this.cityRefData = refData.cities
+    })
   }
 
   getRealEstateBody(realEstateId: number) {
@@ -87,12 +81,22 @@ export class RealEstateManagementComponent implements OnInit {
     });
   }
 
-  openModal() {
+  openAddRealEstateModal() {
     const modalRef = this.modalService.open(RealEstateManagementModalComponent, { keyboard: false });
     modalRef.result.then((data) => {
       if (data) {
         this.loadRealEstateData();
       }
     });
+  }
+
+  getTypologyText(typologyId: number)
+  {
+    return this.typologyRefData?.find(x => x.id === typologyId)?.description
+  }
+
+  getCityText(cityId: number)
+  {
+    return this.cityRefData?.find(x => x.id === cityId)?.description 
   }
 }
