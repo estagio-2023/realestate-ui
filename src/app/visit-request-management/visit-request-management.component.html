@@ -1,34 +1,14 @@
-<div id="container" class="d-flex flex-column gap-3 justify-content-center align-items-center">
+<div id="container" class="d-flex flex-column justify-content-center align-items-center">
     <h3 id="page-title">Visit Request Management</h3>
-    <section class="w-75">
-        <button class="btn btn-primary w-100" id="button-add-real-estate" type="button" data-target="#exampleModal">
-            <i class="bi bi-plus"></i> Add Visit Request
-        </button>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button"
-                        (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse"
-                        [attr.data-bs-target]="'#flush-collapseThree' + realEstateHeader.id" aria-expanded="false"
-                        aria-controls="flush-collapseThree">
-                        {{ AgentName[realEstateHeader.fkAgentId] }} - {{ realEstateHeader.date }} | {{
-                        RealEstateName[realEstateHeader.fkRealEstateId] }}
-                    </button>
-                </h2>
-                <div [id]="'flush-collapseThree' + realEstateHeader.id" class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <p><strong>Address:</strong> {{realEstateBody.address}}</p>
-                        <p><strong>Zip Code:</strong> {{realEstateBody.zipCode}}</p>
-                        <p><strong>Start Date:</strong> {{realEstateHeader.startTime}}</p>
-                        <p><strong>End Date:</strong> {{realEstateHeader.endTime}}</p>
-                        <p><strong>Confirmed:</strong> {{realEstateHeader.confirmed}}</p>
-                        <button class="btn btn-danger" type="button">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="customers" class="px-5 pt-3 w-75">
+      <button class="btn btn-primary w-100" id="button-add-customer" type="button"><i class="bi bi-plus"></i>Add Visit Request</button>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">
+            <td class="text-start pt-3"> {{realEstateHeader.title}}</td>
+            <td><button type="button" class="btn btn-secondary float-end btn-light">View</button></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-</div>
+  </div>
