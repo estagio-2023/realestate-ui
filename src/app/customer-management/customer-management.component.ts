@@ -3,7 +3,7 @@ import { CustomerApiService } from '../services/customer-api.service';
 import { CustomerModel } from '../models/customer-management-model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerManagementModalComponent } from '../modals/customer-management-modal/customer-management-modal.component';
-import { ViewCustomerComponent } from '../views/view-customer/view-customer.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customer-management',
@@ -12,7 +12,7 @@ import { ViewCustomerComponent } from '../views/view-customer/view-customer.comp
 })
 
 export class CustomerManagementComponent {
-  customers: CustomerModel[]
+  customers$: Observable<CustomerModel[]>
 
   constructor(private apiService: CustomerApiService, private modalService: NgbModal) { }
 
@@ -21,9 +21,7 @@ export class CustomerManagementComponent {
   }
 
   loadCustomerData() {
-    this.apiService.getAllCustomerData().subscribe(response => {
-      this.customers = response
-    })
+    this.customers$ = this.apiService.getAllCustomerData();
   }
   openAddCustomerModal() {
     var response = this.modalService.open(CustomerManagementModalComponent, {

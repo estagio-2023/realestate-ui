@@ -13,6 +13,7 @@ export class AgentService {
   }
 
   baseUrl = "http://localhost:5152/";
+  
   constructor(private httpClient: HttpClient) { }
 
   getAllAgentData(): Observable<AgentModel[]> {
@@ -29,5 +30,9 @@ export class AgentService {
 
   deleteAgent(agentId: number) {
     return this.httpClient.delete(this.baseUrl + "Agent/" + agentId)
+  }
+
+  editAgent(agentId: number, updatedData: any){
+    return this.httpClient.put(this.baseUrl + "Agent/" + agentId, updatedData);
   }
 }
