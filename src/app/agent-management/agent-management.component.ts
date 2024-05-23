@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { agentForm } from '../../form/form.service';
 import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-agent-management',
@@ -13,7 +14,7 @@ import { ToastClassEnum } from '../enums/toast-class-enum';
   styleUrl: './agent-management.component.css'
 })
 export class AgentManagementComponent {
-  agents: AgentModel[]
+  agents$: Observable<AgentModel[]>
   form = agentForm
 
   constructor(private apiService: AgentService, private modalService: NgbModal, private toastService: ToastService) { }
@@ -22,17 +23,14 @@ export class AgentManagementComponent {
     this.loadAgentData()
   }
 
-  loadAgentData() {
-    this.apiService.getAllAgentData().subscribe(response => {
-      this.agents = response
-    })
+  loadAgentData(){
+    this.agents$ = this.apiService.getAllAgentData()
   }
 
   openAddAgentModal() {
     var response = this.modalService.open(AgentModalComponent, {
       keyboard: false
     });
-
     response.result.then((data) => {
       if (data === 'save') {
         this.apiService.addAgentData(this.form.value).subscribe({
@@ -47,7 +45,6 @@ export class AgentManagementComponent {
           }
         });
       }
-    }
-    )
+    })
   }
 }

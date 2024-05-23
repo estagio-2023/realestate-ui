@@ -6,6 +6,8 @@ import { ReferenceDataModel } from '../models/reference-data-model'
 import { Observable } from 'rxjs'
 import { ReferenceDataApiService } from '../services/reference-data-api.service'
 import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component'
+import { ToastService } from '../services/toast.service'
+import { ToastClassEnum } from '../enums/toast-class-enum'
 
 @Component({
   selector: 'app-reference-data',
@@ -18,16 +20,20 @@ export class ReferenceDataComponent {
   selectedRefDataType: string
   refData: ReferenceDataResponseDto
 
-  constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService) { }
+  constructor(private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
 
   ngOnInit(): void {
-    this.referenceDataList$ = this.apiService.getAllReferenceData()
+    this.loadReferenceData()
     this.selectedRefDataType = 'realestate_type'
     this.dropDownFilter()
   }
 
-  dropDownFilter(): void {
+  loadReferenceData()
+  {
+    this.referenceDataList$ = this.apiService.getAllReferenceData()
+  }
 
+  dropDownFilter(): void {
     switch (this.selectedRefDataType) {
       case 'realestate_type':
         this.referenceDataList$.subscribe(refDataList => {
@@ -53,21 +59,37 @@ export class ReferenceDataComponent {
   }
 
   openModal() {
-    var response = this.modalService.open(ReferenceDataModalComponent, {
+    var modalRef = this.modalService.open(ReferenceDataModalComponent, {
       keyboard: false
     })
-    response.result.then((data) => {
+    modalRef.result.then((data) => {
       if (data != null) {
         this.dropDownFilter();
       }
     })
   }
 
-  deleteModal(refDataId: number) {
-    var response = this.modalService.open(DeleteValidationModalComponent, {
+  openDeleteModal(refDataId: number) {
+    var modalRef = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
     })
-    response.componentInstance.refDataType = this.selectedRefDataType
-    response.componentInstance.refDataId = refDataId;
+
+    modalRef.result.then(resp => {
+      if(resp === 'confirm')
+      {
+        this.deleteReferenceData(refDataId)
+      }
+    })
+  }
+
+  deleteReferenceData(refDataId: number) {
+    this.apiService.deleteReferenceData(this.selectedRefDataType, refDataId).subscribe({
+      next: value => {
+        this.toastService.show("Reference data successfully deleted", ToastClassEnum.success)
+        this.dropDownFilter();
+      },
+      error: err =>
+        this.toastService.show("Error in deleting referenca data", ToastClassEnum.error),
+    })
   }
 }

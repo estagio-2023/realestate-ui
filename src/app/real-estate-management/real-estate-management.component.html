@@ -1,23 +1,24 @@
 <div id="container" class="d-flex flex-column gap-3 justify-content-center align-items-center">
   <h3 id="page-title">Real Estate Management</h3>
   <section class="w-75">
-    <button class="btn btn-primary w-100" id="button-add-real-estate" type="button"
-      data-target="#exampleModal" (click)="openModal()"><i class="bi bi-plus"></i> Add Real Estate</button>
+    <button class="btn btn-primary w-100" id="button-add-real-estate" type="button" (click)="openAddRealEstateModal()">
+      <i class="bi bi-plus"></i> Add Real Estate
+    </button>
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item" *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapseThree' + realEstateHeader.id" aria-expanded="false" aria-controls="flush-collapseThree">
-            {{realEstateHeader.typologyId}} - {{realEstateHeader.cityId}} I {{realEstateHeader.title}}
+          <button class="accordion-button collapsed" type="button" (click)="getRealEstateBody(realEstateHeader.id)" data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' + realEstateHeader.id">
+            {{getTypologyText(realEstateHeader.typologyId)}} - {{getCityText(realEstateHeader.cityId)}} | {{ realEstateHeader.title }}
           </button>
         </h2>
-        <div [id]="'flush-collapseThree' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div [id]="'flush-collapse' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <p><strong>Address:</strong> {{realEstateBody?.address}}</p>
             <p><strong>Zip Code:</strong> {{realEstateBody?.zipCode}}</p>
             <p><strong>Build Date:</strong> {{realEstateBody?.buildDate}}</p>
             <p><strong>Square Meters:</strong> {{realEstateBody?.squareMeter}}</p>
             <p><strong>Energy Class:</strong> {{realEstateBody?.energyClass}}</p>
-            <button class="btn btn-danger" type="button" (click)="deleteModal(realEstateHeader.id)">
+            <button class="btn btn-danger" type="button" (click)="openDeleteModal(realEstateHeader.id)">
               <i class="bi bi-trash"></i>
             </button>
           </div>
