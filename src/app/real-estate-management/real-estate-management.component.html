@@ -11,7 +11,7 @@
             {{ typologyDescriptions[realEstateHeader.typologyId] }} - {{ cityDescriptions[realEstateHeader.cityId] }} | {{ realEstateHeader.title }}
           </button>
         </h2>
-        <div [id]="'flush-collapseThree' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div [id]="'flush-collapse' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <p><strong>Address:</strong> {{realEstateBody?.address}}</p>
             <p><strong>Zip Code:</strong> {{realEstateBody?.zipCode}}</p>
