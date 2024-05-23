@@ -11,14 +11,14 @@
             {{ typologyDescriptions[realEstateHeader.typologyId] }} - {{ cityDescriptions[realEstateHeader.cityId] }} | {{ realEstateHeader.title }}
           </button>
         </h2>
-        <div [id]="'flush-collapse' + realEstateHeader.id" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body" *ngIf="realEstateBody && realEstateBody.id === realEstateHeader.id">
-            <p><strong>Address:</strong> {{ realEstateBody.address }}</p>
-            <p><strong>Zip Code:</strong> {{ realEstateBody.zipCode }}</p>
-            <p><strong>Build Date:</strong> {{ realEstateBody.buildDate }}</p>
-            <p><strong>Square Meters:</strong> {{ realEstateBody.squareMeter }}</p>
-            <p><strong>Energy Class:</strong> {{ realEstateBody.energyClass }}</p>
-            <button class="btn btn-danger" type="button" (click)="deleteModal(realEstateHeader.id)">
+        <div [id]="'flush-collapseThree' + realEstateHeader.id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p><strong>Address:</strong> {{realEstateBody?.address}}</p>
+            <p><strong>Zip Code:</strong> {{realEstateBody?.zipCode}}</p>
+            <p><strong>Build Date:</strong> {{realEstateBody?.buildDate}}</p>
+            <p><strong>Square Meters:</strong> {{realEstateBody?.squareMeter}}</p>
+            <p><strong>Energy Class:</strong> {{realEstateBody?.energyClass}}</p>
+            <button class="btn btn-danger" type="button" (click)="openDeleteModal(realEstateHeader.id)">
               <i class="bi bi-trash"></i>
             </button>
           </div>

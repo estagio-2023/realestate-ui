@@ -69,15 +69,6 @@
             <p *ngIf="customers?.length===0">No customers available.</p>
           </div>
 
-          <label for="agent" class="fw-bold">Agent</label>
-          <div class="col-md-4 w-100">
-            <select class="form-select" aria-label="Agent select" formControlName="agentId" *ngIf="agents?.length!==0">
-              <option value="{{agent.id}}" *ngFor="let agent of agents">{{agent.name}}</option>
-            </select>
-            <app-error-message class="error-message" [control]="form.controls.agentId"></app-error-message>
-            <p *ngIf="agents?.length===0">No agents available.</p>
-          </div>
-
           <label for="realEstateType" class="fw-bold">Real Estate Type</label>
           <div class="col-md-4 w-100">
             <select class="form-select" aria-label="RealEstatetype Select" formControlName="realEstateTypeId" *ngIf="realEstateTypes?.length!==0">
