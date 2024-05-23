@@ -16,13 +16,13 @@ export class AgentManagementComponent {
   agents: AgentModel[]
   form = agentForm
 
-  constructor(private apiService: AgentService, private modalService: NgbModal,  private toastService: ToastService) { }
+  constructor(private apiService: AgentService, private modalService: NgbModal, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.loadAgentData()
   }
 
-  loadAgentData(){
+  loadAgentData() {
     this.apiService.getAllAgentData().subscribe(response => {
       this.agents = response
     })
@@ -45,7 +45,7 @@ export class AgentManagementComponent {
             this.toastService.show("Error in adding agents", ToastClassEnum.error);
             console.error(err);
           }
-        });     
+        });
       }
     }
     )

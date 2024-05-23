@@ -4,7 +4,6 @@ import { AgentModel } from '../../models/agent-model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AgentService } from '../../services/agent.service';
 import { ToastService } from '../../services/toast.service';
-import { Form } from '@angular/forms';
 import _ from 'lodash';
 import { Subscription } from 'rxjs';
 
