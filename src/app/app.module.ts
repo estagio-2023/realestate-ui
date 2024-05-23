@@ -19,6 +19,7 @@ import { CustomerManagementModalComponent } from './modals/customer-management-m
 import { AgentManagementComponent } from './agent-management/agent-management.component'
 import { AgentModalComponent } from './modals/agent-modal/agent-modal.component'
 import { VisitRequestManagementComponent } from './visit-request-management/visit-request-management.component'
+import { VisitRequestViewComponent } from './views/visit-request-view/visit-request-view.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VisitRequestManagementComponent } from './visit-request-management/visi
     CustomerManagementModalComponent,
     AgentManagementComponent,
     AgentModalComponent,
-    VisitRequestManagementComponent
+    VisitRequestManagementComponent,
+    VisitRequestViewComponent
   ],
   imports: [
     CommonModule,
