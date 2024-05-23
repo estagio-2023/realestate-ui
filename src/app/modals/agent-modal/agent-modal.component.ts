@@ -24,7 +24,7 @@ export class AgentModalComponent {
   }
 
   closeModal(result: any) {
-    this.activeModal.close();
+    this.activeModal.close(result);
     this.form.reset();
   }
 
@@ -36,7 +36,7 @@ export class AgentModalComponent {
           this.closeModal(value);
       },
       error: err =>
-        this.toastService.show("Error in adding agents", ToastClassEnum.error)
+        this.toastService.show("Error in adding agent", ToastClassEnum.error)
     });
   }
 }

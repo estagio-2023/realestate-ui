@@ -11,7 +11,7 @@ import { ToastService } from '../../../services/toast.service';
 })
 export class DeleteValidationModalComponent {
 
-  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
+  constructor(public activeModal: NgbActiveModal, private apiService: ReferenceDataApiService, private toastService: ToastService) { }
 
   closeModal(action: string) {
     this.activeModal.close(action)

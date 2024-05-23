@@ -13,6 +13,7 @@ export class AgentService {
   }
 
   baseUrl = "http://localhost:5152/";
+  
   constructor(private httpClient: HttpClient) { }
 
   getAllAgentData(): Observable<AgentModel[]> {

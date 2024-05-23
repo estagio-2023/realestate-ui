@@ -8,6 +8,7 @@ import { CustomerModel } from '../../models/customer-management-model'
 import { RealEstateManagementApiService } from '../../services/real-estate-management-api.service'
 import { ToastClassEnum } from '../../enums/toast-class-enum'
 import { ToastService } from '../../services/toast.service'
+import { AgentService } from '../../services/agent.service'
 
 @Component({
   selector: 'app-real-estate-management-modal',
@@ -22,7 +23,7 @@ export class RealEstateManagementModalComponent {
   cities: ReferenceDataModel[]
   customers : CustomerModel[]
 
-  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService  ){}
+  constructor(public activeModal: NgbActiveModal, private refDataApiService: ReferenceDataApiService, private customerApiService: CustomerApiService, private agentApiService: AgentService, private realEstateApiService: RealEstateManagementApiService, private toastService: ToastService){}
 
   ngOnInit(): void {
     this.refDataApiService.getAllReferenceData().subscribe(response => {

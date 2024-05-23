@@ -34,7 +34,6 @@ export class ReferenceDataComponent {
   }
 
   dropDownFilter(): void {
-
     switch (this.selectedRefDataType) {
       case 'realestate_type':
         this.referenceDataList$.subscribe(refDataList => {

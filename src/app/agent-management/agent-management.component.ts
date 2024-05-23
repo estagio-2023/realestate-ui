@@ -3,6 +3,7 @@ import { AgentModel } from '../models/agent-model';
 import { AgentService } from '../services/agent.service';
 import { AgentModalComponent } from '../modals/agent-modal/agent-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-agent-management',
@@ -10,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './agent-management.component.css'
 })
 export class AgentManagementComponent {
-  agents: AgentModel[]
+  agents$: Observable<AgentModel[]>
 
   constructor(private apiService: AgentService, private modalService: NgbModal) { }
 
@@ -19,21 +20,17 @@ export class AgentManagementComponent {
   }
 
   loadAgentData(){
-    this.apiService.getAllAgentData().subscribe(response => {
-      this.agents = response
-    })
+    this.agents$ = this.apiService.getAllAgentData()
   }
 
   openAddAgentModal() {
     var response = this.modalService.open(AgentModalComponent, {
       keyboard: false
     });
-
     response.result.then((data) => {
       if (data != null) {
-        this.loadAgentData();
+        this.loadAgentData()
       }
-    }
-    )
+    })
   }
 }
