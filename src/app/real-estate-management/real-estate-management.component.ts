@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RealEstateManagementModalComponent } from '../modals/real-estate-management-modal/real-estate-management-modal.component';
 import { RealEstateManagementApiService } from '../services/real-estate-management-api.service';
@@ -7,27 +7,54 @@ import { Observable } from 'rxjs';
 import { DeleteValidationModalComponent } from '../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component';
 import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
+import { ReferenceDataApiService } from '../services/reference-data-api.service';
+import { refDataTypeEnum } from '../enums/referenceDataType-enum';
+import { ReferenceDataModel } from '../models/reference-data-model';
 
 @Component({
   selector: 'app-real-estate-management',
   templateUrl: './real-estate-management.component.html',
-  styleUrl: './real-estate-management.component.css'
+  styleUrls: ['./real-estate-management.component.css']
 })
 
-export class RealEstateManagementComponent{
-  realEstatesHeaderList$: Observable<RealEstateHeader[]>
-  realEstateBody: RealEstateBody | undefined
+export class RealEstateManagementComponent implements OnInit {
+  realEstatesHeaderList$: Observable<RealEstateHeader[]>;
+  realEstatesHeaderList: RealEstateHeader[];
+  realEstateBody: RealEstateBody | undefined;
+  typologyDescriptions: { [key: number]: string } = {};
+  cityDescriptions: { [key: number]: string } = {};
 
-  constructor(private modalService: NgbModal, private apiService: RealEstateManagementApiService, private toastService: ToastService){}
+  typologyRefData: ReferenceDataModel[]
+  cityRefData: ReferenceDataModel[]
+  
+
+  constructor(
+    private modalService: NgbModal,
+    private apiService: RealEstateManagementApiService, private toastService: ToastService,
+    private refDataApiService: ReferenceDataApiService
+  ) {}
 
   ngOnInit(): void {
+    this.loadReferenceData()
+    this.loadRealEstateData()
+  }
+
+  loadRealEstateData() {
     this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
+  }
+
+  loadReferenceData()
+  {
+    this.refDataApiService.getAllReferenceData().subscribe(refData => {
+      this.typologyRefData = refData.typologies
+      this.cityRefData = refData.cities
+    })
   }
 
   getRealEstateBody(realEstateId: number) {
     this.apiService.getRealEstateById(realEstateId).subscribe(response => {
-      this.realEstateBody = response
-    })
+      this.realEstateBody = response;
+    });
   }
 
   openDeleteModal(realEstateId: number){
@@ -54,19 +81,22 @@ export class RealEstateManagementComponent{
     });
   }
 
-  loadRealEstateData(){
-    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
-  }
-
-  openModal(){
-    var response = this.modalService.open(RealEstateManagementModalComponent, {
-      keyboard: false
-    })
-
-    response.result.then((data) => {
-      if (data != null) {
+  openAddRealEstateModal() {
+    const modalRef = this.modalService.open(RealEstateManagementModalComponent, { keyboard: false });
+    modalRef.result.then((data) => {
+      if (data) {
         this.loadRealEstateData();
       }
-    })
+    });
+  }
+
+  getTypologyText(typologyId: number)
+  {
+    return this.typologyRefData?.find(x => x.id === typologyId)?.description
+  }
+
+  getCityText(cityId: number)
+  {
+    return this.cityRefData?.find(x => x.id === cityId)?.description 
   }
 }

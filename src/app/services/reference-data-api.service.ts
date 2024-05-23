@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReferenceDataResponseDto } from '../dto/referenceDataResponseDto';
+import { ReferenceDataModel } from '../models/reference-data-model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class ReferenceDataApiService {
 
   getAllReferenceData() : Observable<ReferenceDataResponseDto> {
     return this.httpClient.get<ReferenceDataResponseDto>(this.baseUrl + 'ReferenceData')
+  }
+
+  getRefDataById(RefDataType: string, refDataId: number): Observable<ReferenceDataModel> {
+    return this.httpClient.get<ReferenceDataModel>(`${this.baseUrl}ReferenceData/${RefDataType}/${refDataId}`);
   }
 
   addReferenceData(selectedRefDataModalType: string, addRefDataValueForm: any) {
