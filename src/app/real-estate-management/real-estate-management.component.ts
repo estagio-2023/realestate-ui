@@ -8,7 +8,6 @@ import { DeleteValidationModalComponent } from '../modals/delete-validation-moda
 import { ToastService } from '../services/toast.service';
 import { ToastClassEnum } from '../enums/toast-class-enum';
 import { ReferenceDataApiService } from '../services/reference-data-api.service';
-import { refDataTypeEnum } from '../enums/referenceDataType-enum';
 import { ReferenceDataModel } from '../models/reference-data-model';
 
 @Component({
@@ -21,12 +20,9 @@ export class RealEstateManagementComponent implements OnInit {
   realEstatesHeaderList$: Observable<RealEstateHeader[]>;
   realEstatesHeaderList: RealEstateHeader[];
   realEstateBody: RealEstateBody | undefined;
-  typologyDescriptions: { [key: number]: string } = {};
-  cityDescriptions: { [key: number]: string } = {};
 
   typologyRefData: ReferenceDataModel[]
   cityRefData: ReferenceDataModel[]
-  
 
   constructor(
     private modalService: NgbModal,
