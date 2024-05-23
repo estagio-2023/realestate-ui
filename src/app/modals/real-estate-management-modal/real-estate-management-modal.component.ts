@@ -8,6 +8,7 @@ import { CustomerModel } from '../../models/customer-management-model'
 import { RealEstateManagementApiService } from '../../services/real-estate-management-api.service'
 import { ToastClassEnum } from '../../enums/toast-class-enum'
 import { ToastService } from '../../services/toast.service'
+import { AgentService } from '../../services/agent.service'
 
 @Component({
   selector: 'app-real-estate-management-modal',
