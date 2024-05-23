@@ -23,7 +23,6 @@ export class RealEstateManagementComponent implements OnInit {
   typologyDescriptions: { [key: number]: string } = {};
   cityDescriptions: { [key: number]: string } = {};
   
-
   constructor(
     private modalService: NgbModal,
     private apiService: RealEstateManagementApiService, private toastService: ToastService,
@@ -87,11 +86,7 @@ export class RealEstateManagementComponent implements OnInit {
     });
   }
 
-  loadRealEstateData(){
-    this.realEstatesHeaderList$ = this.apiService.getAllRealEstates();
-  }
-
-  openModal() {
+  openAddRealEstateModal() {
     const modalRef = this.modalService.open(RealEstateManagementModalComponent, { keyboard: false });
     modalRef.result.then((data) => {
       if (data) {
