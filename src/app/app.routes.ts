@@ -6,6 +6,7 @@ import { CustomerManagementComponent } from './customer/components/customer-mana
 import { AgentManagementComponent } from './agent/components/agent-management/agent-management.component';
 import { AgentDetailsComponent } from './agent/components/agent-details/agent-details.component';
 import { VisitRequestManagementComponent } from './visit-request/components/visit-request-management/visit-request-management.component';
+import { VisitRequestDetailsComponent } from './visit-request/components/visit-request-details/visit-request-details.component';
 
 const routerConfig: Routes = [
     {
@@ -44,8 +45,8 @@ const routerConfig: Routes = [
         data: {title: 'Visit Requests'}
     },
     {
-        path: 'visit-request/view-visit-request/:id',
-        component: VisitRequestViewComponent,
+        path: 'visit-request/details/:id',
+        component: VisitRequestDetailsComponent,
         data: {title: 'Visit Requests View'}
     }
 ];

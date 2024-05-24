@@ -2,14 +2,14 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VisitRequestService } from '../../services/visit-request.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { VisitRequestModel } from '../../models/visit-request-model';
+import { VisitRequestModel } from '../../../common/models/visit-request-model';
 
 @Component({
-  selector: 'app-visit-request-view',
-  templateUrl: './visit-request-view.component.html',
-  styleUrl: './visit-request-view.component.css'
+  selector: 'app-visit-request-details',
+  templateUrl: './visit-request-details.component.html',
+  styleUrl: './visit-request-details.component.css'
 })
-export class VisitRequestViewComponent {
+export class VisitRequestDetailsComponent {
   @Input() name = ''; 
   @Input() phoneNumber = '';
   @Input() email = '';
@@ -22,7 +22,7 @@ export class VisitRequestViewComponent {
     this.activatedRoute.params.subscribe(params => {
       this.realEstateId = params['id'];
     });
-    this.apiService.getAllVisitRequestById(this.realEstateId).subscribe(response => {
+    this.apiService.getVisitRequestById(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
   }   

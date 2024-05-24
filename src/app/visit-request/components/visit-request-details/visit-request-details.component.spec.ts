@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisitRequestViewComponent } from './visit-request-view.component';
+import { VisitRequestViewComponent } from './visit-request-details.component';
 
 describe('VisitRequestViewComponent', () => {
   let component: VisitRequestViewComponent;
