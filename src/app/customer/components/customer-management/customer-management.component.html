@@ -6,7 +6,7 @@
       <tbody>
         <tr *ngFor="let customer of customers$ | async">
           <td class="text-start pt-3"> {{customer.name}}</td>
-          <td><button type="button" class="btn btn-secondary float-end btn-light">View</button></td>
+          <td><button type="button" class="btn btn-secondary float-end btn-light" [routerLink]="['details', customer.id]">View</button></td>
         </tr>
       </tbody>
     </table>

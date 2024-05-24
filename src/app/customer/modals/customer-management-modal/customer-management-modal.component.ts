@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { customerForm } from '../../../common/services/form/form.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerApiService } from '../../services/customer-api.service';
-import { CustomerModel } from '../../../common/models/customer-management-model';
+import { CustomerModel } from '../../../common/models/customer-model';
 import { ToastService } from '../../../common/services/toast-service/toast.service';
 import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 
