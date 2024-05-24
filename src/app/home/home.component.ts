@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { homeButtons } from '../models/home-buttton-model';
+import { homeButtons } from '../common/models/home-buttton-model';
 
 @Component({
   selector: 'home-page',
@@ -31,7 +31,7 @@ export class HomeComponent {
         {
           title: "Visit Requests",
           imgPath: "../../assets/home_page_icons/visit.png",
-          link: ''
+          link: '/visit-request'
         },
         {
           title: "Reference Data",
