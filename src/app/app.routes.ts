@@ -7,7 +7,7 @@ import { AgentManagementComponent } from './agent/components/agent-management/ag
 import { AgentDetailsComponent } from './agent/components/agent-details/agent-details.component';
 import { VisitRequestManagementComponent } from './visit-request/components/visit-request-management/visit-request-management.component';
 import { VisitRequestDetailsComponent } from './visit-request/components/visit-request-details/visit-request-details.component';
-import { ViewCustomerComponent } from './views/view-customer/view-customer.component';
+import { ViewCustomerComponent } from './customer/components/customer-details/customer-details.component';
 
 const routerConfig: Routes = [
     {
@@ -51,11 +51,10 @@ const routerConfig: Routes = [
         data: {title: 'Visit Requests View'}
     },
     { 
-        path:'customer/view-customer/:id',
+        path:'customer/details/:id',
         component: ViewCustomerComponent,
         data: {title: 'Customer View'}
     }
-
 ];
 
 export default routerConfig;

@@ -20,7 +20,7 @@ import { AgentManagementComponent } from './agent/components/agent-management/ag
 import { AgentModalComponent } from './agent/modals/agent-modal/agent-modal.component'
 import { VisitRequestManagementComponent } from './visit-request/components/visit-request-management/visit-request-management.component'
 import { VisitRequestDetailsComponent } from './visit-request/components/visit-request-details/visit-request-details.component'
-import { ViewCustomerComponent } from './views/view-customer/view-customer.component'
+import { ViewCustomerComponent } from './customer/components/customer-details/customer-details.component'
 
 @NgModule({
   declarations: [

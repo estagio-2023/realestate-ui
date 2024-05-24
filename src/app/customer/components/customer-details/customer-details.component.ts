@@ -1,17 +1,16 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerApiService } from '../../services/customer-api.service';
-import { CustomerModel } from '../../models/customer-management-model';
+import { CustomerModel } from '../../../common/models/customer-model';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DeleteAgentValidationModalComponent } from '../../modals/delete-agent-validation-modal/delete-agent-validation-modal.component';
 import { Router } from '@angular/router';
-import { DeleteValidationModalComponent } from '../../modals/delete-validation-modal/delete-validation-modal/delete-validation-modal.component';
+import { DeleteValidationModalComponent } from '../../../common/modals/delete-validation-modal/delete-validation-modal.component';
 
 @Component({
-  selector: 'app-view-customer',
-  templateUrl: './view-customer.component.html',
-  styleUrl: './view-customer.component.css'
+  selector: 'app-customer-details',
+  templateUrl: './customer-details.component.html',
+  styleUrl: './customer-details.component.css'
 })
 
 export class ViewCustomerComponent implements OnInit {
