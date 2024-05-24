@@ -31,7 +31,7 @@ export class HomeComponent {
         {
           title: "Visit Requests",
           imgPath: "../../assets/home_page_icons/visit.png",
-          link: ''
+          link: '/visit-request'
         },
         {
           title: "Reference Data",

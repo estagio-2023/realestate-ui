@@ -18,6 +18,7 @@ import { ToastComponent } from './toast/toast.component'
 import { CustomerManagementModalComponent } from './modals/customer-management-modal/customer-management-modal.component'
 import { AgentManagementComponent } from './agent-management/agent-management.component'
 import { AgentModalComponent } from './modals/agent-modal/agent-modal.component'
+import { VisitRequestManagementComponent } from './visit-request-management/visit-request-management.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AgentModalComponent } from './modals/agent-modal/agent-modal.component'
     ToastComponent,
     CustomerManagementModalComponent,
     AgentManagementComponent,
-    AgentModalComponent
+    AgentModalComponent,
+    VisitRequestManagementComponent
   ],
   imports: [
     CommonModule,
@@ -52,4 +54,5 @@ import { AgentModalComponent } from './modals/agent-modal/agent-modal.component'
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}
