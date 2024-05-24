@@ -9,7 +9,9 @@ import { VisitRequestModel } from '../../../common/models/visit-request-model';
   templateUrl: './visit-request-details.component.html',
   styleUrl: './visit-request-details.component.css'
 })
+
 export class VisitRequestDetailsComponent {
+
   @Input() name = ''; 
   @Input() phoneNumber = '';
   @Input() email = '';
@@ -22,6 +24,7 @@ export class VisitRequestDetailsComponent {
     this.activatedRoute.params.subscribe(params => {
       this.realEstateId = params['id'];
     });
+
     this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
