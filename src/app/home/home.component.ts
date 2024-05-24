@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { homeButtons } from '../models/home-buttton-model';
+import { homeButtons } from '../common/models/home-buttton-model';
 
 @Component({
   selector: 'home-page',
