@@ -22,7 +22,7 @@ export class VisitRequestDetailsComponent {
     this.activatedRoute.params.subscribe(params => {
       this.realEstateId = params['id'];
     });
-    this.apiService.getVisitRequestById(this.realEstateId).subscribe(response => {
+    this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
   }   

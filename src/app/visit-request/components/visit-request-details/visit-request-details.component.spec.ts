@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisitRequestViewComponent } from './visit-request-details.component';
+import { VisitRequestDetailsComponent } from './visit-request-details.component';
 
 describe('VisitRequestViewComponent', () => {
-  let component: VisitRequestViewComponent;
-  let fixture: ComponentFixture<VisitRequestViewComponent>;
+  let component: VisitRequestDetailsComponent;
+  let fixture: ComponentFixture<VisitRequestDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VisitRequestViewComponent]
+      imports: [VisitRequestDetailsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(VisitRequestViewComponent);
+    fixture = TestBed.createComponent(VisitRequestDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

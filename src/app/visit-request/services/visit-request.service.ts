@@ -20,7 +20,11 @@ export class VisitRequestService {
       return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest")
     }
 
-    getVisitRequestById(realEstateId: number): Observable<VisitRequestModel[]> {
-      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + realEstateId)
+    getAllVisitRequestByRealEstateId(realEstateId: number): Observable<VisitRequestModel[]> {
+      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/RealEstate/" + realEstateId)
+    }
+
+    getVisitRequestById(visitRequestId: number): Observable<VisitRequestModel[]> {
+      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId)
     }
 }
