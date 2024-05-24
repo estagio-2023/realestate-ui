@@ -1,0 +1,104 @@
+<div class="container bootstrap snippets bootdey">
+    <div class="panel-body inf-content d-flex align-items-center justify-content-center">
+        <div class="row d-flex align-items-center justify-content-center"> 
+            <div class="col-md-8 d-flex flex-column gap-4">
+                <h3 class="text-center"><strong>Visit Requests Information</strong></h3>
+                <div *ngFor="let visitRequest of visitRequestList" class="visit-request-container">
+                    <div class="table-responsive" style="overflow-x: hidden;">
+                        <table class="table table-user-information" style="width: 1080px;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-list-ol"></i>
+                                            Id
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-file-person"></i>
+                                            Name
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-envelope"></i>
+                                            Email
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-calendar"></i>
+                                            Date
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.date }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-clock"></i>
+                                            Start Time
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.startTime }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-clock"></i>
+                                            End Time
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.endTime }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-check"></i>
+                                            Confirmed
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        <button *ngIf="visitRequest.confirmed" class="btn btn-success">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button *ngIf="!visitRequest.confirmed" class="btn btn-danger">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <i class="bi bi-person"></i>
+                                            Agent Id
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">{{ visitRequest.fkAgentId }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger float-end" type="button">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                        <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
