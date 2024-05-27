@@ -8,9 +8,9 @@ export const referenceDataForm = new FormGroup({
 });
 
 export const customerForm = new FormGroup({
-  name: new FormControl('', [Validators.required]),
-  email: new FormControl('', [Validators.required, Validators.email]),
-  password: new FormControl('', [Validators.required]),
+  name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]),
+  email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(8), Validators.maxLength(150)]),
+  password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
 });
 
 export const realEstateForm = new FormGroup({
@@ -30,8 +30,8 @@ export const realEstateForm = new FormGroup({
   price: new FormControl('', [Validators.required])
 });
 
-  export const agentForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl('', [Validators.required]),
-  });
+export const agentForm = new FormGroup({
+  name: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required, Validators.email]),
+  phoneNumber: new FormControl('', [Validators.required]),
+});
