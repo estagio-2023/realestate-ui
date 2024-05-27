@@ -24,13 +24,13 @@
           <div class="col-md-4 w-100">
             <label for="password" class="form-label fw-bold">Password</label>
             <div class="input-group">
-                <input [type]="passwordFieldType" class="form-control" formControlName="password" minlength="8" required="">
+                <input id="password" [type]="passwordFieldType" class="form-control" formControlName="password" minlength="8" required="">
                 <span class="input-group-text" (click)="togglePasswordVisibility()">
-                    <i class="bi" [ngClass]="{'bi-eye': passwordFieldType === 'password', 'bi-eye-slash': passwordFieldType === 'text'}"></i>
+                    <i class="bi" [class]="iconClass"></i>
                 </span>
             </div>
             <app-error-message class="error-message" [control]="form.controls.password"></app-error-message>
-          </div>   
+        </div>          
         </form>
       </div>
 
