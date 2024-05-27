@@ -14,6 +14,7 @@ import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 export class CustomerManagementModalComponent implements OnInit {
   form = customerForm;
   customers: CustomerModel[];
+  passwordFieldType: string = 'password';
 
   constructor(public activeModal: NgbActiveModal, private apiService: CustomerApiService, private toastService: ToastService) { }
 
@@ -37,5 +38,9 @@ export class CustomerManagementModalComponent implements OnInit {
       error: err =>
         this.toastService.show("Error in adding customers", ToastClassEnum.error)
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 }
