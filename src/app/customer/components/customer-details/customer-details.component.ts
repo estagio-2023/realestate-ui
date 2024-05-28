@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerApiService } from '../../services/customer-api.service';
 import { CustomerModel } from '../../../common/models/customer-model';
@@ -10,30 +10,44 @@ import { DeleteValidationModalComponent } from '../../../common/modals/delete-va
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
-  styleUrl: './customer-details.component.css'
+  styleUrls: ['./customer-details.component.css']
 })
-
 export class ViewCustomerComponent implements OnInit {
-  customerData$: Observable<CustomerModel> 
+  customerData$: Observable<CustomerModel>;
   customerId: number;
-  
-  constructor(private activatedRoute: ActivatedRoute, private apiService: CustomerApiService, private modalService: NgbModal, private router: Router){}
+  isPasswordVisible: boolean = false;
+  iconClass: string = 'bi-eye';
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private apiService: CustomerApiService,
+    private modalService: NgbModal,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.customerId = params['id'];
     });
-    
     this.loadCustomerData();
   }
 
-  loadCustomerData(){
+  loadCustomerData() {
     this.customerData$ = this.apiService.getCustomerById(this.customerId);
   }
 
-  deleteCustomer(customerId: number){
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    this.iconClass = this.isPasswordVisible ? 'bi-eye-slash' : 'bi-eye';
+  }
+
+  deleteCustomer(customerId: number) {
     var response2 = this.modalService.open(DeleteValidationModalComponent, {
       keyboard: false
-    })
+    });
+  }
+
+  generateDotString(length: number): string {
+    return '•'.repeat(length);
   }
 }
