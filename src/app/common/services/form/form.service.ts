@@ -30,8 +30,8 @@ export const realEstateForm = new FormGroup({
   price: new FormControl('', [Validators.required])
 });
 
-  export const agentForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl('', [Validators.required]),
-  });
+export const agentForm = new FormGroup({
+  name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]),
+  email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(8), Validators.maxLength(150)]),
+  phoneNumber: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(13)]),
+});
