@@ -21,10 +21,11 @@
             <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
           </div>
 
-          <div class="col-md-4 w-100">
-            <label for="password" class="form-label fw-bold">Password</label>
-            <input type="password" class="form-control" formControlName="password" minlength="8" required="">
-            <app-error-message class="error-message" [control]="form.controls.password"></app-error-message>
+          <div class="input-group">
+            <input id="password" [type]="passwordFieldType" class="form-control" formControlName="password" minlength="8" required="">
+            <span class="input-group-text" (click)="togglePasswordVisibility()">
+                <i class="bi" [class]="iconClass"></i>
+            </span>
           </div>
         </form>
       </div>

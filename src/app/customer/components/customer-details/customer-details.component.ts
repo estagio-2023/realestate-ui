@@ -18,6 +18,8 @@ import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 export class ViewCustomerComponent implements OnInit {
   customerData$: Observable<CustomerModel> 
   customerId: number;
+  isPasswordVisible: boolean = false;
+  iconClass: string = 'bi-eye';
   
   constructor(private activatedRoute: ActivatedRoute, private apiService: CustomerApiService, private modalService: NgbModal, private router: Router, private toastService: ToastService){}
 
@@ -29,7 +31,7 @@ export class ViewCustomerComponent implements OnInit {
     this.loadCustomerData();
   }
 
-  loadCustomerData(){
+  loadCustomerData() {
     this.customerData$ = this.apiService.getCustomerById(this.customerId);
   }
 
@@ -55,5 +57,14 @@ export class ViewCustomerComponent implements OnInit {
       error: (err) =>
         this.toastService.show( 'Error in deleting customer data', ToastClassEnum.error)
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+    this.iconClass = this.isPasswordVisible ? 'bi-eye-slash' : 'bi-eye';
+  }
+
+  generateDotString(length: number): string {
+    return '•'.repeat(length);
   }
 }
