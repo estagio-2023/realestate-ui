@@ -4,7 +4,7 @@ NgbModal
 
 export const referenceDataForm = new FormGroup({
   type: new FormControl('', [Validators.required]),
-  description: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+  description: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
 });
 
 export const customerForm = new FormGroup({
