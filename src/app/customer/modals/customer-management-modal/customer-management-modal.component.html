@@ -17,20 +17,15 @@
 
           <div class="col-md-4 w-100">
             <label for="email" class="form-label fw-bold">Email</label>
-            <input type="email" class="form-control" id="email" formControlName="email">
+            <input type="text" class="form-control" id="email" formControlName="email">
             <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
           </div>
 
           <div class="col-md-4 w-100">
             <label for="password" class="form-label fw-bold">Password</label>
-            <div class="input-group">
-                <input id="password" [type]="passwordFieldType" class="form-control" formControlName="password" minlength="8" required="">
-                <span class="input-group-text" (click)="togglePasswordVisibility()">
-                    <i class="bi" [class]="iconClass"></i>
-                </span>
-            </div>
+            <input type="password" class="form-control" formControlName="password" minlength="8" required="">
             <app-error-message class="error-message" [control]="form.controls.password"></app-error-message>
-        </div>          
+          </div>
         </form>
       </div>
 

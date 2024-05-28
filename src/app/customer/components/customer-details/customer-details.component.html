@@ -1,62 +1,61 @@
 <div class="container bootstrap snippets bootdey">
     <button type="button" class="btn btn-secondary align-self-start mr-auto btn-light" [routerLink]="['/customer']">Back</button>
     <div class="panel-body inf-content d-flex align-items-center justify-content-center">
-      <div class="row d-flex align-items-center">
-        <div class="col-md-4">
-          <img alt="" style="width:500px;border-radius: 50%;" title="" class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/avatar/avatar7.png">
-          <ul title="Ratings" class="list-inline ratings text-center"></ul>
+        <div class="row d-flex align-items-center">
+            <div class="col-md-4">
+                <img alt="" style="width:500px;border-radius: 50%;" title="" class="img-circle img-thumbnail" src="https://bootdey.com/img/Content/avatar/avatar7.png">
+                <ul title="Ratings" class="list-inline ratings text-center"></ul>
+            </div>
+            <div class="col-md-8 d-flex flex-column gap-4" >
+                <strong>Information</strong><br>
+                <div class="table-responsive">
+                <table class="table table-user-information" style="padding-top: 30px;">
+                    <tbody *ngIf="customerData$ | async as customerData">
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <i class="bi bi-list-ol"></i>
+                                    Id              
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{customerData.id}}   
+                            </td>
+                        </tr>
+                        <tr>    
+                            <td>
+                                <strong>
+                                    <i class="bi bi-file-person"></i>    
+                                    Name            
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{this.customerData.name}}  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <i class="bi bi-envelope"></i>    
+                                    Password          
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{this.customerData.password}}  
+                            </td>     
+                        </tr>                               
+                    </tbody>
+                </table>
+                </div>
+                <div>
+                    <button class="btn btn-danger float-end" type="button" (click)="openDeleteModal(this.customerId)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8 d-flex flex-column gap-4">
-          <h3><strong>Information</strong></h3>
-          <div class="table-responsive">
-            <table class="table table-user-information" style="padding-top: 30px;">
-              <tbody *ngIf="customerData$ | async as customerData">
-                <tr>
-                  <td>
-                    <strong>
-                      <i class="bi bi-list-ol"></i>
-                      Id
-                    </strong>
-                  </td>
-                  <td class="text-primary">
-                    {{customerData.id}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>
-                      <i class="bi bi-file-person"></i>
-                      Name
-                    </strong>
-                  </td>
-                  <td class="text-primary">
-                    {{customerData.name}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>
-                      <i class="bi bi-lock"></i>
-                      Password
-                    </strong>
-                  </td>
-                  <td class="text-primary d-flex align-items-center">
-                    <span>{{ isPasswordVisible ? customerData.password : generateDotString(customerData.password.length) }}</span>
-                    <i class="bi" [class]="iconClass" (click)="togglePasswordVisibility()" style="cursor: pointer; margin-left: 5px;"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <button class="btn btn-danger float-end" type="button" (click)="deleteCustomer(customerId)">
-              <i class="bi bi-trash"></i>
-            </button>
-            <button class="btn btn-secondary float-end" style="margin-right: 10px;" type="button">
-              <i class="bi bi-pencil"></i>
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>  
+</div>                   

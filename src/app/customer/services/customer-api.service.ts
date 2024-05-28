@@ -27,4 +27,8 @@ export class CustomerApiService {
   getCustomerById(customerId: number): Observable<CustomerModel>{
     return this.httpClient.get<CustomerModel>(this.baseUrl + "Customer/" + customerId)
   }
+
+  deleteCustomer(customerId: number) {
+    return this.httpClient.delete(this.baseUrl + "Customer/" + customerId)
+  }
 }
