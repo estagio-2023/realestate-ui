@@ -9,13 +9,13 @@
                 <form [formGroup]="form" class="row g-3 d-flex flex-column">
                     <div class="col-md-4 w-100">
                         <label for="date" class="form-label fw-bold">Date</label>
-                        <input type="date" class="form-control" formControlName="date" [min]="minDate">
+                        <input type="date" id="date" class="form-control" formControlName="date" [min]="minDate" [(ngModel)]="date" (change)="changeDate(date)">
                         <app-error-message class="error-message" [control]="form.controls.date"></app-error-message>
                     </div>
 
                     <div class="col-md-4 w-100">
                         <label for="startTime" class="form-label fw-bold">Start Time</label>
-                        <select class="form-select"formControlName="start_time"[(ngModel)]="startTime" required>
+                        <select class="form-select"formControlName="start_time"[(ngModel)]="startTime" (change)="updateEndTimes()" required>
                             <option *ngFor="let time of times" [value]="time">{{ time }}</option>
                         </select>
                         <app-error-message class="error-message"[control]="form.controls.start_time"></app-error-message>
@@ -24,7 +24,7 @@
                     <div class="col-md-4 w-100">
                         <label for="endTime" class="form-label fw-bold">End Time</label>
                         <select class="form-select" formControlName="end_time"[(ngModel)]="endTime" required>
-                            <option *ngFor="let time of times" [value]="time">{{ time }}</option>
+                            <option *ngFor="let time of endTimes" [value]="time">{{ time }}</option>
                         </select>
                         <app-error-message class="error-message" [control]="form.controls.end_time"></app-error-message>
                     </div>
