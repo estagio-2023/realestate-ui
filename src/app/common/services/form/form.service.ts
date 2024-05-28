@@ -35,3 +35,13 @@ export const realEstateForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     phoneNumber: new FormControl('', [Validators.required]),
   });
+
+  export const visitRequestForm = new FormGroup({
+    date: new FormControl('', [Validators.required]),
+    start_time: new FormControl('', [Validators.required]),
+    end_time: new FormControl('', [Validators.required]),
+    agentId: new FormControl<number>(0, [Validators.required]),
+    name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+
+  });

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RealEstateManagementApiService } from '../../../realestate/services/real-estate-management-api.service';
 import { RealEstateHeader } from '../../../common/models/real-estate-management-model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VisitRequestManagementModalComponent } from '../modals/visit-request-management-modal/visit-request-management-modal.component';
 
 @Component({
   selector: 'app-visit-request-management',
@@ -13,6 +15,7 @@ export class VisitRequestManagementComponent implements OnInit {
 
   constructor(
     private apiServiceRealEstate: RealEstateManagementApiService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -21,5 +24,14 @@ export class VisitRequestManagementComponent implements OnInit {
 
   loadRealEstateData(): void {
     this.realEstatesHeaderList$ = this.apiServiceRealEstate.getAllRealEstates();
+  }
+
+  openAddVisitRequestModal() {
+    const modalRef = this.modalService.open(VisitRequestManagementModalComponent, { keyboard: false });
+    modalRef.result.then((data) => {
+      if (data) {
+        this.loadRealEstateData();
+      }
+    });
   }
 }

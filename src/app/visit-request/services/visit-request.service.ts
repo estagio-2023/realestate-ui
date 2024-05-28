@@ -27,4 +27,8 @@ export class VisitRequestService {
     getVisitRequestById(visitRequestId: number): Observable<VisitRequestModel[]> {
       return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId)
     }
+
+    addVisitRequest(visitRequest: any) {
+      return this.httpClient.post<VisitRequestModel>(this.baseUrl + 'VisitRequest/', visitRequest, this.httpOptions)
+    }
 }
