@@ -29,6 +29,6 @@ export class VisitRequestService {
   }
 
   UpdateVisitRequestConfirmationById(visitRequestId: number): Observable<VisitRequestModel[]> {
-    return this.httpClient.put<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId + "/Confirmation/", this.httpOptions);
+    return this.httpClient.put<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId + "/Confirmation", this.httpOptions);
   }  
 }
