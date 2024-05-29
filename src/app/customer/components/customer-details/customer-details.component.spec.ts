@@ -10,7 +10,7 @@ describe('ViewCustomerComponent', () => {
       imports: [ViewCustomerComponent]
     })
     .compileComponents();
-    
+  
     fixture = TestBed.createComponent(ViewCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
