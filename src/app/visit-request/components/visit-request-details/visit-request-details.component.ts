@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { VisitRequestService } from '../../services/visit-request.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-visit-request-details',
@@ -17,6 +18,13 @@ export class VisitRequestDetailsComponent {
   @Input() email = '';
   visitRequestList: VisitRequestModel[]
   realEstateId: number;
+  
+  startTime: Date = new Date();
+  endTime: Date = new Date();
+  start: string
+  end: string
+  visitRequest: any
+  
 
   constructor(private activatedRoute: ActivatedRoute, private apiService: VisitRequestService, private modalService: NgbModal){}
 
@@ -28,5 +36,8 @@ export class VisitRequestDetailsComponent {
     this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
+
+    let start = this.visitRequest.startTime.toString();
+    let end = this.endTime.toString().slice(-2);
   }   
 }
