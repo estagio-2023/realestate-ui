@@ -43,5 +43,5 @@ export const realEstateForm = new FormGroup({
     agentId: new FormControl<number>(0, [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-
+    realestateId: new FormControl<number>(0, [Validators.required])
   });

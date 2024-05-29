@@ -6,6 +6,8 @@ import { AgentService } from '../../../../agent/services/agent.service';
 import { VisitRequestService } from '../../../services/visit-request.service';
 import { ToastService } from '../../../../common/services/toast-service/toast.service';
 import { ToastClassEnum } from '../../../../common/enums/toast-class-enum';
+import { RealEstateHeader } from '../../../../common/models/real-estate-management-model';
+import { RealEstateManagementApiService } from '../../../../realestate/services/real-estate-management-api.service';
 
 @Component({
   selector: 'app-visit-request-management-modal',
@@ -16,15 +18,16 @@ import { ToastClassEnum } from '../../../../common/enums/toast-class-enum';
 export class VisitRequestManagementModalComponent {
   form = visitRequestForm
   minDate: string
-  agents : AgentModel[]
+  agents: AgentModel[]
+  realestates: RealEstateHeader[]
   times: string[] = []
   endTimes: string[] = []
   filteredEndTimes: string[] = []
-  startTime: string = ''
-  endTime: string = ''
+  startTime: string
+  endTime: string
   date: string
   
-  constructor(public activeModal: NgbActiveModal,private agentService: AgentService, private visitRequestService: VisitRequestService, private toastService: ToastService){
+  constructor(public activeModal: NgbActiveModal,private agentService: AgentService,private realEstateManagementApiService: RealEstateManagementApiService, private visitRequestService: VisitRequestService, private toastService: ToastService){
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0]
     
@@ -39,9 +42,11 @@ export class VisitRequestManagementModalComponent {
   ngOnInit(): void{
     this.agentService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agents => agents.name)
-  });
-
-  this.filteredEndTimes = [...this.times];
+     });
+    this.realEstateManagementApiService.getAllRealEstates().subscribe(response => {
+      this.realestates = response.filter(realestates => realestates.title)
+      });
+  this.filteredEndTimes = [...this.times]
   }
 
   updateEndTimes() {

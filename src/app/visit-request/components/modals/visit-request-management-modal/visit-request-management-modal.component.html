@@ -15,17 +15,18 @@
 
                     <div class="col-md-4 w-100">
                         <label for="startTime" class="form-label fw-bold">Start Time</label>
-                        <select class="form-select"formControlName="start_time"[(ngModel)]="startTime" (change)="updateEndTimes()" required>
-                            <option *ngFor="let time of times" [value]="time">{{ time }}</option>
-                        </select>
+                        <!-- <select class="form-select"formControlName="start_time"[(ngModel)]="startTime" (change)="updateEndTimes()" required>
+                            <option *ngFor="let time of times" [value]="time"></option>
+                        </select> --><input type="text" formControlName="text"> 
                         <app-error-message class="error-message"[control]="form.controls.start_time"></app-error-message>
                     </div>
 
                     <div class="col-md-4 w-100">
                         <label for="endTime" class="form-label fw-bold">End Time</label>
-                        <select class="form-select" formControlName="end_time"[(ngModel)]="endTime" required>
-                            <option *ngFor="let time of endTimes" [value]="time">{{ time }}</option>
-                        </select>
+                        <!-- <select class="form-select" formControlName="end_time"[(ngModel)]="endTime" required>
+                            <option *ngFor="let time of endTimes" [value]="time"></option>
+                        </select> -->
+                        <input type="text" formControlName="text"> 
                         <app-error-message class="error-message" [control]="form.controls.end_time"></app-error-message>
                     </div>
 
@@ -39,6 +40,15 @@
                     </div>
 
                     <div class="col-md-4 w-100">
+                        <label for="RealEstates" class="form-label fw-bold">Real Estates</label>
+                            <select class="form-select" formControlName="realEstatesId"*ngIf="agents?.length!!==0">
+                                <option value="{{realestate.id}}" *ngFor="let realestate of realestates">{{realestate.title}}</option>
+                            </select>
+                            <app-error-message class="error-message" [control]="form.controls.realestateId"></app-error-message>
+                            <p *ngIf="agents?.length===0">No realestate available.</p>
+                        </div>
+
+                    <div class="col-md-4 w-100">
                         <label for="name" class="form-label fw-bold">Name</label>
                         <input type="text" class="form-control" formControlName="name">
                         <app-error-message class="error-message" [control]="form.controls.name"></app-error-message>
@@ -49,11 +59,12 @@
                         <input type="text" class="form-control" formControlName="email">
                         <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
                     </div>
+                    
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="closeModal(null)">Cancel</button>
-                <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="addVisitRequest()">Submit for Approval</button>
+                <button type="button" class="btn btn-primary" (click)="addVisitRequest()">Submit for Approval</button>
             </div>
         </div>
     </div>
