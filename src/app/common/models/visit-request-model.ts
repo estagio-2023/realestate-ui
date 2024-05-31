@@ -6,6 +6,14 @@ export interface VisitRequestModel{
     startTime: string
     endTime: string
     confirmed: boolean | null
-    fkRealEstateId: number
-    fkAgentId: number
+    RealEstateId: number
+    AgentId: number
+}
+
+export interface VisitRequestModelAvailability {
+    date: string
+    startTime: string
+    endTime: string
+    RealEstateId: number
+    AgentId: number
 }
