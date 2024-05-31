@@ -39,8 +39,8 @@ export const agentForm = new FormGroup({
 
 export const visitRequestForm = new FormGroup({
   date: new FormControl('', [Validators.required]),
-  start_time: new FormControl('', [Validators.required]),
-  end_time: new FormControl('', [Validators.required]),
+  startTime: new FormControl('', [Validators.required]),
+  endTime: new FormControl('', [Validators.required]),
   agentId: new FormControl<number>(0, [Validators.required]),
   name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
   email: new FormControl('', [Validators.required, Validators.email]),

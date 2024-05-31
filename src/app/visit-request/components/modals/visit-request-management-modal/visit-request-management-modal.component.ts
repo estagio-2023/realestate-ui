@@ -27,6 +27,7 @@ export class VisitRequestManagementModalComponent {
   endTime: string;
   date: string;
   visitRequestModel: VisitRequestModel
+  isAvailable: boolean = false
   
   constructor(
     public activeModal: NgbActiveModal,
@@ -56,38 +57,33 @@ export class VisitRequestManagementModalComponent {
     });
 
     this.filteredEndTimes = [...this.times];
+
+    this.subscribeFormChanges()
+  }
+
+  subscribeFormChanges(){
+    this.form.valueChanges.subscribe(formData => {
+      console.log(formData)
+      if(formData.date != null && formData.startTime != null && formData.endTime != null && formData.agentId != null && !this.isAvailable){
+        console.log("Availability ready to be checked")
+      }
+    })
   }
 
   updateEndTimes() {
-    const startTimeControlValue = this.form.get('start_time')?.value;
+    const startTimeControlValue = this.form.get('startTime')?.value;
     if (startTimeControlValue) {
       this.filteredEndTimes = this.endTimes.filter(endTime => endTime > startTimeControlValue);
     }
   }
     
-  changeDate(event: any) {
-    this.date = event.target.value;
-  }
-
   closeModal(result: any) {
     this.activeModal.close(result);
     this.form.reset();
   }
 
   addVisitRequest() {
-    this.visitRequestModel = {
-      id: 0, 
-      name: this.form.get('name')?.value ?? '',
-      email: this.form.get('email')?.value ?? '',
-      date: this.form.get('date')?.value ?? '',
-      startTime: this.form.get('start_time')?.value ?? '',
-      endTime: this.form.get('end_time')?.value ?? '',
-      fkRealEstateId: this.form.get('realestateId')?.value ?? 0,
-      fkAgentId: this.form.get('agentId')?.value ?? 0,
-      confirmed: null
-    };
-  
-    this.visitRequestService.addVisitRequest(this.visitRequestModel).subscribe({
+    this.visitRequestService.addVisitRequest(this.form.value).subscribe({
       next: value => {
         this.toastService.show('Visit Request added successfully!', ToastClassEnum.success);
         this.closeModal(value);
