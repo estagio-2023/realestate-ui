@@ -4,6 +4,7 @@ import { VisitRequestService } from '../../services/visit-request.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
 import { DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-visit-request-details',
