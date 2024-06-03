@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { RealEstateManagementApiService } from '../../../realestate/services/real-estate-management-api.service';
 import { RealEstateHeader } from '../../../common/models/real-estate-management-model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { VisitRequestManagementModalComponent } from '../modals/visit-request-management-modal/visit-request-management-modal.component';
 
 @Component({
   selector: 'app-visit-request-management',
