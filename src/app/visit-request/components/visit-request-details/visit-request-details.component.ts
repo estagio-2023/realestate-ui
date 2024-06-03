@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
 import { VisitRequestManagementModalComponent } from '../modals/visit-request-management-modal/visit-request-management-modal.component';
 import { ActivatedRoute } from '@angular/router';
+import { visitRequestForm } from '../../../common/services/form/form.service';
 
 @Component({
   selector: 'app-visit-request-details',
@@ -12,12 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class VisitRequestDetailsComponent {
-
-  @Input() name = ''; 
-  @Input() phoneNumber = '';
-  @Input() email = '';
   visitRequestList: VisitRequestModel[]
   realEstateId: number;
+  form = visitRequestForm
   
   constructor(private apiService: VisitRequestService, private modalService: NgbModal,private activatedRoute: ActivatedRoute){}
 
@@ -31,9 +29,11 @@ export class VisitRequestDetailsComponent {
 
   openAddVisitRequestModal() {
     const modalRef = this.modalService.open(VisitRequestManagementModalComponent, { keyboard: false });
+    modalRef.componentInstance.realEstateId = this.realEstateId
     modalRef.result.then((data) => {
       if (data) {
         this.loadVisitRequestData();
+        this.form.reset();
       }
     });
   }

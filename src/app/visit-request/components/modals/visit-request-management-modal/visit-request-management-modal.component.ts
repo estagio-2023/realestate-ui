@@ -9,7 +9,6 @@ import { RealEstateHeader } from '../../../../common/models/real-estate-manageme
 import { RealEstateManagementApiService } from '../../../../realestate/services/real-estate-management-api.service';
 import { visitRequestForm } from '../../../../common/services/form/form.service';
 import { VisitRequestAvailabilityModel, VisitRequestModel } from '../../../../common/models/visit-request-model';
-import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-visit-request-management-modal',
@@ -31,8 +30,7 @@ export class VisitRequestManagementModalComponent {
   isAvailable: boolean = false
   visitRequestModelAvailability: VisitRequestAvailabilityModel
   realEstateId: number
- 
-
+  errorMessage: string
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -40,12 +38,8 @@ export class VisitRequestManagementModalComponent {
     private realEstateManagementApiService: RealEstateManagementApiService,
     private visitRequestService: VisitRequestService,
     private toastService: ToastService,
-    private activatedRoute: ActivatedRoute,
   ) {
-    this.activatedRoute.params.subscribe(params => {
-      this.realEstateId = params['id'];
-      console.log(params)
-    });
+
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
 
@@ -58,8 +52,7 @@ export class VisitRequestManagementModalComponent {
   }
 
   ngOnInit(): void {
-    
-
+    this.form.controls.realEstateId.setValue(this.realEstateId)
     this.agentService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agent => agent.name);
     });
@@ -69,18 +62,17 @@ export class VisitRequestManagementModalComponent {
     });
 
     this.filteredEndTimes = [...this.times];
-
     this.subscribeFormChanges()
   }
 
   subscribeFormChanges() {
     this.form.valueChanges.subscribe(formData => {
-      if (formData.date != null && formData.startTime != null && formData.endTime != null && formData.agentId != null && this.realEstateId != 0 && !this.isAvailable) {
+      if (formData.date && formData.startTime && formData.endTime && formData.agentId != 0 && this.realEstateId != 0) {
         const visitRequestData: VisitRequestAvailabilityModel = {
-          date: formData.date,
-          startTime: formData.startTime,
-          endTime: formData.endTime,
-          agentId: formData.agentId,
+          date: formData.date!,
+          startTime: formData.startTime!,
+          endTime: formData.endTime!,
+          agentId: formData.agentId!,
           realEstateId: this.realEstateId
         };
 
@@ -89,6 +81,7 @@ export class VisitRequestManagementModalComponent {
             this.isAvailable = true
           },
           error: (err) => {
+            this.errorMessage = err.error.instance
             this.isAvailable = false
           }
         });
