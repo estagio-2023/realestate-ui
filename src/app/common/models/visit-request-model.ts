@@ -10,10 +10,10 @@ export interface VisitRequestModel{
     AgentId: number
 }
 
-export interface VisitRequestModelAvailability {
+export interface VisitRequestAvailabilityModel {
     date: string
     startTime: string
     endTime: string
-    RealEstateId: number
-    AgentId: number
+    agentId: number
+    realEstateId: number
 }

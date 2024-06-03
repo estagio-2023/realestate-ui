@@ -1,7 +1,6 @@
 <div id="container" class="d-flex flex-column justify-content-center align-items-center">
     <h3 id="page-title">Visit Request Management</h3>
     <section id="customers" class="px-5 pt-3 w-75">
-      <button class="btn btn-primary w-100" id="button-add-customer" type="button" (click)="openAddVisitRequestModal()"><i class="bi bi-plus"></i>Add Visit Request</button>
       <table class="table">
         <tbody>
           <tr *ngFor="let realEstateHeader of realEstatesHeaderList$ | async">

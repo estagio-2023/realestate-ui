@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { VisitRequestService } from '../../services/visit-request.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
+import { VisitRequestManagementModalComponent } from '../modals/visit-request-management-modal/visit-request-management-modal.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-visit-request-details',
@@ -17,16 +18,29 @@ export class VisitRequestDetailsComponent {
   @Input() email = '';
   visitRequestList: VisitRequestModel[]
   realEstateId: number;
-
-  constructor(private activatedRoute: ActivatedRoute, private apiService: VisitRequestService, private modalService: NgbModal){}
+  
+  constructor(private apiService: VisitRequestService, private modalService: NgbModal,private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.realEstateId = params['id'];
+      this.realEstateId = +params['id'];
     });
+   
+    this.loadVisitRequestData();
+  }   
 
+  openAddVisitRequestModal() {
+    const modalRef = this.modalService.open(VisitRequestManagementModalComponent, { keyboard: false });
+    modalRef.result.then((data) => {
+      if (data) {
+        this.loadVisitRequestData();
+      }
+    });
+  }
+
+  loadVisitRequestData(){
     this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
-  }   
+  }
 }

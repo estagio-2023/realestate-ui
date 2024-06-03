@@ -26,12 +26,5 @@ export class VisitRequestManagementComponent implements OnInit {
     this.realEstatesHeaderList$ = this.apiServiceRealEstate.getAllRealEstates();
   }
 
-  openAddVisitRequestModal() {
-    const modalRef = this.modalService.open(VisitRequestManagementModalComponent, { keyboard: false });
-    modalRef.result.then((data) => {
-      if (data) {
-        this.loadRealEstateData();
-      }
-    });
-  }
+  
 }

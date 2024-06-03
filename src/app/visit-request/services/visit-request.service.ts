@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { VisitRequestModel, VisitRequestModelAvailability } from '../../common/models/visit-request-model';
+import { VisitRequestModel, VisitRequestAvailabilityModel } from '../../common/models/visit-request-model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,15 @@ export class VisitRequestService {
       return this.httpClient.post<VisitRequestModel>(this.baseUrl + 'VisitRequest/', visitRequest, this.httpOptions)
     }
 
-    getAllVisitRequestAvailability(visitRequestData: VisitRequestModelAvailability) {
-      return this.httpClient.get(this.baseUrl + "VisitRequest/" + "Availability/" + visitRequestData)
+    getAllVisitRequestAvailability(visitRequestData: VisitRequestAvailabilityModel) {
+      return this.httpClient.get(this.baseUrl + "VisitRequest/" + "Availability", {
+        params: {
+          date: visitRequestData.date,
+          startTime: visitRequestData.startTime,
+          endTime: visitRequestData.endTime,
+          realEstateId: visitRequestData.realEstateId,
+          agentId: visitRequestData.agentId
+        }
+      } )
     }
 }

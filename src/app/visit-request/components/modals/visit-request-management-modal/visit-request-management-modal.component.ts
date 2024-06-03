@@ -8,7 +8,8 @@ import { ToastClassEnum } from '../../../../common/enums/toast-class-enum';
 import { RealEstateHeader } from '../../../../common/models/real-estate-management-model';
 import { RealEstateManagementApiService } from '../../../../realestate/services/real-estate-management-api.service';
 import { visitRequestForm } from '../../../../common/services/form/form.service';
-import { VisitRequestModel } from '../../../../common/models/visit-request-model';
+import { VisitRequestAvailabilityModel, VisitRequestModel } from '../../../../common/models/visit-request-model';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-visit-request-management-modal',
@@ -28,17 +29,26 @@ export class VisitRequestManagementModalComponent {
   date: string;
   visitRequestModel: VisitRequestModel
   isAvailable: boolean = false
-  
+  visitRequestModelAvailability: VisitRequestAvailabilityModel
+  realEstateId: number
+ 
+
+
   constructor(
     public activeModal: NgbActiveModal,
     private agentService: AgentService,
     private realEstateManagementApiService: RealEstateManagementApiService,
     private visitRequestService: VisitRequestService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private activatedRoute: ActivatedRoute,
   ) {
+    this.activatedRoute.params.subscribe(params => {
+      this.realEstateId = params['id'];
+      console.log(params)
+    });
     const today = new Date();
     this.minDate = today.toISOString().split('T')[0];
-    
+
     for (let hour = 9; hour < 20; hour++) {
       const timeString = hour < 10 ? `0${hour}:00` : `${hour}:00`;
       this.times.push(timeString);
@@ -48,6 +58,8 @@ export class VisitRequestManagementModalComponent {
   }
 
   ngOnInit(): void {
+    
+
     this.agentService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agent => agent.name);
     });
@@ -61,13 +73,27 @@ export class VisitRequestManagementModalComponent {
     this.subscribeFormChanges()
   }
 
-  subscribeFormChanges(){
+  subscribeFormChanges() {
     this.form.valueChanges.subscribe(formData => {
-      console.log(formData)
-      if(formData.date != null && formData.startTime != null && formData.endTime != null && formData.agentId != null && !this.isAvailable){
-        console.log("Availability ready to be checked")
+      if (formData.date != null && formData.startTime != null && formData.endTime != null && formData.agentId != null && this.realEstateId != 0 && !this.isAvailable) {
+        const visitRequestData: VisitRequestAvailabilityModel = {
+          date: formData.date,
+          startTime: formData.startTime,
+          endTime: formData.endTime,
+          agentId: formData.agentId,
+          realEstateId: this.realEstateId
+        };
+
+        this.visitRequestService.getAllVisitRequestAvailability(visitRequestData).subscribe({
+          next: (value) => {
+            this.isAvailable = true
+          },
+          error: (err) => {
+            this.isAvailable = false
+          }
+        });
       }
-    })
+    });
   }
 
   updateEndTimes() {
@@ -76,7 +102,7 @@ export class VisitRequestManagementModalComponent {
       this.filteredEndTimes = this.endTimes.filter(endTime => endTime > startTimeControlValue);
     }
   }
-    
+
   closeModal(result: any) {
     this.activeModal.close(result);
     this.form.reset();
@@ -92,5 +118,5 @@ export class VisitRequestManagementModalComponent {
         this.toastService.show('Error in adding Visit Request', ToastClassEnum.error);
       }
     });
-  }  
+  }
 }

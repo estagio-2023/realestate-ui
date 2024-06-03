@@ -37,15 +37,6 @@
               <app-error-message class="error-message" [control]="form.controls.agentId"></app-error-message>
               <p *ngIf="agents?.length === 0">No agents available.</p>
             </div>
-            
-            <div class="col-md-4 w-100">
-              <label for="RealEstates" class="form-label fw-bold">Real Estates</label>
-              <select class="form-select" formControlName="realestateId">
-                <option value="{{realestate.id}}" *ngFor="let realestate of realestates">{{realestate.title}}</option>
-              </select>
-              <app-error-message class="error-message" [control]="form.controls.realestateId"></app-error-message>
-              <p *ngIf="realestates?.length === 0">No real estates available.</p>
-            </div>
             <p *ngIf="!isAvailable">Not available</p>
             <p *ngIf="isAvailable">Available</p>
             <div class="col-md-4 w-100">
