@@ -21,6 +21,9 @@ export class VisitRequestDetailsComponent implements OnInit {
   realEstateId: number;
   form = visitRequestForm
 
+  startTime: Date = new Date();
+  endTime: Date = new Date();
+
   constructor(
     private activatedRoute: ActivatedRoute, 
     private apiService: VisitRequestService, 
