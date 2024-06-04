@@ -1,36 +1,55 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VisitRequestService } from '../../services/visit-request.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
+import { ToastService } from '../../../common/services/toast-service/toast.service';
 import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-visit-request-details',
   templateUrl: './visit-request-details.component.html',
-  styleUrl: './visit-request-details.component.css'
+  styleUrls: ['./visit-request-details.component.css']
 })
 
-export class VisitRequestDetailsComponent {
-
-  @Input() name = ''; 
-  @Input() phoneNumber = '';
-  @Input() email = '';
-  visitRequestList: VisitRequestModel[]
+export class VisitRequestDetailsComponent implements OnInit {
+  visitRequestList$: Observable<VisitRequestModel[]>;
   realEstateId: number;
-  
+
   startTime: Date = new Date();
   endTime: Date = new Date();
 
-  constructor(private activatedRoute: ActivatedRoute, private apiService: VisitRequestService, private modalService: NgbModal){}
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private apiService: VisitRequestService, 
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.realEstateId = params['id'];
+      this.realEstateId = +params['id'];
+      this.loadVisitRequests();
     });
+  }
 
-    this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
-      this.visitRequestList = response
+  loadVisitRequests(): void {
+    this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).pipe(
+      map(visitRequests => visitRequests.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()))
+    );
+  }
+
+  editConfirmation(visitRequestId: number): void {
+    this.apiService.UpdateVisitRequestConfirmationById(visitRequestId).subscribe({
+      next: () => {
+        this.toastService.show('Visit request updated successfully!', ToastClassEnum.success);
+        this.loadVisitRequests();
+      },
+      error: err => {
+        this.toastService.show('Error updating visit request', ToastClassEnum.error);
+        console.error(err);
+      }
     });
-  }   
+  }
 }

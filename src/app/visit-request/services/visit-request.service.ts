@@ -16,15 +16,19 @@ export class VisitRequestService {
 
   constructor(private httpClient: HttpClient) {}
 
-    getAllVisitRequest(): Observable<VisitRequestModel[]> {
-      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest")
-    }
+  getAllVisitRequest(): Observable<VisitRequestModel[]> {
+    return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest")
+  }
 
-    getAllVisitRequestByRealEstateId(realEstateId: number): Observable<VisitRequestModel[]> {
-      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/RealEstate/" + realEstateId)
-    }
+  getAllVisitRequestByRealEstateId(realEstateId: number): Observable<VisitRequestModel[]> {
+    return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/RealEstate/" + realEstateId)
+  }
 
-    getVisitRequestById(visitRequestId: number): Observable<VisitRequestModel[]> {
-      return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId)
-    }
+  getVisitRequestById(visitRequestId: number): Observable<VisitRequestModel[]> {
+    return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId)
+  }
+
+  UpdateVisitRequestConfirmationById(visitRequestId: number): Observable<VisitRequestModel[]> {
+    return this.httpClient.put<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId + "/Confirmation", this.httpOptions);
+  }  
 }
