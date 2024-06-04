@@ -14,7 +14,6 @@ import { visitRequestAvailabilityDto } from '../../../../common/dto/visit-reques
 @Component({
   selector: 'app-visit-request-management-modal',
   templateUrl: './visit-request-management-modal.component.html',
-  styleUrls: ['./visit-request-management-modal.component.css']
 })
 export class VisitRequestManagementModalComponent {
   form = visitRequestForm;
@@ -52,7 +51,12 @@ export class VisitRequestManagementModalComponent {
   }
 
   ngOnInit(): void {
-    this.form.controls.realEstateId.setValue(this.realEstateId)
+    this.loadAgentAndRealEstateData()
+    this.subscribeFormChanges()
+    this.filteredEndTimes = [...this.times]
+  }
+
+  loadAgentAndRealEstateData() {
     this.agentService.getAllAgentData().subscribe(response => {
       this.agents = response.filter(agent => agent.name);
     });
@@ -60,9 +64,6 @@ export class VisitRequestManagementModalComponent {
     this.realEstateManagementApiService.getAllRealEstates().subscribe(response => {
       this.realestates = response.filter(realestate => realestate.title);
     });
-
-    this.filteredEndTimes = [...this.times];
-    this.subscribeFormChanges()
   }
 
   subscribeFormChanges() {
@@ -75,8 +76,8 @@ export class VisitRequestManagementModalComponent {
           AgentId: formData.agentId!,
           RealEstateId: this.realEstateId
         };
-
-        this.visitRequestService.getAllVisitRequestAvailability(visitRequestData).subscribe({
+        
+        this.visitRequestService.getVisitRequestAvailability(visitRequestData).subscribe({
           next: (value) => {
             this.isAvailable = true
           },

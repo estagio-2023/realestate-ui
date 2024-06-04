@@ -29,7 +29,7 @@ export class VisitRequestService {
     return this.httpClient.get<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId)
   }
 
-  UpdateVisitRequestConfirmationById(visitRequestId: number): Observable<VisitRequestModel[]> {
+  updateVisitRequestConfirmationById(visitRequestId: number): Observable<VisitRequestModel[]> {
     return this.httpClient.put<VisitRequestModel[]>(this.baseUrl + "VisitRequest/" + visitRequestId + "/Confirmation", this.httpOptions);
   }  
 
@@ -37,7 +37,7 @@ export class VisitRequestService {
       return this.httpClient.post<VisitRequestModel>(this.baseUrl + 'VisitRequest/', visitRequest, this.httpOptions)
     }
 
-    getAllVisitRequestAvailability(visitRequestData: visitRequestAvailabilityDto) {
+    getVisitRequestAvailability(visitRequestData: visitRequestAvailabilityDto) {
       return this.httpClient.get(this.baseUrl + "VisitRequest/" + "Availability", {
         params: { 
           date: visitRequestData.Date,

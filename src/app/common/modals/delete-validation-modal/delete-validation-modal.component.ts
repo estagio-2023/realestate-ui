@@ -7,7 +7,6 @@ import { ToastService } from '../../services/toast-service/toast.service';
 @Component({
   selector: 'app-delete-validation-modal',
   templateUrl: './delete-validation-modal.component.html',
-  styleUrl: './delete-validation-modal.component.css'
 })
 export class DeleteValidationModalComponent {
 

@@ -7,7 +7,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-visit-request-management',
   templateUrl: './visit-request-management.component.html',
-  styleUrls: ['./visit-request-management.component.css']
 })
 export class VisitRequestManagementComponent implements OnInit {
   realEstatesHeaderList$: Observable<RealEstateHeader[]>;
@@ -24,6 +23,4 @@ export class VisitRequestManagementComponent implements OnInit {
   loadRealEstateData(): void {
     this.realEstatesHeaderList$ = this.apiServiceRealEstate.getAllRealEstates();
   }
-
-  
 }

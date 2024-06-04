@@ -13,7 +13,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-visit-request-details',
   templateUrl: './visit-request-details.component.html',
-  styleUrls: ['./visit-request-details.component.css']
 })
 
 export class VisitRequestDetailsComponent implements OnInit {
@@ -56,7 +55,7 @@ export class VisitRequestDetailsComponent implements OnInit {
   }
 
   editConfirmation(visitRequestId: number): void {
-    this.apiService.UpdateVisitRequestConfirmationById(visitRequestId).subscribe({
+    this.apiService.updateVisitRequestConfirmationById(visitRequestId).subscribe({
       next: () => {
         this.toastService.show('Visit request updated successfully!', ToastClassEnum.success);
         this.loadVisitRequests();
