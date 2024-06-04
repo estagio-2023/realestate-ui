@@ -8,7 +8,8 @@ import { ToastClassEnum } from '../../../../common/enums/toast-class-enum';
 import { RealEstateHeader } from '../../../../common/models/real-estate-management-model';
 import { RealEstateManagementApiService } from '../../../../realestate/services/real-estate-management-api.service';
 import { visitRequestForm } from '../../../../common/services/form/form.service';
-import { VisitRequestAvailabilityModel, VisitRequestModel } from '../../../../common/models/visit-request-model';
+import { VisitRequestModel } from '../../../../common/models/visit-request-model';
+import { visitRequestAvailabilityDto } from '../../../../common/dto/visit-request-availability-dto';
 
 @Component({
   selector: 'app-visit-request-management-modal',
@@ -28,7 +29,6 @@ export class VisitRequestManagementModalComponent {
   date: string;
   visitRequestModel: VisitRequestModel
   isAvailable: boolean = false
-  visitRequestModelAvailability: VisitRequestAvailabilityModel
   realEstateId: number
   errorMessage: string
 
@@ -68,12 +68,12 @@ export class VisitRequestManagementModalComponent {
   subscribeFormChanges() {
     this.form.valueChanges.subscribe(formData => {
       if (formData.date && formData.startTime && formData.endTime && formData.agentId != 0 && this.realEstateId != 0) {
-        const visitRequestData: VisitRequestAvailabilityModel = {
-          date: formData.date!,
-          startTime: formData.startTime!,
-          endTime: formData.endTime!,
-          agentId: formData.agentId!,
-          realEstateId: this.realEstateId
+        const visitRequestData: visitRequestAvailabilityDto = {
+          Date: formData.date!,
+          StartTime: formData.startTime!,
+          EndTime: formData.endTime!,
+          AgentId: formData.agentId!,
+          RealEstateId: this.realEstateId
         };
 
         this.visitRequestService.getAllVisitRequestAvailability(visitRequestData).subscribe({
