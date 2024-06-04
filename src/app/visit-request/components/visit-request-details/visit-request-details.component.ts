@@ -17,6 +17,9 @@ export class VisitRequestDetailsComponent implements OnInit {
   visitRequestList$: Observable<VisitRequestModel[]>;
   realEstateId: number;
 
+  startTime: Date = new Date();
+  endTime: Date = new Date();
+
   constructor(
     private activatedRoute: ActivatedRoute, 
     private apiService: VisitRequestService, 

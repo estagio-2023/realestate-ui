@@ -57,7 +57,7 @@
                         Start Time
                       </strong>
                     </td>
-                    <td class="text-primary">{{ visitRequest.startTime }}</td>
+                    <td class="text-primary">{{ startTime | date: 'HH:mm ' }}</td>
                   </tr>
                   <tr>
                     <td>
@@ -66,7 +66,7 @@
                         End Time
                       </strong>
                     </td>
-                    <td class="text-primary">{{ visitRequest.endTime }}</td>
+                    <td class="text-primary">{{ endTime | date: 'HH:mm ' }}</td>
                   </tr>
                   <tr>
                     <td>
