@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 import { ToastService } from '../../../common/services/toast-service/toast.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-visit-request-details',
