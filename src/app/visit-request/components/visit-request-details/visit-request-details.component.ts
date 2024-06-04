@@ -21,10 +21,6 @@ export class VisitRequestDetailsComponent {
   
   startTime: Date = new Date();
   endTime: Date = new Date();
-  start: string
-  end: string
-  visitRequest: any
-  
 
   constructor(private activatedRoute: ActivatedRoute, private apiService: VisitRequestService, private modalService: NgbModal){}
 
@@ -36,8 +32,5 @@ export class VisitRequestDetailsComponent {
     this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).subscribe(response => {
       this.visitRequestList = response
     });
-
-    let start = this.visitRequest.startTime.toString();
-    let end = this.endTime.toString().slice(-2);
   }   
 }
