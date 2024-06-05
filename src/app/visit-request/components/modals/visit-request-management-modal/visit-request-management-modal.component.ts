@@ -64,6 +64,8 @@ export class VisitRequestManagementModalComponent {
     this.realEstateManagementApiService.getAllRealEstates().subscribe(response => {
       this.realestates = response.filter(realestate => realestate.title);
     });
+    
+    this.form.controls.realEstateId.setValue(this.realEstateId)
   }
 
   subscribeFormChanges() {
