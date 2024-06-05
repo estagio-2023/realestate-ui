@@ -1,7 +1,7 @@
-export interface visitRequestAvailabilityDto {
-    Date: string
-    StartTime: string
-    EndTime: string
-    RealEstateId: number
-    AgentId: number
+export interface VisitRequestAvailabilityDto {
+    date: string
+    startTime: string
+    endTime: string
+    realEstateId: number
+    agentId: number
 }
