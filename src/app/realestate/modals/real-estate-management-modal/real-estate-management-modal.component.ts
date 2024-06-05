@@ -13,7 +13,6 @@ import { AgentService } from '../../../agent/services/agent.service'
 @Component({
   selector: 'app-real-estate-management-modal',
   templateUrl: './real-estate-management-modal.component.html',
-  styleUrl: './real-estate-management-modal.component.css'
 })
 export class RealEstateManagementModalComponent {
   form = realEstateForm

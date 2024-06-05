@@ -5,7 +5,7 @@ export interface VisitRequestModel{
     date: string
     startTime: string
     endTime: string
-    confirmed: boolean
+    confirmed: boolean | null
     fkRealEstateId: number
     fkAgentId: number
 }

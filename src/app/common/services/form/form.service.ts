@@ -36,3 +36,13 @@ export const agentForm = new FormGroup({
   phoneNumber: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(13), Validators.pattern(/^\+\d{9,12}$/)
   ]),
 });
+
+export const visitRequestForm = new FormGroup({
+  date: new FormControl('', [Validators.required]),
+  startTime: new FormControl('', [Validators.required]),
+  endTime: new FormControl('', [Validators.required]),
+  agentId: new FormControl<number>(0, [Validators.required]),
+  name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
+  email: new FormControl('', [Validators.required, Validators.email]),
+  realEstateId: new FormControl<number>(0, [Validators.required]),
+});

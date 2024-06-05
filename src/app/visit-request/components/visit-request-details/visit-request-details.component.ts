@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { VisitRequestService } from '../../services/visit-request.service';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
+import { VisitRequestManagementModalComponent } from '../modals/visit-request-management-modal/visit-request-management-modal.component';
+import { ActivatedRoute } from '@angular/router';
+import { visitRequestForm } from '../../../common/services/form/form.service';
 import { Observable } from 'rxjs';
 import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 import { ToastService } from '../../../common/services/toast-service/toast.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-visit-request-details',
   templateUrl: './visit-request-details.component.html',
-  styleUrls: ['./visit-request-details.component.css']
 })
 
 export class VisitRequestDetailsComponent implements OnInit {
   visitRequestList$: Observable<VisitRequestModel[]>;
   realEstateId: number;
+  form = visitRequestForm
 
   constructor(
     private activatedRoute: ActivatedRoute, 
     private apiService: VisitRequestService, 
+    private modalService: NgbModal,
     private toastService: ToastService
   ) {}
 
@@ -33,8 +37,19 @@ export class VisitRequestDetailsComponent implements OnInit {
     this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId);
   }
 
+  openAddVisitRequestModal() {
+    const modalRef = this.modalService.open(VisitRequestManagementModalComponent, { keyboard: false });
+    modalRef.componentInstance.realEstateId = this.realEstateId
+    modalRef.result.then((data) => {
+      if (data) {
+        this.loadVisitRequests();
+        this.form.reset();
+      }
+    });
+  }
+
   editConfirmation(visitRequestId: number): void {
-    this.apiService.UpdateVisitRequestConfirmationById(visitRequestId).subscribe({
+    this.apiService.updateVisitRequestConfirmationById(visitRequestId).subscribe({
       next: () => {
         this.toastService.show('Visit request updated successfully!', ToastClassEnum.success);
         this.loadVisitRequests();

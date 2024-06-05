@@ -4,6 +4,7 @@
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-8 d-flex flex-column gap-4">
         <h3 class="text-center"><strong>Visit Requests Information</strong></h3>
+        <button class="btn btn-primary w-100" id="button-add-customer" type="button" (click)="openAddVisitRequestModal()"><i class="bi bi-plus"></i>Add Visit Request</button>
         <ng-container *ngIf="visitRequestList$ | async as visitRequestList">
           <div *ngFor="let visitRequest of visitRequestList" class="visit-request-container">
             <div class="table-responsive" style="overflow-x: hidden">

@@ -12,7 +12,6 @@ import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
-  styleUrl: './customer-details.component.css'
 })
 
 export class ViewCustomerComponent implements OnInit {

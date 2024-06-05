@@ -9,7 +9,6 @@ import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 @Component({
   selector: 'app-customer-management-modal',
   templateUrl: './customer-management-modal.component.html',
-  styleUrls: ['./customer-management-modal.component.css']
 })
 export class CustomerManagementModalComponent implements OnInit {
   form = customerForm;

@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-agent-modal',
   templateUrl: './agent-modal.component.html',
-  styleUrl: './agent-modal.component.css'
 })
 export class AgentModalComponent {
   form = agentForm;

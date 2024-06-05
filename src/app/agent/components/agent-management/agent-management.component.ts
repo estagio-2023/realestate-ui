@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-agent-management',
   templateUrl: './agent-management.component.html',
-  styleUrl: './agent-management.component.css'
 })
 export class AgentManagementComponent {
   agents$: Observable<AgentModel[]>

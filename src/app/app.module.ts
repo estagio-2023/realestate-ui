@@ -23,6 +23,7 @@ import { VisitRequestDetailsComponent } from './visit-request/components/visit-r
 import { ViewCustomerComponent } from './customer/components/customer-details/customer-details.component'
 import { AgentDetailsComponent } from './agent/components/agent-details/agent-details.component'
 import { CustomTimeFormatPipe } from './common/custom-time/custom-time'
+import { VisitRequestManagementModalComponent } from './visit-request/components/modals/visit-request-management-modal/visit-request-management-modal.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CustomTimeFormatPipe } from './common/custom-time/custom-time'
     VisitRequestManagementComponent,
     VisitRequestDetailsComponent,
     ViewCustomerComponent,
-    CustomTimeFormatPipe
+    CustomTimeFormatPipe,
+    VisitRequestManagementModalComponent
   ],
   imports: [
     CommonModule,

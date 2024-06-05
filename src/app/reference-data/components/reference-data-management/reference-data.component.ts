@@ -12,7 +12,6 @@ import { ToastClassEnum } from '../../../common/enums/toast-class-enum'
 @Component({
   selector: 'app-reference-data',
   templateUrl: './reference-data.component.html',
-  styleUrl: './reference-data.component.css'
 })
 export class ReferenceDataComponent {
   referenceDataList$: Observable<ReferenceDataResponseDto>

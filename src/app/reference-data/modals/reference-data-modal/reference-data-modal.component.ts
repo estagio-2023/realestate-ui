@@ -8,7 +8,6 @@ import { ReferenceDataApiService } from '../../services/reference-data-api.servi
 @Component({
   selector: 'app-reference-data-modal',
   templateUrl: './reference-data-modal.component.html',
-  styleUrl: './reference-data-modal.component.css'
 })
 export class ReferenceDataModalComponent implements OnInit {
   form = referenceDataForm;
