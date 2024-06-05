@@ -5,7 +5,6 @@ import { VisitRequestManagementModalComponent } from '../modals/visit-request-ma
 import { ActivatedRoute } from '@angular/router';
 import { visitRequestForm } from '../../../common/services/form/form.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 import { ToastService } from '../../../common/services/toast-service/toast.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -35,9 +34,7 @@ export class VisitRequestDetailsComponent implements OnInit {
   }
 
   loadVisitRequests(): void {
-    this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).pipe(
-      map(visitRequests => visitRequests.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()))
-    );
+    this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId);
   }
 
   openAddVisitRequestModal() {

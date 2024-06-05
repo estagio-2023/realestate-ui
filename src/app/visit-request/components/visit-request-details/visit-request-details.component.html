@@ -1,81 +1,41 @@
 <div class="container bootstrap snippets bootdey">
-    <button type="button" class="btn btn-secondary align-self-start mr-auto btn-light" [routerLink]="['/visit-request']">Back</button>
-  <div
-    class="panel-body inf-content d-flex align-items-center justify-content-center"
-  >
+  <button type="button" class="btn btn-secondary align-self-start mr-auto btn-light" [routerLink]="['/visit-request']">Back</button>
+  <div class="panel-body inf-content d-flex align-items-center justify-content-center">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-md-8 d-flex flex-column gap-4">
         <h3 class="text-center"><strong>Visit Requests Information</strong></h3>
         <button class="btn btn-primary w-100" id="button-add-customer" type="button" (click)="openAddVisitRequestModal()"><i class="bi bi-plus"></i>Add Visit Request</button>
         <ng-container *ngIf="visitRequestList$ | async as visitRequestList">
-          <div
-            *ngFor="let visitRequest of visitRequestList"
-            class="visit-request-container"
-          >
+          <div *ngFor="let visitRequest of visitRequestList" class="visit-request-container">
             <div class="table-responsive" style="overflow-x: hidden">
               <table class="table table-user-information" style="width: 1080px">
                 <tbody>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-list-ol"></i>
-                        Id
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-list-ol"></i> Id</strong></td>
                     <td class="text-primary">{{ visitRequest.id }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-file-person"></i>
-                        Name
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-file-person"></i> Name</strong></td>
                     <td class="text-primary">{{ visitRequest.name }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-envelope"></i>
-                        Email
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-envelope"></i> Email</strong></td>
                     <td class="text-primary">{{ visitRequest.email }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-calendar"></i>
-                        Date
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-calendar"></i> Date</strong></td>
                     <td class="text-primary">{{ visitRequest.date }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-clock"></i>
-                        Start Time
-                      </strong>
-                    </td>
-                    <td class="text-primary">{{ visitRequest.startTime }}</td>
+                    <td><strong><i class="bi bi-clock"></i> Start Time</strong></td>
+                    <td class="text-primary">{{ visitRequest.startTime | customTimeFormat }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-clock"></i>
-                        End Time
-                      </strong>
-                    </td>
-                    <td class="text-primary">{{ visitRequest.endTime }}</td>
+                    <td><strong><i class="bi bi-clock"></i> End Time</strong></td>
+                    <td class="text-primary">{{ visitRequest.endTime | customTimeFormat }}</td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-check"></i>
-                        Confirmed
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-check"></i> Confirmed</strong></td>
                     <td class="text-primary">
                       <button *ngIf="visitRequest.confirmed" class="btn btn-success" (click)="editConfirmation(visitRequest.id)">
                         <i class="bi bi-check"></i>
@@ -86,12 +46,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>
-                        <i class="bi bi-person"></i>
-                        Agent Id
-                      </strong>
-                    </td>
+                    <td><strong><i class="bi bi-person"></i> Agent Id</strong></td>
                     <td class="text-primary">{{ visitRequest.fkAgentId }}</td>
                   </tr>
                 </tbody>

@@ -1,6 +1,6 @@
 export interface VisitRequestModel{
-    id: number,
-    name: string,
+    id: number
+    name: string
     email: string
     date: string
     startTime: string
