@@ -43,7 +43,6 @@ export class VisitRequestDetailsComponent implements OnInit {
     modalRef.result.then((data) => {
       if (data) {
         this.loadVisitRequests();
-        this.form.reset();
       }
     });
   }
