@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { VisitRequestService } from '../../services/visit-request.service';
 import { VisitRequestModel } from '../../../common/models/visit-request-model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { ToastClassEnum } from '../../../common/enums/toast-class-enum';
 import { ToastService } from '../../../common/services/toast-service/toast.service';
 
@@ -31,9 +30,7 @@ export class VisitRequestDetailsComponent implements OnInit {
   }
 
   loadVisitRequests(): void {
-    this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId).pipe(
-      map(visitRequests => visitRequests.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()))
-    );
+    this.visitRequestList$ = this.apiService.getAllVisitRequestByRealEstateId(this.realEstateId);
   }
 
   editConfirmation(visitRequestId: number): void {
