@@ -7,13 +7,13 @@
         </div>
         <div class="modal-body">
           <form [formGroup]="form" class="row g-3 d-flex flex-column">
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="date" class="form-label fw-bold">Date</label>
               <input type="date" id="date" class="form-control" formControlName="date" [min]="minDate">
               <app-error-message class="error-message" [control]="form.controls.date"></app-error-message>
             </div>
   
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="startTime" class="form-label fw-bold">Start Time</label>
               <select class="form-select" formControlName="startTime" (change)="updateEndTimes()">
                 <option *ngFor="let time of times" [value]="time">{{ time }}</option>
@@ -21,7 +21,7 @@
               <app-error-message class="error-message" [control]="form.controls.startTime"></app-error-message>
             </div>
   
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="endTime" class="form-label fw-bold">End Time</label>
               <select class="form-select" formControlName="endTime">
                 <option *ngFor="let time of filteredEndTimes" [value]="time">{{ time }}</option>
@@ -29,7 +29,7 @@
               <app-error-message class="error-message" [control]="form.controls.endTime"></app-error-message>
             </div>
   
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="Agent" class="form-label fw-bold">Agent</label>
               <select class="form-select" formControlName="agentId">
                 <option value="{{agent.id}}" *ngFor="let agent of agents">{{agent.name}}</option>
@@ -39,13 +39,13 @@
             </div>
             <p *ngIf="!isAvailable" class="text-danger">{{errorMessage}} </p>
             <p *ngIf="isAvailable" class="text-success">Available<i class="bi bi-check-lg"></i></p>
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="name" class="form-label fw-bold">Name</label>
               <input type="text" class="form-control" formControlName="name">
               <app-error-message class="error-message" [control]="form.controls.name"></app-error-message>
             </div>
             
-            <div class="col-md-4 w-100">
+            <div class="col-md-12">
               <label for="email" class="form-label fw-bold">Email</label>
               <input type="email" class="form-control" formControlName="email">
               <app-error-message class="error-message" [control]="form.controls.email"></app-error-message>
