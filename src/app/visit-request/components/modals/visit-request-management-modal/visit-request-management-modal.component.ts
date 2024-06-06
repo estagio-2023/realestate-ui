@@ -9,7 +9,7 @@ import { RealEstateHeader } from '../../../../common/models/real-estate-manageme
 import { RealEstateManagementApiService } from '../../../../realestate/services/real-estate-management-api.service';
 import { visitRequestForm } from '../../../../common/services/form/form.service';
 import { VisitRequestModel } from '../../../../common/models/visit-request-model';
-import { visitRequestAvailabilityDto } from '../../../../common/dto/visit-request-availability-dto';
+import { VisitRequestAvailabilityDto } from '../../../../common/dto/visit-request-availability-dto';
 
 @Component({
   selector: 'app-visit-request-management-modal',
@@ -71,12 +71,12 @@ export class VisitRequestManagementModalComponent {
   subscribeFormChanges() {
     this.form.valueChanges.subscribe(formData => {
       if (formData.date && formData.startTime && formData.endTime && formData.agentId != 0 && this.realEstateId != 0) {
-        const visitRequestData: visitRequestAvailabilityDto = {
-          Date: formData.date!,
-          StartTime: formData.startTime!,
-          EndTime: formData.endTime!,
-          AgentId: formData.agentId!,
-          RealEstateId: this.realEstateId
+        const visitRequestData: VisitRequestAvailabilityDto = {
+          date: formData.date!,
+          startTime: formData.startTime!,
+          endTime: formData.endTime!,
+          agentId: formData.agentId!,
+          realEstateId: this.realEstateId
         };
         
         this.visitRequestService.getVisitRequestAvailability(visitRequestData).subscribe({
